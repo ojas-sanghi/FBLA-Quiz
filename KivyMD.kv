@@ -1,0 +1,16 @@
+#:kivy 1.11.1
+
+<Check@MDCheckbox>:
+    group: 'group'
+    size_hint: None, None
+    size: dp(48), dp(48)
+
+
+Screen:
+
+    Check:
+        active: True
+        pos_hint: {'center_x': .4, 'center_y': .5}
+
+    Check:
+        pos_hint: {'center_x': .6, 'center_y': .5}

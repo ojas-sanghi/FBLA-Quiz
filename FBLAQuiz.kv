@@ -1,0 +1,106 @@
+#:kivy 1.11.1
+
+# <CheckBox>:
+#     group: "heyy"
+#     size_hint_x: None
+#     size_hint_y: 0.5
+#     width: 50
+
+# <Label>:
+#     size_hint_x: None
+#     size_hint_y: 0.5
+#     padding: [0, 0]
+
+# <BoxLayout>:
+#         orientation: 'horizontal'
+
+# <FBLAQuiz>:
+
+#     Label:
+#         text: "Question 1: 2 + 2"
+#         size_hint_y: 2
+#         # font_size: 45
+#     Label:
+#     Label:
+#     Label:
+
+#     BoxLayout:
+#         CheckBox:
+#         Label:
+#             text: root.option_one
+
+#     BoxLayout:        
+#         CheckBox:
+#         Label:
+#             text: root.option_two
+    
+#     BoxLayout:
+#         CheckBox:
+#         Label:
+#             text: root.option_three
+        
+#     BoxLayout:
+#         CheckBox:
+#         Label:
+#             text: root.option_four
+        
+#     # CheckBox:
+#     # Label:
+#     #     text: root.option_two
+
+BoxLayout:
+    orientation: "vertical"
+    Label:
+        text: ''
+        size_hint_y: 0.1
+    Label:
+        text: "    Question 1:  2 + 2    "
+        size_hint_y: 0.1
+    GridLayout:
+        cols: 2
+        rows: 2
+        size_hint_y: 0.4
+        BoxLayout:
+            orientation: "horizontal"
+            id: option_one
+            CheckBox:
+                # on_press: app.select()
+                id: radio_a
+                size_hint_x: 0.2
+                group: 'radios'
+            Label:
+                text: "option a."
+                size_hint_x: 0.5
+        BoxLayout:
+            orientation: "horizontal"
+            id: option_two
+            CheckBox:
+                # on_press: app.select()
+                id: radio_b
+                size_hint_x: 0.2
+                group: 'radios'
+            Label:
+                text: "option b."
+                size_hint_x: 0.5
+        BoxLayout:
+            orientation: "horizontal"
+            id: option_three
+            CheckBox:
+                # on_press: app.select()
+                id: radio_c
+                size_hint_x: 0.2
+                group: 'radios'
+            Label:
+                text: "option c."
+                size_hint_x: 0.5
+        BoxLayout:
+            orientation: "horizontal"
+            id: option_four
+            CheckBox:
+                # on_press: app.select()
+                id: radio_c
+                size_hint_x: 0.2
+                group: 'radios'
+            Label:
+                text: "option D."
+                size_hint_x: 0.5
