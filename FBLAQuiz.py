@@ -25,11 +25,10 @@ class FBLAQuiz(App):
             # self.row_default_height = 75
             # self.row_force_default = True
     
-
 class FBLAQuizApp(App):
-    def build(self):
-        # return FBLAQuiz()            
-        pass
+    def select(self, param):
+        print(param)
+
 
 
 if __name__ == "__main__":
