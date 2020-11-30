@@ -1,38 +1,21 @@
 import json
 import random
 from typing import List
-import py_cui
 
 from question import Question
 
 
-data: list = []
-
 def load_data():
-    global data
-
     with open("questions.json", "r") as questions:
         raw_data = questions.read()
-    data = json.loads(raw_data)
-    
+    return json.loads(raw_data)
 
-def begin_quiz():
-    questions = get_questions(5)
-
-    for q in questions:
-        q.print_question()
-        print(q.answer)
-        while True:
-            if q.is_answer_correct(get_input()):
-                print("nice!\n")
-                break
-            else:
-                print("no")
-    
-    print("\nGOOD JOB!!!!")
 
 # function which returns specified number of unique questions
 def get_questions(num: int) -> list:
+    # data loaded from question.json file
+    data = load_data()
+
     # list of `num` questions, returned to caller
     question_list = []
 
@@ -40,10 +23,11 @@ def get_questions(num: int) -> list:
     # and to keep track of question types (to ensure each question type is unique)
     ids_used = []
     types_used = []
+    
 
     i = 0
     while i < num:
-        new_q = get_question()
+        new_q = get_question(data)
 
         # if we already used this question, then skip it
         if new_q.id in ids_used or new_q.type in types_used:
@@ -61,20 +45,5 @@ def get_questions(num: int) -> list:
         
 
 # return random question from questions lists
-def get_question() -> Question:
+def get_question(data: list) -> Question:
     return Question(random.choice(data))
-
-
-def get_input():
-    raw_input = input("> ")
-    raw_input = raw_input.strip().lower()
-
-    return raw_input
-
-
-def main():
-    load_data()
-    begin_quiz()
-
-if __name__ == "__main__":
-    main()    

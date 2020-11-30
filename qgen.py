@@ -15,7 +15,7 @@ def make_tf(q_id):
         "id": q_id, 
         "type": "tf", 
         "question": "True/False: FBLA is goated",
-        "answer": "t"
+        "answer": ["true", "t"]
     }
     return s
 
@@ -44,9 +44,9 @@ def make_dropdown(q_id):
     s = {
         "id": q_id, 
         "type": "dropdown", 
-        "question": "where do you live",
-        "options": ["arizona", "alaska", "arkansas"],
-        "answer": "arizona"
+        "question": "the city ___ is in the state ___",
+        "options": [["tucson", "anchorage", "mardi gras"], ["texas", "new york", "arizona"]],
+        "answer": ["tucson", "arizona"]
     }
     return s
 

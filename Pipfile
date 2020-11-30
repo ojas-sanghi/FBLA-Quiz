@@ -16,11 +16,8 @@ kivy-deps-gstreamer = "==0.1.*"
 install = "*"
 kivy = "==1.11.1"
 kivy-examples = "==1.11.1"
-gooey = "*"
-terminal-layout = "*"
-urwid = "*"
 kivymd = "*"
-py-cui = "*"
+picotui = "*"
 
 [requires]
 python_version = "3.7"
