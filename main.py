@@ -1,8 +1,5 @@
 import quiz_generator
 
-data: list = []
-
-
 def begin_quiz():
     questions = quiz_generator.get_questions(5)
     question_num = 1
@@ -35,9 +32,6 @@ def get_input():
 
 
 def main():
-    global data
-    
-    data = quiz_generator.load_data()
     begin_quiz()
 
 if __name__ == "__main__":

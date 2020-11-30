@@ -1,59 +1,51 @@
 #:kivy 1.11.1
 
-BoxLayout:
+<Check@MDCheckbox>:
+    group: 'radios'
+    size_hint: None, None
+    pos_hint: {'center_x': .1, 'center_y': .5}
+
+MDBoxLayout:
     orientation: "vertical"
-    Label:
-        text: ''
+    MDLabel:
+        text: "what does fbla stand for"
+        halign: "center"
         size_hint_y: 0.1
-    Label:
-        text: "    Question 1:  2 + 2    "
-        size_hint_y: 0.1
-    GridLayout:
+
+    MDGridLayout:
         cols: 2
         rows: 2
-        size_hint_y: 0.4
-        BoxLayout:
+        size_hint_x: 1.2
+        padding: 20
+
+        MDBoxLayout:
             orientation: "horizontal"
-            id: option_one
-            spacing: 0
-            CheckBox:
+            Check:
                 on_press: app.select(1)
-                id: radio_a
-                size_hint_x: 0.2
-                group: 'radios'
-            Label:
-                text: "option a."
+            MDLabel:
+                text: "future dumb"
                 size_hint_x: 0.5
-        BoxLayout:
+        
+        MDBoxLayout:
             orientation: "horizontal"
-            id: option_two
-            CheckBox:
+            Check:
                 on_press: app.select(2)
-                id: radio_b
-                size_hint_x: 0.2
-                group: 'radios'
-            Label:
-                text: "option b."
+            MDLabel:
+                text: "future smart"
                 size_hint_x: 0.5
-        BoxLayout:
+        
+        MDBoxLayout:
             orientation: "horizontal"
-            id: option_three
-            CheckBox:
+            Check:
                 on_press: app.select(3)
-                id: radio_c
-                size_hint_x: 0.2
-                group: 'radios'
-            Label:
-                text: "option c."
+            MDLabel:
+                text: "future scammers"
                 size_hint_x: 0.5
-        BoxLayout:
+            
+        MDBoxLayout:
             orientation: "horizontal"
-            id: option_four
-            CheckBox:
+            Check:
                 on_press: app.select(4)
-                id: radio_c
-                size_hint_x: 0.2
-                group: 'radios'
-            Label:
-                text: "option D."
+            MDLabel:
+                text: "future leaders"
                 size_hint_x: 0.5

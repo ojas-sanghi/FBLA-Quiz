@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f1654bbfde6a1a54764d89853b75c8d22ed78a64afd5cab0e2ff5bdd005da484"
+            "sha256": "43098a55cffaef952c7c25cb9b6fb41fcba26e2d10dcb673046cc723ee73c63a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -153,13 +153,6 @@
             ],
             "index": "pypi",
             "version": "==0.104.1"
-        },
-        "picotui": {
-            "hashes": [
-                "sha256:04ba275acaea7effe6354d57a7877792d7d9424646ee349ab79f5af6bbe7e65d"
-            ],
-            "index": "pypi",
-            "version": "==1.1"
         },
         "pillow": {
             "hashes": [

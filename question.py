@@ -1,6 +1,3 @@
-from typing import Match
-
-
 class Question:
     def __init__(self, q: dict) -> None:
         self.id = q["id"]

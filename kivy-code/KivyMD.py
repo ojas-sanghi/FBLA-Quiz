@@ -1,6 +1,7 @@
 from kivy.lang import Builder
 
 from kivymd.app import MDApp
+from kivymd.uix.selectioncontrol import MDCheckbox
 
 KV = '''
 <Check@MDCheckbox>:
@@ -20,11 +21,11 @@ FloatLayout:
 '''
 
 
-class Test(MDApp):
+class KivyMD(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Dark"  # "Light"
         
         # return Builder.load_string(KV)
 
 
-Test().run()
+KivyMD().run()

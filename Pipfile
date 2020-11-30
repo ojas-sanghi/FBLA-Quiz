@@ -17,7 +17,6 @@ install = "*"
 kivy = "==1.11.1"
 kivy-examples = "==1.11.1"
 kivymd = "*"
-picotui = "*"
 
 [requires]
 python_version = "3.7"

@@ -4,7 +4,6 @@ from typing import List
 
 from question import Question
 
-
 def load_data():
     with open("questions.json", "r") as questions:
         raw_data = questions.read()
@@ -24,7 +23,6 @@ def get_questions(num: int) -> list:
     ids_used = []
     types_used = []
     
-
     i = 0
     while i < num:
         new_q = get_question(data)
