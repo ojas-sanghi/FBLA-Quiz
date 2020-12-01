@@ -1,29 +1,24 @@
 #:kivy 1.11.1
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
 
-<Check@MDCheckbox>:
-    group: 'radios'
-    size_hint: None, None
-    pos_hint: {'center_x': .1, 'center_y': .5}
-
 ScreenManagement:
     transition: SlideTransition()
-    MCQScreen: 
     TFScreen: 
 
-<MCQScreen>:
-    name: "MCQ"
+<TFScreen>:
+    name: "TF"
 
     MDBoxLayout:
         orientation: "vertical"
+
         MDLabel:
-            text: app.question
+            text: "this is a true/false question"
             halign: "center"
             size_hint_y: 0.1
 
         MDGridLayout:
             cols: 2
-            rows: 2
+            rows: 1
             size_hint_x: 1.2
             padding: 20
 
@@ -32,7 +27,7 @@ ScreenManagement:
                 Check:
                     on_press: app.select(1)
                 MDLabel:
-                    text: app.option_1
+                    text: "true"
                     size_hint_x: 0.5
             
             MDBoxLayout:
@@ -40,30 +35,5 @@ ScreenManagement:
                 Check:
                     on_press: app.select(2)
                 MDLabel:
-                    text: app.option_2
+                    text: "false"
                     size_hint_x: 0.5
-            
-            MDBoxLayout:
-                orientation: "horizontal"
-                Check:
-                    on_press: app.select(3)
-                MDLabel:
-                    text: app.option_3
-                    size_hint_x: 0.5
-                
-            MDBoxLayout:
-                orientation: "horizontal"
-                Check:
-                    # on_press: app.select(4)
-                    on_release: app.root.current = "TF"
-                MDLabel:
-                    text: app.option_4
-                    size_hint_x: 0.5
-
-<TFScreen>:
-    name: "TF"
-
-    Button:
-        on_release: app.root.current = 'MCQ'
-        text: '2nd quiz page'
-        font_size: 50

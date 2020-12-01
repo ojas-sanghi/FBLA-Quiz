@@ -8,11 +8,14 @@
 
 ScreenManagement:
     transition: SlideTransition()
+    MatchingScreen: 
+    BlankScreen: 
     MCQScreen: 
     TFScreen: 
 
 <MCQScreen>:
     name: "MCQ"
+    id: mcq_screen
 
     MDBoxLayout:
         orientation: "vertical"
@@ -55,15 +58,123 @@ ScreenManagement:
                 orientation: "horizontal"
                 Check:
                     # on_press: app.select(4)
-                    on_release: app.root.current = "TF"
+                    # on_release: app.switch_tf()
+                    on_release: app.root.current = 'TF'
                 MDLabel:
                     text: app.option_4
                     size_hint_x: 0.5
-
+    
 <TFScreen>:
     name: "TF"
 
-    Button:
-        on_release: app.root.current = 'MCQ'
-        text: '2nd quiz page'
-        font_size: 50
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDLabel:
+            text: "this is a true/false question"
+            halign: "center"
+            size_hint_y: 0.1
+
+        MDGridLayout:
+            cols: 2
+            rows: 1
+            size_hint_x: 1.2
+            padding: 20
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                Check:
+                    on_press: app.select(1)
+                MDLabel:
+                    text: "true"
+                    size_hint_x: 0.5
+            
+            MDBoxLayout:
+                orientation: "horizontal"
+                Check:
+                    # on_press: app.select(2)
+                    on_release: app.root.current = 'Blank'
+                MDLabel:
+                    text: "false"
+                    size_hint_x: 0.5
+
+<BlankScreen>:
+    name: "Blank"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: 75
+
+        MDGridLayout:
+            cols: 1
+            rows: 3
+
+            MDLabel:
+                text: "what is the B in FBLA"
+                halign: "center"
+
+            MDTextField:
+                hint_text: "Answer"
+                mode: "rectangle"
+
+            MDLabel:
+                text: ""
+                halign: "center"
+    
+        MDRaisedButton:
+            text: "Submit Answer"
+            halign: "right"
+            pos_hint: {'right': 1}
+
+<MatchingScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: 75
+
+        MDLabel:
+            text: "Match animals to their diet"
+            halign: "center"
+            size_hint_y: 0.1
+
+        MDGridLayout:
+            cols: 3
+
+            # note: this entire boxlayout for the dropdown could be avoided
+            # if we use a kivy.uix.spinner.Spinner (see https://kivy.org/doc/stable/api-kivy.uix.spinner.html)
+            # but KivyMD doesn't support it and we're using that everywhere else
+            # so for the sake of consistency we are coding this instead
+            BoxLayout:
+                MDDropDownItem:
+                    id: btn
+                    # size_hint: None, None
+                    text: 'Pick Option'
+                    on_parent: dropdown.dismiss()
+                    on_release: dropdown.open(self)
+                
+                DropDown:
+                    id: dropdown
+                    on_select: btn.text = '{}'.format(args[1])
+                    MDFlatButton:
+                        text: 'First Item'
+                        on_release: dropdown.select(self.text)
+
+                    MDFlatButton:
+                        text: 'Second Item'
+                        on_release: dropdown.select(self.text)
+
+                    MDFlatButton:
+                        text: 'Third Item'
+                        on_release: dropdown.select(self.text)
+
+
+            MDLabel:
+                text: "Pig"
+            
+            MDLabel:
+                text: "123"
+                halign: "center"
+    
+        MDRaisedButton:
+            text: "Submit Answer"
+            halign: "right"
+            pos_hint: {'right': 1}
