@@ -1,0 +1,35 @@
+#:kivy 1.11.1
+
+<SAQScreen>:
+    name: "SAQ"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: 75
+
+        MDGridLayout:
+            cols: 1
+            rows: 3
+
+            MDLabel:
+                text: "full form of BAA"
+                halign: "center"
+
+            MDTextField:
+                hint_text: "Answer"
+                mode: "rectangle"
+
+            MDLabel:
+                text: ""
+                halign: "center"
+    
+    AnchorLayout:
+        anchor_x: "right"
+        padding: 25
+        size_hint_y: 0.2
+
+        MDRaisedButton:
+            text: "Submit Answer"
+            halign: "right"
+            pos_hint: {'right': 1}
+            on_release: app.switch_match()

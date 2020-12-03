@@ -40,34 +40,63 @@ def make_matching(q_id):
     }
     return s
 
-def make_dropdown(q_id):
+def make_checkbox(q_id):
     s = {
         "id": q_id, 
-        "type": "dropdown", 
-        "question": "the city ___ is in the state ___",
-        "options": [["tucson", "anchorage", "mardi gras"], ["texas", "new york", "arizona"]],
-        "answer": ["tucson", "arizona"]
+        "type": "checkbox", 
+        "question": "which of the following are true about fbla?",
+        "options": ["has BAA", "is college program", "is high school program", "costs $20,000"],
+        "answer": ["has BAA", "is high school program"]
+    }
+    return s
+
+def make_saq(q_id):
+    s = {
+        "id": q_id,
+        "type": "saq",
+        "question": "full form of BAA",
+        "answer": "business achievemnt awards"
     }
     return s
 
 def generate():
     question_list = []
-    
     i = 0
+
     while i < 50:
         question_list.append(make_mcq(i))
         i += 1
+        if not i < 50:
+            break
+        
         question_list.append(make_tf(i))
         i += 1
+        if not i < 50:
+            break
+            
         question_list.append(make_blank(i))
         i += 1
+        if not i < 50:
+            break
+
         question_list.append(make_matching(i))
         i += 1
-        question_list.append(make_dropdown(i))
-        i += 1
-    return json.dumps(question_list)
+        if not i < 50:
+            break
 
-f = open("qqqqq", "w+")
+        question_list.append(make_checkbox(i))
+        i += 1
+        if not i < 50:
+            break
+
+        question_list.append(make_saq(i))
+        i += 1
+        if not i < 50:
+            break
+
+    return json.dumps(question_list, indent = 4)
+
+f = open("questions.json", "w+")
 f.write(generate())
 
 print(generate())

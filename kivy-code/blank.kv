@@ -1,0 +1,30 @@
+#:kivy 1.11.1
+
+<BlankScreen>:
+    name: "Blank"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: 75
+
+        MDGridLayout:
+            cols: 1
+            rows: 3
+
+            MDLabel:
+                text: "fbla stands for future _ leaders of america"
+                halign: "center"
+
+            MDTextField:
+                hint_text: "Answer"
+                mode: "rectangle"
+
+            MDLabel:
+                text: ""
+                halign: "center"
+    
+        MDRaisedButton:
+            text: "Submit Answer"
+            halign: "right"
+            pos_hint: {'right': 1}
+            on_release: app.switch_match()

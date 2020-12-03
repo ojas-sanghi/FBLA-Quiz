@@ -1,9 +1,4 @@
 #:kivy 1.11.1
-#:import SlideTransition kivy.uix.screenmanager.SlideTransition
-
-ScreenManagement:
-    transition: SlideTransition()
-    TFScreen: 
 
 <TFScreen>:
     name: "TF"
@@ -33,7 +28,8 @@ ScreenManagement:
             MDBoxLayout:
                 orientation: "horizontal"
                 Check:
-                    on_press: app.select(2)
+                    # on_press: app.select(2)
+                    on_release: app.root.current = 'Blank'
                 MDLabel:
                     text: "false"
                     size_hint_x: 0.5

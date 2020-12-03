@@ -1,0 +1,106 @@
+#:kivy 1.11.1
+
+<MyDropDownButton@MDRaisedButton>:
+    text: 'A'
+    md_bg_color: 1, 1, 1, 1
+    text_color: 0, 0, 0, 1
+
+
+
+# note: this manual code for the dropdown could be avoided
+# if we use a kivy.uix.spinner (see https://kivy.org/doc/stable/api-kivy.uix.spinner.html)
+# but KivyMD doesn't support it and we're using that everywhere else
+# so for the sake of consistency we are coding this instead
+<MyDropDown@MDFloatLayout>:
+    MDDropDownItem:
+        id: btn
+        text: 'Pick Option'
+        on_parent: dropdown.dismiss()
+        on_release: dropdown.open(self)
+        pos_hint: {"center_x": 0.7, "center_y": 0.5}
+
+    DropDown:
+    # MDDropdownMenu:
+        id: dropdown
+        on_select: btn.text = '{}'.format(args[1])
+
+        MyDropDownButton:
+            text: 'A'
+            on_release: dropdown.select(self.text)
+
+        MyDropDownButton:
+            text: 'B'
+            on_release: dropdown.select(self.text)
+
+        MyDropDownButton:
+            text: 'C'
+            on_release: dropdown.select(self.text)
+            
+        MyDropDownButton:
+            text: 'D'
+            on_release: dropdown.select(self.text)
+            
+        MyDropDownButton:
+            text: 'E'
+            on_release: dropdown.select(self.text)
+
+
+<MatchingScreen>:
+    name: "matching"
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(5)
+
+        MDLabel:
+            text: "Match animals to their diet"
+            halign: "center"
+            size_hint_y: None
+            pos_hint: {'center_y': .5}
+
+        MDProgressBar:
+            value: 100
+            size_hint_y: 0.1
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: dp(25)
+
+            MDGridLayout:
+                cols: 2
+
+                MyDropDown:
+                MDLabel:
+                    text: "horse"
+                
+                MyDropDown:
+                MDLabel:
+                    text: "horse"
+                
+                MyDropDown:
+                MDLabel:
+                    text: "horse"
+                
+            BoxLayout:
+                orientation: "vertical"
+
+                MDLabel:
+                    text: "omnivore"
+                    halign: "center"
+
+                MDLabel:
+                    text: "omnivore"
+                    halign: "center"
+                
+                MDLabel:
+                    text: "omnivore"
+                    halign: "center"
+        
+        AnchorLayout:
+            anchor_x: "right"
+            padding: 25
+            size_hint_y: 0.2
+    
+            MDRaisedButton:
+                text: "Submit Answer"
+                halign: "right"
+                pos_hint: {'right': 1}

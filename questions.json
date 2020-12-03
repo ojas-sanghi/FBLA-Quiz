@@ -1,321 +1,599 @@
-[{
-	"id": 0,
-	"type": "mcq",
-	"question": "what does fbla stand for",
-	"options": ["future dumb", "future smart", "future scammers", "future leaders"],
-	"answer": "future leaders"
-}, {
-	"id": 1,
-	"type": "tf",
-	"question": "True/False: FBLA is goated",
-	"answer": ["true", "t"]
-}, {
-	"id": 2,
-	"type": "blank",
-	"question": "fbla stands for future _ leaders of america",
-	"answer": "business"
-}, {
-	"id": 3,
-	"type": "matching",
-	"question": "match the animals to their diets",
-	"options": ["carnivore", "omnivore", "herbivore"],
-	"words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-	"answer": ["omnivore", "carnivore", "herbivore", "herbivore", "omnivore"]
-}, {
-	"id": 4,
-	"type": "dropdown",
-	"question": "the city ___ is in the state ___",
-	"options": [
-		["tucson", "anchorage", "mardi gras"],
-		["texas", "new york", "arizona"]
-	],
-	"answer": ["tucson", "arizona"]
-}, {
-	"id": 5,
-	"type": "mcq",
-	"question": "what does fbla stand for",
-	"options": ["future dumb", "future smart", "future scammers", "future leaders"],
-	"answer": "future leaders"
-}, {
-	"id": 6,
-	"type": "tf",
-	"question": "True/False: FBLA is goated",
-	"answer": ["true", "t"]
-}, {
-	"id": 7,
-	"type": "blank",
-	"question": "fbla stands for future _ leaders of america",
-	"answer": "business"
-}, {
-	"id": 8,
-	"type": "matching",
-	"question": "match the animals to their diets",
-	"options": ["carnivore", "omnivore", "herbivore"],
-	"words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-	"answer": ["omnivore", "carnivore", "herbivore", "herbivore", "omnivore"]
-}, {
-	"id": 9,
-	"type": "dropdown",
-	"question": "the city ___ is in the state ___",
-	"options": [
-		["tucson", "anchorage", "mardi gras"],
-		["texas", "new york", "arizona"]
-	],
-	"answer": ["tucson", "arizona"]
-}, {
-	"id": 10,
-	"type": "mcq",
-	"question": "what does fbla stand for",
-	"options": ["future dumb", "future smart", "future scammers", "future leaders"],
-	"answer": "future leaders"
-}, {
-	"id": 11,
-	"type": "tf",
-	"question": "True/False: FBLA is goated",
-	"answer": ["true", "t"]
-}, {
-	"id": 12,
-	"type": "blank",
-	"question": "fbla stands for future _ leaders of america",
-	"answer": "business"
-}, {
-	"id": 13,
-	"type": "matching",
-	"question": "match the animals to their diets",
-	"options": ["carnivore", "omnivore", "herbivore"],
-	"words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-	"answer": ["omnivore", "carnivore", "herbivore", "herbivore", "omnivore"]
-}, {
-	"id": 14,
-	"type": "dropdown",
-	"question": "the city ___ is in the state ___",
-	"options": [
-		["tucson", "anchorage", "mardi gras"],
-		["texas", "new york", "arizona"]
-	],
-	"answer": ["tucson", "arizona"]
-}, {
-	"id": 15,
-	"type": "mcq",
-	"question": "what does fbla stand for",
-	"options": ["future dumb", "future smart", "future scammers", "future leaders"],
-	"answer": "future leaders"
-}, {
-	"id": 16,
-	"type": "tf",
-	"question": "True/False: FBLA is goated",
-	"answer": ["true", "t"]
-}, {
-	"id": 17,
-	"type": "blank",
-	"question": "fbla stands for future _ leaders of america",
-	"answer": "business"
-}, {
-	"id": 18,
-	"type": "matching",
-	"question": "match the animals to their diets",
-	"options": ["carnivore", "omnivore", "herbivore"],
-	"words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-	"answer": ["omnivore", "carnivore", "herbivore", "herbivore", "omnivore"]
-}, {
-	"id": 19,
-	"type": "dropdown",
-	"question": "the city ___ is in the state ___",
-	"options": [
-		["tucson", "anchorage", "mardi gras"],
-		["texas", "new york", "arizona"]
-	],
-	"answer": ["tucson", "arizona"]
-}, {
-	"id": 20,
-	"type": "mcq",
-	"question": "what does fbla stand for",
-	"options": ["future dumb", "future smart", "future scammers", "future leaders"],
-	"answer": "future leaders"
-}, {
-	"id": 21,
-	"type": "tf",
-	"question": "True/False: FBLA is goated",
-	"answer": ["true", "t"]
-}, {
-	"id": 22,
-	"type": "blank",
-	"question": "fbla stands for future _ leaders of america",
-	"answer": "business"
-}, {
-	"id": 23,
-	"type": "matching",
-	"question": "match the animals to their diets",
-	"options": ["carnivore", "omnivore", "herbivore"],
-	"words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-	"answer": ["omnivore", "carnivore", "herbivore", "herbivore", "omnivore"]
-}, {
-	"id": 24,
-	"type": "dropdown",
-	"question": "the city ___ is in the state ___",
-	"options": [
-		["tucson", "anchorage", "mardi gras"],
-		["texas", "new york", "arizona"]
-	],
-	"answer": ["tucson", "arizona"]
-}, {
-	"id": 25,
-	"type": "mcq",
-	"question": "what does fbla stand for",
-	"options": ["future dumb", "future smart", "future scammers", "future leaders"],
-	"answer": "future leaders"
-}, {
-	"id": 26,
-	"type": "tf",
-	"question": "True/False: FBLA is goated",
-	"answer": ["true", "t"]
-}, {
-	"id": 27,
-	"type": "blank",
-	"question": "fbla stands for future _ leaders of america",
-	"answer": "business"
-}, {
-	"id": 28,
-	"type": "matching",
-	"question": "match the animals to their diets",
-	"options": ["carnivore", "omnivore", "herbivore"],
-	"words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-	"answer": ["omnivore", "carnivore", "herbivore", "herbivore", "omnivore"]
-}, {
-	"id": 29,
-	"type": "dropdown",
-	"question": "the city ___ is in the state ___",
-	"options": [
-		["tucson", "anchorage", "mardi gras"],
-		["texas", "new york", "arizona"]
-	],
-	"answer": ["tucson", "arizona"]
-}, {
-	"id": 30,
-	"type": "mcq",
-	"question": "what does fbla stand for",
-	"options": ["future dumb", "future smart", "future scammers", "future leaders"],
-	"answer": "future leaders"
-}, {
-	"id": 31,
-	"type": "tf",
-	"question": "True/False: FBLA is goated",
-	"answer": ["true", "t"]
-}, {
-	"id": 32,
-	"type": "blank",
-	"question": "fbla stands for future _ leaders of america",
-	"answer": "business"
-}, {
-	"id": 33,
-	"type": "matching",
-	"question": "match the animals to their diets",
-	"options": ["carnivore", "omnivore", "herbivore"],
-	"words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-	"answer": ["omnivore", "carnivore", "herbivore", "herbivore", "omnivore"]
-}, {
-	"id": 34,
-	"type": "dropdown",
-	"question": "the city ___ is in the state ___",
-	"options": [
-		["tucson", "anchorage", "mardi gras"],
-		["texas", "new york", "arizona"]
-	],
-	"answer": ["tucson", "arizona"]
-}, {
-	"id": 35,
-	"type": "mcq",
-	"question": "what does fbla stand for",
-	"options": ["future dumb", "future smart", "future scammers", "future leaders"],
-	"answer": "future leaders"
-}, {
-	"id": 36,
-	"type": "tf",
-	"question": "True/False: FBLA is goated",
-	"answer": ["true", "t"]
-}, {
-	"id": 37,
-	"type": "blank",
-	"question": "fbla stands for future _ leaders of america",
-	"answer": "business"
-}, {
-	"id": 38,
-	"type": "matching",
-	"question": "match the animals to their diets",
-	"options": ["carnivore", "omnivore", "herbivore"],
-	"words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-	"answer": ["omnivore", "carnivore", "herbivore", "herbivore", "omnivore"]
-}, {
-	"id": 39,
-	"type": "dropdown",
-	"question": "the city ___ is in the state ___",
-	"options": [
-		["tucson", "anchorage", "mardi gras"],
-		["texas", "new york", "arizona"]
-	],
-	"answer": ["tucson", "arizona"]
-}, {
-	"id": 40,
-	"type": "mcq",
-	"question": "what does fbla stand for",
-	"options": ["future dumb", "future smart", "future scammers", "future leaders"],
-	"answer": "future leaders"
-}, {
-	"id": 41,
-	"type": "tf",
-	"question": "True/False: FBLA is goated",
-	"answer": ["true", "t"]
-}, {
-	"id": 42,
-	"type": "blank",
-	"question": "fbla stands for future _ leaders of america",
-	"answer": "business"
-}, {
-	"id": 43,
-	"type": "matching",
-	"question": "match the animals to their diets",
-	"options": ["carnivore", "omnivore", "herbivore"],
-	"words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-	"answer": ["omnivore", "carnivore", "herbivore", "herbivore", "omnivore"]
-}, {
-	"id": 44,
-	"type": "dropdown",
-	"question": "the city ___ is in the state ___",
-	"options": [
-		["tucson", "anchorage", "mardi gras"],
-		["texas", "new york", "arizona"]
-	],
-	"answer": ["tucson", "arizona"]
-}, {
-	"id": 45,
-	"type": "mcq",
-	"question": "what does fbla stand for",
-	"options": ["future dumb", "future smart", "future scammers", "future leaders"],
-	"answer": "future leaders"
-}, {
-	"id": 46,
-	"type": "tf",
-	"question": "True/False: FBLA is goated",
-	"answer": ["true", "t"]
-}, {
-	"id": 47,
-	"type": "blank",
-	"question": "fbla stands for future _ leaders of america",
-	"answer": "business"
-}, {
-	"id": 48,
-	"type": "matching",
-	"question": "match the animals to their diets",
-	"options": ["carnivore", "omnivore", "herbivore"],
-	"words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-	"answer": ["omnivore", "carnivore", "herbivore", "herbivore", "omnivore"]
-}, {
-	"id": 49,
-	"type": "dropdown",
-	"question": "the city ___ is in the state ___",
-	"options": [
-		["tucson", "anchorage", "mardi gras"],
-		["texas", "new york", "arizona"]
-	],
-	"answer": ["tucson", "arizona"]
-}]
+[
+    {
+        "id": 0,
+        "type": "mcq",
+        "question": "what does fbla stand for",
+        "options": [
+            "future dumb",
+            "future smart",
+            "future scammers",
+            "future leaders"
+        ],
+        "answer": "future leaders"
+    },
+    {
+        "id": 1,
+        "type": "tf",
+        "question": "True/False: FBLA is goated",
+        "answer": [
+            "true",
+            "t"
+        ]
+    },
+    {
+        "id": 2,
+        "type": "blank",
+        "question": "fbla stands for future _ leaders of america",
+        "answer": "business"
+    },
+    {
+        "id": 3,
+        "type": "matching",
+        "question": "match the animals to their diets",
+        "options": [
+            "carnivore",
+            "omnivore",
+            "herbivore"
+        ],
+        "words": [
+            "pig",
+            "lion",
+            "zebra",
+            "horse",
+            "hedgehog"
+        ],
+        "answer": [
+            "omnivore",
+            "carnivore",
+            "herbivore",
+            "herbivore",
+            "omnivore"
+        ]
+    },
+    {
+        "id": 4,
+        "type": "checkbox",
+        "question": "which of the following are true about fbla?",
+        "options": [
+            "has BAA",
+            "is college program",
+            "is high school program",
+            "costs $20,000"
+        ],
+        "answer": [
+            "has BAA",
+            "is high school program"
+        ]
+    },
+    {
+        "id": 5,
+        "type": "saq",
+        "question": "full form of BAA",
+        "answer": "business achievemnt awards"
+    },
+    {
+        "id": 6,
+        "type": "mcq",
+        "question": "what does fbla stand for",
+        "options": [
+            "future dumb",
+            "future smart",
+            "future scammers",
+            "future leaders"
+        ],
+        "answer": "future leaders"
+    },
+    {
+        "id": 7,
+        "type": "tf",
+        "question": "True/False: FBLA is goated",
+        "answer": [
+            "true",
+            "t"
+        ]
+    },
+    {
+        "id": 8,
+        "type": "blank",
+        "question": "fbla stands for future _ leaders of america",
+        "answer": "business"
+    },
+    {
+        "id": 9,
+        "type": "matching",
+        "question": "match the animals to their diets",
+        "options": [
+            "carnivore",
+            "omnivore",
+            "herbivore"
+        ],
+        "words": [
+            "pig",
+            "lion",
+            "zebra",
+            "horse",
+            "hedgehog"
+        ],
+        "answer": [
+            "omnivore",
+            "carnivore",
+            "herbivore",
+            "herbivore",
+            "omnivore"
+        ]
+    },
+    {
+        "id": 10,
+        "type": "checkbox",
+        "question": "which of the following are true about fbla?",
+        "options": [
+            "has BAA",
+            "is college program",
+            "is high school program",
+            "costs $20,000"
+        ],
+        "answer": [
+            "has BAA",
+            "is high school program"
+        ]
+    },
+    {
+        "id": 11,
+        "type": "saq",
+        "question": "full form of BAA",
+        "answer": "business achievemnt awards"
+    },
+    {
+        "id": 12,
+        "type": "mcq",
+        "question": "what does fbla stand for",
+        "options": [
+            "future dumb",
+            "future smart",
+            "future scammers",
+            "future leaders"
+        ],
+        "answer": "future leaders"
+    },
+    {
+        "id": 13,
+        "type": "tf",
+        "question": "True/False: FBLA is goated",
+        "answer": [
+            "true",
+            "t"
+        ]
+    },
+    {
+        "id": 14,
+        "type": "blank",
+        "question": "fbla stands for future _ leaders of america",
+        "answer": "business"
+    },
+    {
+        "id": 15,
+        "type": "matching",
+        "question": "match the animals to their diets",
+        "options": [
+            "carnivore",
+            "omnivore",
+            "herbivore"
+        ],
+        "words": [
+            "pig",
+            "lion",
+            "zebra",
+            "horse",
+            "hedgehog"
+        ],
+        "answer": [
+            "omnivore",
+            "carnivore",
+            "herbivore",
+            "herbivore",
+            "omnivore"
+        ]
+    },
+    {
+        "id": 16,
+        "type": "checkbox",
+        "question": "which of the following are true about fbla?",
+        "options": [
+            "has BAA",
+            "is college program",
+            "is high school program",
+            "costs $20,000"
+        ],
+        "answer": [
+            "has BAA",
+            "is high school program"
+        ]
+    },
+    {
+        "id": 17,
+        "type": "saq",
+        "question": "full form of BAA",
+        "answer": "business achievemnt awards"
+    },
+    {
+        "id": 18,
+        "type": "mcq",
+        "question": "what does fbla stand for",
+        "options": [
+            "future dumb",
+            "future smart",
+            "future scammers",
+            "future leaders"
+        ],
+        "answer": "future leaders"
+    },
+    {
+        "id": 19,
+        "type": "tf",
+        "question": "True/False: FBLA is goated",
+        "answer": [
+            "true",
+            "t"
+        ]
+    },
+    {
+        "id": 20,
+        "type": "blank",
+        "question": "fbla stands for future _ leaders of america",
+        "answer": "business"
+    },
+    {
+        "id": 21,
+        "type": "matching",
+        "question": "match the animals to their diets",
+        "options": [
+            "carnivore",
+            "omnivore",
+            "herbivore"
+        ],
+        "words": [
+            "pig",
+            "lion",
+            "zebra",
+            "horse",
+            "hedgehog"
+        ],
+        "answer": [
+            "omnivore",
+            "carnivore",
+            "herbivore",
+            "herbivore",
+            "omnivore"
+        ]
+    },
+    {
+        "id": 22,
+        "type": "checkbox",
+        "question": "which of the following are true about fbla?",
+        "options": [
+            "has BAA",
+            "is college program",
+            "is high school program",
+            "costs $20,000"
+        ],
+        "answer": [
+            "has BAA",
+            "is high school program"
+        ]
+    },
+    {
+        "id": 23,
+        "type": "saq",
+        "question": "full form of BAA",
+        "answer": "business achievemnt awards"
+    },
+    {
+        "id": 24,
+        "type": "mcq",
+        "question": "what does fbla stand for",
+        "options": [
+            "future dumb",
+            "future smart",
+            "future scammers",
+            "future leaders"
+        ],
+        "answer": "future leaders"
+    },
+    {
+        "id": 25,
+        "type": "tf",
+        "question": "True/False: FBLA is goated",
+        "answer": [
+            "true",
+            "t"
+        ]
+    },
+    {
+        "id": 26,
+        "type": "blank",
+        "question": "fbla stands for future _ leaders of america",
+        "answer": "business"
+    },
+    {
+        "id": 27,
+        "type": "matching",
+        "question": "match the animals to their diets",
+        "options": [
+            "carnivore",
+            "omnivore",
+            "herbivore"
+        ],
+        "words": [
+            "pig",
+            "lion",
+            "zebra",
+            "horse",
+            "hedgehog"
+        ],
+        "answer": [
+            "omnivore",
+            "carnivore",
+            "herbivore",
+            "herbivore",
+            "omnivore"
+        ]
+    },
+    {
+        "id": 28,
+        "type": "checkbox",
+        "question": "which of the following are true about fbla?",
+        "options": [
+            "has BAA",
+            "is college program",
+            "is high school program",
+            "costs $20,000"
+        ],
+        "answer": [
+            "has BAA",
+            "is high school program"
+        ]
+    },
+    {
+        "id": 29,
+        "type": "saq",
+        "question": "full form of BAA",
+        "answer": "business achievemnt awards"
+    },
+    {
+        "id": 30,
+        "type": "mcq",
+        "question": "what does fbla stand for",
+        "options": [
+            "future dumb",
+            "future smart",
+            "future scammers",
+            "future leaders"
+        ],
+        "answer": "future leaders"
+    },
+    {
+        "id": 31,
+        "type": "tf",
+        "question": "True/False: FBLA is goated",
+        "answer": [
+            "true",
+            "t"
+        ]
+    },
+    {
+        "id": 32,
+        "type": "blank",
+        "question": "fbla stands for future _ leaders of america",
+        "answer": "business"
+    },
+    {
+        "id": 33,
+        "type": "matching",
+        "question": "match the animals to their diets",
+        "options": [
+            "carnivore",
+            "omnivore",
+            "herbivore"
+        ],
+        "words": [
+            "pig",
+            "lion",
+            "zebra",
+            "horse",
+            "hedgehog"
+        ],
+        "answer": [
+            "omnivore",
+            "carnivore",
+            "herbivore",
+            "herbivore",
+            "omnivore"
+        ]
+    },
+    {
+        "id": 34,
+        "type": "checkbox",
+        "question": "which of the following are true about fbla?",
+        "options": [
+            "has BAA",
+            "is college program",
+            "is high school program",
+            "costs $20,000"
+        ],
+        "answer": [
+            "has BAA",
+            "is high school program"
+        ]
+    },
+    {
+        "id": 35,
+        "type": "saq",
+        "question": "full form of BAA",
+        "answer": "business achievemnt awards"
+    },
+    {
+        "id": 36,
+        "type": "mcq",
+        "question": "what does fbla stand for",
+        "options": [
+            "future dumb",
+            "future smart",
+            "future scammers",
+            "future leaders"
+        ],
+        "answer": "future leaders"
+    },
+    {
+        "id": 37,
+        "type": "tf",
+        "question": "True/False: FBLA is goated",
+        "answer": [
+            "true",
+            "t"
+        ]
+    },
+    {
+        "id": 38,
+        "type": "blank",
+        "question": "fbla stands for future _ leaders of america",
+        "answer": "business"
+    },
+    {
+        "id": 39,
+        "type": "matching",
+        "question": "match the animals to their diets",
+        "options": [
+            "carnivore",
+            "omnivore",
+            "herbivore"
+        ],
+        "words": [
+            "pig",
+            "lion",
+            "zebra",
+            "horse",
+            "hedgehog"
+        ],
+        "answer": [
+            "omnivore",
+            "carnivore",
+            "herbivore",
+            "herbivore",
+            "omnivore"
+        ]
+    },
+    {
+        "id": 40,
+        "type": "checkbox",
+        "question": "which of the following are true about fbla?",
+        "options": [
+            "has BAA",
+            "is college program",
+            "is high school program",
+            "costs $20,000"
+        ],
+        "answer": [
+            "has BAA",
+            "is high school program"
+        ]
+    },
+    {
+        "id": 41,
+        "type": "saq",
+        "question": "full form of BAA",
+        "answer": "business achievemnt awards"
+    },
+    {
+        "id": 42,
+        "type": "mcq",
+        "question": "what does fbla stand for",
+        "options": [
+            "future dumb",
+            "future smart",
+            "future scammers",
+            "future leaders"
+        ],
+        "answer": "future leaders"
+    },
+    {
+        "id": 43,
+        "type": "tf",
+        "question": "True/False: FBLA is goated",
+        "answer": [
+            "true",
+            "t"
+        ]
+    },
+    {
+        "id": 44,
+        "type": "blank",
+        "question": "fbla stands for future _ leaders of america",
+        "answer": "business"
+    },
+    {
+        "id": 45,
+        "type": "matching",
+        "question": "match the animals to their diets",
+        "options": [
+            "carnivore",
+            "omnivore",
+            "herbivore"
+        ],
+        "words": [
+            "pig",
+            "lion",
+            "zebra",
+            "horse",
+            "hedgehog"
+        ],
+        "answer": [
+            "omnivore",
+            "carnivore",
+            "herbivore",
+            "herbivore",
+            "omnivore"
+        ]
+    },
+    {
+        "id": 46,
+        "type": "checkbox",
+        "question": "which of the following are true about fbla?",
+        "options": [
+            "has BAA",
+            "is college program",
+            "is high school program",
+            "costs $20,000"
+        ],
+        "answer": [
+            "has BAA",
+            "is high school program"
+        ]
+    },
+    {
+        "id": 47,
+        "type": "saq",
+        "question": "full form of BAA",
+        "answer": "business achievemnt awards"
+    },
+    {
+        "id": 48,
+        "type": "mcq",
+        "question": "what does fbla stand for",
+        "options": [
+            "future dumb",
+            "future smart",
+            "future scammers",
+            "future leaders"
+        ],
+        "answer": "future leaders"
+    },
+    {
+        "id": 49,
+        "type": "tf",
+        "question": "True/False: FBLA is goated",
+        "answer": [
+            "true",
+            "t"
+        ]
+    }
+]
