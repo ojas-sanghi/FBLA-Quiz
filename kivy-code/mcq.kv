@@ -4,10 +4,14 @@
     name: "MCQ"
 
     MDBoxLayout:
+        id: main_thing
+
         orientation: "vertical"
 
         MDLabel:
-            text: app.question
+            id: question_text
+
+            text: root.question
             halign: "center"
             size_hint_y: 0.1
         
@@ -21,33 +25,33 @@
 
             MDBoxLayout:
                 Radio:
-                    on_press: app.select(1)
+                    on_press: root.select(1)
                 MDLabel:
-                    text: app.option_1
+                    text: root.option_1
                     size_hint_x: 0.5
             
             MDBoxLayout:
                 Radio:
-                    on_press: app.select(2)
+                    on_press: root.select(2)
                 MDLabel:
-                    text: app.option_2
+                    text: root.option_2
                     size_hint_x: 0.5
             
             MDBoxLayout:
                 Radio:
-                    on_press: app.select(3)
+                    on_press: root.select(3)
                 MDLabel:
-                    text: app.option_3
+                    text: root.option_3
                     size_hint_x: 0.5
                 
             MDBoxLayout:
                 Radio:
-                    on_press: app.select(4)
+                    on_press: root.select(4)
                 MDLabel:
-                    text: app.option_4
+                    text: root.option_4
                     size_hint_x: 0.5
 
         SubmitAnchor:
             SubmitButton:
-                on_release: app.root.current = "TF"
+                on_release: root.manager.current = "TF"
                 # on_press: print("asasd")
