@@ -10,9 +10,14 @@
 
     MDBoxLayout:
         orientation: "vertical"
+
         MDLabel:
             text: app.question
             halign: "center"
+            size_hint_y: 0.1
+        
+        MDProgressBar:
+            value: 100
             size_hint_y: 0.1
 
         MDGridLayout:
@@ -48,8 +53,18 @@
             MDBoxLayout:
                 orientation: "horizontal"
                 Radio:
-                    # on_press: app.select(4)
-                    on_release: app.root.current = 'TF'
+                    on_press: app.select(4)
                 MDLabel:
                     text: app.option_4
                     size_hint_x: 0.5
+
+        AnchorLayout:
+            anchor_x: "right"   
+            padding: 25
+            size_hint_y: 0.2
+    
+            MDRaisedButton:
+                text: "Submit Answer"
+                halign: "right"
+                pos_hint: {'right': 1}
+                on_release: app.root.current = 'TF'

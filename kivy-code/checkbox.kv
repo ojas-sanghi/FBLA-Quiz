@@ -10,9 +10,14 @@
 
     MDBoxLayout:
         orientation: "vertical"
+
         MDLabel:
             text: "A134134"
             halign: "center"
+            size_hint_y: 0.1
+        
+        MDProgressBar:
+            value: 100
             size_hint_y: 0.1
 
         MDGridLayout:
@@ -49,7 +54,6 @@
                 orientation: "horizontal"
                 Check:
                     on_press: app.select(4)
-                    # on_release: app.root.current = 'TF'
                 MDLabel:
                     text: app.option_4
                     size_hint_x: 0.5
@@ -63,3 +67,4 @@
                 text: "Submit Answer"
                 halign: "right"
                 pos_hint: {'right': 1}
+                on_release: app.root.current = 'SAQ'

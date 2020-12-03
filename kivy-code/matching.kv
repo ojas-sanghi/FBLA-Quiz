@@ -1,12 +1,5 @@
 #:kivy 1.11.1
 
-<MyDropDownButton@MDRaisedButton>:
-    text: 'A'
-    md_bg_color: 1, 1, 1, 1
-    text_color: 0, 0, 0, 1
-
-
-
 # note: this manual code for the dropdown could be avoided
 # if we use a kivy.uix.spinner (see https://kivy.org/doc/stable/api-kivy.uix.spinner.html)
 # but KivyMD doesn't support it and we're using that everywhere else
@@ -44,18 +37,22 @@
             text: 'E'
             on_release: dropdown.select(self.text)
 
+<MyDropDownButton@MDRaisedButton>:
+    text: 'A'
+    md_bg_color: 1, 1, 1, 1
+    text_color: 0, 0, 0, 1
 
 <MatchingScreen>:
-    name: "matching"
+    name: "Matching"
+
     MDBoxLayout:
         orientation: "vertical"
-        spacing: dp(5)
 
         MDLabel:
             text: "Match animals to their diet"
             halign: "center"
-            size_hint_y: None
-            pos_hint: {'center_y': .5}
+            size_hint_y: 0.1
+            # pos_hint: {'center_y': .5}
 
         MDProgressBar:
             value: 100
@@ -104,3 +101,4 @@
                 text: "Submit Answer"
                 halign: "right"
                 pos_hint: {'right': 1}
+                on_release: app.root.current = 'Checkbox'

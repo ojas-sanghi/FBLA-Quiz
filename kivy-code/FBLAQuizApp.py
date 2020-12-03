@@ -69,7 +69,7 @@ class FBLAQuizApp(MDApp):
         print(param)
     
     def switch_match(self):
-        self.root.current = "matching"
+        self.root.current = "Matching"
         MatchingQuestion.do_stuff()
 
 # see https://github.com/kivymd/KivyMD/issues/511 to maybe fix MDDropdownMenu

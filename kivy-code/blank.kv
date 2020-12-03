@@ -5,26 +5,32 @@
 
     MDBoxLayout:
         orientation: "vertical"
-        padding: 75
 
-        MDGridLayout:
-            cols: 1
-            rows: 3
+        MDLabel:
+            text: "fbla stands for future _ leaders of america"
+            halign: "center"
+            size_hint_y: 0.1
 
-            MDLabel:
-                text: "fbla stands for future _ leaders of america"
-                halign: "center"
+        MDProgressBar:
+            value: 100
+            size_hint_y: 0.1
+
+        AnchorLayout:
+            anchor_x: "center"
+            padding: 50
 
             MDTextField:
                 hint_text: "Answer"
                 mode: "rectangle"
 
-            MDLabel:
-                text: ""
-                halign: "center"
     
-        MDRaisedButton:
-            text: "Submit Answer"
-            halign: "right"
-            pos_hint: {'right': 1}
-            on_release: app.switch_match()
+        AnchorLayout:
+            anchor_x: "right"
+            padding: 25
+            size_hint_y: 0.2
+
+            MDRaisedButton:
+                text: "Submit Answer"
+                halign: "right"
+                pos_hint: {'right': 1}
+                on_release: app.switch_match()
