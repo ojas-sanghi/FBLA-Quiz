@@ -11,9 +11,7 @@
             halign: "center"
             size_hint_y: 0.1
 
-        MDProgressBar:
-            value: 100
-            size_hint_y: 0.1
+        LineDivider:
 
         AnchorLayout:
             anchor_x: "center"
@@ -22,14 +20,8 @@
             MDTextField:
                 hint_text: "Answer"
                 mode: "rectangle"
-
     
-        AnchorLayout:
-            anchor_x: "right"
-            padding: 25
-            size_hint_y: 0.2
-
-            MDRaisedButton:
+        SubmitAnchor:
+            SubmitButton:
                 text: "Finish quiz!!"
-                halign: "right"
-                pos_hint: {'right': 1}
+                on_release: print('done!')

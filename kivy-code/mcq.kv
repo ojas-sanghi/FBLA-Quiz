@@ -1,10 +1,5 @@
 #:kivy 1.11.1
 
-<Radio@MDCheckbox>:
-    group: 'radios'
-    size_hint: None, None
-    pos_hint: {'center_x': .1, 'center_y': .5}
-
 <MCQScreen>:
     name: "MCQ"
 
@@ -16,9 +11,7 @@
             halign: "center"
             size_hint_y: 0.1
         
-        MDProgressBar:
-            value: 100
-            size_hint_y: 0.1
+        LineDivider:
 
         MDGridLayout:
             cols: 2
@@ -27,7 +20,6 @@
             padding: 20
 
             MDBoxLayout:
-                orientation: "horizontal"
                 Radio:
                     on_press: app.select(1)
                 MDLabel:
@@ -35,7 +27,6 @@
                     size_hint_x: 0.5
             
             MDBoxLayout:
-                orientation: "horizontal"
                 Radio:
                     on_press: app.select(2)
                 MDLabel:
@@ -43,7 +34,6 @@
                     size_hint_x: 0.5
             
             MDBoxLayout:
-                orientation: "horizontal"
                 Radio:
                     on_press: app.select(3)
                 MDLabel:
@@ -51,20 +41,13 @@
                     size_hint_x: 0.5
                 
             MDBoxLayout:
-                orientation: "horizontal"
                 Radio:
                     on_press: app.select(4)
                 MDLabel:
                     text: app.option_4
                     size_hint_x: 0.5
 
-        AnchorLayout:
-            anchor_x: "right"   
-            padding: 25
-            size_hint_y: 0.2
-    
-            MDRaisedButton:
-                text: "Submit Answer"
-                halign: "right"
-                pos_hint: {'right': 1}
-                on_release: app.root.current = 'TF'
+        SubmitAnchor:
+            SubmitButton:
+                on_release: app.root.current = "TF"
+                # on_press: print("asasd")

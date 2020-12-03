@@ -1,0 +1,24 @@
+#:kivy 1.11.1
+
+# file with kv classes used in more than 1 screen
+
+<Radio@MDCheckbox>:
+    group: 'radios'
+    size_hint: None, None
+    pos_hint: {'center_x': .1, 'center_y': .5}
+
+
+<SubmitAnchor@AnchorLayout>:
+    anchor_x: 'right'   
+    padding: 25
+    size_hint_y: 0.2
+
+<SubmitButton@MDRaisedButton>:
+    id: btn
+    text: 'Submit Answer'
+    halign: 'right'
+    pos_hint: {'right': 1}
+
+<LineDivider@MDProgressBar>:
+    value: 100
+    size_hint_y: 0.1

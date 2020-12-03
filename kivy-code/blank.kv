@@ -7,13 +7,11 @@
         orientation: "vertical"
 
         MDLabel:
-            text: "fbla stands for future _ leaders of america"
+            text: "fbla stands for future ___ leaders of america"
             halign: "center"
             size_hint_y: 0.1
 
-        MDProgressBar:
-            value: 100
-            size_hint_y: 0.1
+        LineDivider:
 
         AnchorLayout:
             anchor_x: "center"
@@ -23,14 +21,6 @@
                 hint_text: "Answer"
                 mode: "rectangle"
 
-    
-        AnchorLayout:
-            anchor_x: "right"
-            padding: 25
-            size_hint_y: 0.2
-
-            MDRaisedButton:
-                text: "Submit Answer"
-                halign: "right"
-                pos_hint: {'right': 1}
+        SubmitAnchor:
+            SubmitButton:
                 on_release: app.switch_match()

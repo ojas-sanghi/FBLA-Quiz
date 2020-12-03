@@ -12,13 +12,11 @@
         orientation: "vertical"
 
         MDLabel:
-            text: "A134134"
+            text: "select all that are true of fbla"
             halign: "center"
             size_hint_y: 0.1
         
-        MDProgressBar:
-            value: 100
-            size_hint_y: 0.1
+        LineDivider:
 
         MDGridLayout:
             cols: 2
@@ -27,7 +25,6 @@
             padding: 20
 
             MDBoxLayout:
-                orientation: "horizontal"
                 Check:
                     on_press: app.select(1)
                 MDLabel:
@@ -35,7 +32,6 @@
                     size_hint_x: 0.5
             
             MDBoxLayout:
-                orientation: "horizontal"
                 Check:
                     on_press: app.select(2)
                 MDLabel:
@@ -43,7 +39,6 @@
                     size_hint_x: 0.5
             
             MDBoxLayout:
-                orientation: "horizontal"
                 Check:
                     on_press: app.select(3)
                 MDLabel:
@@ -51,20 +46,12 @@
                     size_hint_x: 0.5
                 
             MDBoxLayout:
-                orientation: "horizontal"
                 Check:
                     on_press: app.select(4)
                 MDLabel:
                     text: app.option_4
                     size_hint_x: 0.5
     
-        AnchorLayout:
-            anchor_x: "right"
-            padding: 25
-            size_hint_y: 0.2
-    
-            MDRaisedButton:
-                text: "Submit Answer"
-                halign: "right"
-                pos_hint: {'right': 1}
+        SubmitAnchor:
+            SubmitButton:
                 on_release: app.root.current = 'SAQ'

@@ -52,14 +52,10 @@
             text: "Match animals to their diet"
             halign: "center"
             size_hint_y: 0.1
-            # pos_hint: {'center_y': .5}
 
-        MDProgressBar:
-            value: 100
-            size_hint_y: 0.1
+        LineDivider:
 
         BoxLayout:
-            orientation: "horizontal"
             spacing: dp(25)
 
             MDGridLayout:
@@ -92,13 +88,6 @@
                     text: "omnivore"
                     halign: "center"
         
-        AnchorLayout:
-            anchor_x: "right"
-            padding: 25
-            size_hint_y: 0.2
-    
-            MDRaisedButton:
-                text: "Submit Answer"
-                halign: "right"
-                pos_hint: {'right': 1}
+        SubmitAnchor:
+            SubmitButton:
                 on_release: app.root.current = 'Checkbox'
