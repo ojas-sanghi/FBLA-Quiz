@@ -6,7 +6,7 @@
     MDBoxLayout:
         orientation: "vertical"
 
-        MDLabel:
+        MyLabel:
             text: "this is a true/false question"
             halign: "center"
             size_hint_y: 0.1
@@ -22,14 +22,14 @@
             MDBoxLayout:
                 Radio:
                     on_press: app.select(1)
-                MDLabel:
+                MyLabel:
                     text: "true"
                     size_hint_x: 0.5
             
             MDBoxLayout:
                 Radio:
                     on_press: app.select(2)
-                MDLabel:
+                MyLabel:
                     text: "false"
                     size_hint_x: 0.5
 

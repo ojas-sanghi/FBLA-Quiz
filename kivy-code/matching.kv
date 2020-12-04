@@ -1,90 +1,90 @@
 #:kivy 1.11.1
 
-# note: this manual code for the dropdown could be avoided
-# if we use a kivy.uix.spinner (see https://kivy.org/doc/stable/api-kivy.uix.spinner.html)
-# but KivyMD doesn't support it and we're using that everywhere else
-# so for the sake of consistency we are coding this instead
+# buttons in the dropdown
+<MyDropDownButton@MDRaisedButton>:
+    text: 'A'
+    md_bg_color: 0.25, 0.25, 0.25, 1
+    text_color: 1, 1, 1, 1
+
+# dropdown menu
 <MyDropDown@MDFloatLayout>:
+    id: dropdown_menu
     MDDropDownItem:
         id: btn
         text: 'Pick Option'
         on_parent: dropdown.dismiss()
         on_release: dropdown.open(self)
+        
         pos_hint: {"center_x": 0.7, "center_y": 0.5}
 
-    DropDown:
     # MDDropdownMenu:
+    DropDown:
         id: dropdown
-        on_select: btn.text = '{}'.format(args[1])
+        on_select: btn.text = args[1]; app.matching_select(self) 
 
         MyDropDownButton:
             text: 'A'
             on_release: dropdown.select(self.text)
-
         MyDropDownButton:
             text: 'B'
             on_release: dropdown.select(self.text)
-
         MyDropDownButton:
             text: 'C'
             on_release: dropdown.select(self.text)
-            
         MyDropDownButton:
             text: 'D'
             on_release: dropdown.select(self.text)
-            
         MyDropDownButton:
             text: 'E'
             on_release: dropdown.select(self.text)
 
-<MyDropDownButton@MDRaisedButton>:
-    text: 'A'
-    md_bg_color: 1, 1, 1, 1
-    text_color: 0, 0, 0, 1
-
 <MatchingScreen>:
     name: "Matching"
+    id: match_screen
 
     MDBoxLayout:
         orientation: "vertical"
+        id: main_box
 
-        MDLabel:
+        # question and divider
+        MyLabel:
             text: "Match animals to their diet"
             halign: "center"
             size_hint_y: 0.1
-
         LineDivider:
 
-        BoxLayout:
+        MDBoxLayout:
+            id: question_box
             spacing: dp(25)
 
             MDGridLayout:
                 cols: 2
+                id: option_grid
 
                 MyDropDown:
-                MDLabel:
+                MyLabel:
                     text: "horse"
                 
                 MyDropDown:
-                MDLabel:
+                MyLabel:
                     text: "horse"
                 
                 MyDropDown:
-                MDLabel:
+                MyLabel:
                     text: "horse"
-                
-            BoxLayout:
+    
+            MDBoxLayout:
                 orientation: "vertical"
 
-                MDLabel:
+                MyLabel:
                     text: "omnivore"
                     halign: "center"
 
-                MDLabel:
+                MyLabel:
                     text: "omnivore"
                     halign: "center"
                 
-                MDLabel:
+                MyLabel:
                     text: "omnivore"
                     halign: "center"
         

@@ -11,7 +11,7 @@
     MDBoxLayout:
         orientation: "vertical"
 
-        MDLabel:
+        MyLabel:
             text: "select all that are true of fbla"
             halign: "center"
             size_hint_y: 0.1
@@ -27,28 +27,28 @@
             MDBoxLayout:
                 Check:
                     on_press: app.select(1)
-                MDLabel:
+                MyLabel:
                     text: app.option_1
                     size_hint_x: 0.5
             
             MDBoxLayout:
                 Check:
                     on_press: app.select(2)
-                MDLabel:
+                MyLabel:
                     text: app.option_2
                     size_hint_x: 0.5
             
             MDBoxLayout:
                 Check:
                     on_press: app.select(3)
-                MDLabel:
+                MyLabel:
                     text: app.option_3
                     size_hint_x: 0.5
                 
             MDBoxLayout:
                 Check:
                     on_press: app.select(4)
-                MDLabel:
+                MyLabel:
                     text: app.option_4
                     size_hint_x: 0.5
     

@@ -8,7 +8,7 @@
 
         orientation: "vertical"
 
-        MDLabel:
+        MyLabel:
             id: question_text
 
             text: root.question
@@ -26,32 +26,31 @@
             MDBoxLayout:
                 Radio:
                     on_press: root.select(1)
-                MDLabel:
+                MyLabel:
                     text: root.option_1
                     size_hint_x: 0.5
             
             MDBoxLayout:
                 Radio:
                     on_press: root.select(2)
-                MDLabel:
+                MyLabel:
                     text: root.option_2
                     size_hint_x: 0.5
             
             MDBoxLayout:
                 Radio:
                     on_press: root.select(3)
-                MDLabel:
+                MyLabel:
                     text: root.option_3
                     size_hint_x: 0.5
                 
             MDBoxLayout:
                 Radio:
                     on_press: root.select(4)
-                MDLabel:
+                MyLabel:
                     text: root.option_4
                     size_hint_x: 0.5
 
         SubmitAnchor:
             SubmitButton:
                 on_release: root.manager.current = "TF"
-                # on_press: print("asasd")

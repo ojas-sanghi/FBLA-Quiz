@@ -6,7 +6,7 @@
     MDBoxLayout:
         orientation: "vertical"
 
-        MDLabel:
+        MyLabel:
             text: "fbla stands for future ___ leaders of america"
             halign: "center"
             size_hint_y: 0.1
@@ -23,4 +23,4 @@
 
         SubmitAnchor:
             SubmitButton:
-                on_release: app.switch_match()
+                on_release: app.root.current = "Matching"
