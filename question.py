@@ -1,11 +1,11 @@
 class Question:
     def __init__(self, q: dict) -> None:
         self.id = q["id"]
-        self.type = q["type"] # mcq, tf, blank, matching, dropdown
+        self.type = q["type"] # mcq, tf, blank, matching, checkbox, saq
 
         self.text = q["question"]
 
-        if self.type in ["mcq", "matching", "dropdown"]:
+        if self.type in ["mcq", "matching", "checkbox"]:
             self.options = q["options"]
         else:
             self.options = []

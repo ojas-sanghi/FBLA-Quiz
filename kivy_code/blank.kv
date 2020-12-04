@@ -7,7 +7,7 @@
         orientation: "vertical"
 
         MyLabel:
-            text: "fbla stands for future ___ leaders of america"
+            text: root.question
             halign: "center"
             size_hint_y: 0.1
 
@@ -18,8 +18,10 @@
             padding: 50
 
             MDTextField:
+                id: text_field
                 hint_text: "Answer"
                 mode: "rectangle"
 
         SubmitAnchor:
             SubmitButton:
+                on_release: root.select(text_field.text); app.next_screen()

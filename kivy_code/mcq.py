@@ -9,11 +9,8 @@ class MCQScreen(Screen):
     option_3 = StringProperty("option 3")
     option_4 = StringProperty("option 4")
 
-    answer_index = 0
-
     def select(self, param):
-        self.answer_index = param
-
+        self.answer = param
     
     def set_questions(self, qs: list):
         self.questions = qs

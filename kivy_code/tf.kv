@@ -7,7 +7,7 @@
         orientation: "vertical"
 
         MyLabel:
-            text: "this is a true/false question"
+            text: root.question
             halign: "center"
             size_hint_y: 0.1
         
@@ -21,16 +21,16 @@
 
             MDBoxLayout:
                 Radio:
-                    on_press: app.select(1)
+                    on_press: root.select(0)
                 MyLabel:
-                    text: "true"
+                    text: "True"
                     size_hint_x: 0.5
             
             MDBoxLayout:
                 Radio:
-                    on_press: app.select(2)
+                    on_press: root.select(1)
                 MyLabel:
-                    text: "false"
+                    text: "False"
                     size_hint_x: 0.5
 
         SubmitAnchor:

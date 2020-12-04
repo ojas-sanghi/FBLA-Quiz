@@ -1,13 +1,26 @@
+from functools import partial
+
 from kivy.clock import Clock
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.floatlayout import MDFloatLayout
-
-from functools import partial
+from kivy.properties import StringProperty
 
 class MatchingScreen(Screen):
+    question = StringProperty("Matching question")
+
+    option_1 = StringProperty("option 1")
+    option_2 = StringProperty("option 2")
+    option_3 = StringProperty("option 3")
+
+    word_1 = StringProperty("word 1")
+    word_2 = StringProperty("word 2")
+    word_3 = StringProperty("word 3")
+    word_4 = StringProperty("word 4")
+    word_5 = StringProperty("word 5")
+
+    answers = []
 
     times_called = 0
-
     def update_dropdown_item_size(self, dropdown_item, dropdown_buttons, *largs):
         # set button size to the dropdown_item size
         # subtract 2 from width to make it look better
@@ -28,7 +41,9 @@ class MatchingScreen(Screen):
     # then we pass that to the upadte_dropdown_item_size function
     # which is called 10 times over 1 second
     # we have to do it repeatedly since doing it once or after the next frame doesn't work for some reason
-    def matching_select(self, dropdown):
+    def matching_select(self, dropdown, answer_text):
+        self.answers.append(answer_text)
+
         dropdown_grid = self.ids.option_grid.children
 
         dropdown_item = None
@@ -45,3 +60,21 @@ class MatchingScreen(Screen):
                 dropdown_buttons = dropdown.children[0].children
 
         self.update_event = Clock.schedule_interval(partial(self.update_dropdown_item_size, dropdown_item, dropdown_buttons), 0.1)
+
+
+    def set_questions(self, qs: list):
+        self.questions = qs
+    
+    def on_pre_enter(self):
+        for q in self.questions:
+            if q.type == "matching":
+                self.question = q.text
+                self.option_1 = q.options[0]
+                self.option_2 = q.options[1]
+                self.option_3 = q.options[2]
+
+                self.word_1 = q.words[0]
+                self.word_2 = q.words[1]
+                self.word_3 = q.words[2]
+                self.word_4 = q.words[3]
+                self.word_5 = q.words[4]

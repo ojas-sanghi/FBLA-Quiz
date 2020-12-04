@@ -19,7 +19,7 @@
 
     DropDown:
         id: dropdown
-        on_select: btn.text = args[1]; app.matching_select(self) 
+        on_select: btn.text = args[1]; app.matching_select(self, args[1]) 
 
         MyDropDownButton:
             text: 'A'
@@ -47,7 +47,7 @@
 
         # question and divider
         MyLabel:
-            text: "Match animals to their diet"
+            text: root.question
             halign: "center"
             size_hint_y: 0.1
         LineDivider:
@@ -56,56 +56,46 @@
             id: question_box
             spacing: dp(25)
 
+            # dropdowns and words
             MDGridLayout:
                 cols: 2
                 id: option_grid
 
                 MyDropDown:
                 MyLabel:
-                    text: "horse"
+                    text: root.word_1
                 
                 MyDropDown:
                 MyLabel:
-                    text: "horse"
+                    text: root.word_2
                 
                 MyDropDown:
                 MyLabel:
-                    text: "horse"
+                    text: root.word_3
+                
+                MyDropDown:
+                MyLabel:
+                    text: root.word_4
+            
+                MyDropDown:
+                MyLabel:
+                    text: root.word_5
     
+            # options
             MDBoxLayout:
                 orientation: "vertical"
 
                 MyLabel:
-                    text: "omnivore"
+                    text: root.option_1
                     halign: "center"
 
                 MyLabel:
-                    text: "omnivore"
+                    text: root.option_2
                     halign: "center"
                 
                 MyLabel:
-                    text: "omnivore"
+                    text: root.option_3
                     halign: "center"
                 
-                MyLabel:
-                    text: "omnivore"
-                    halign: "center"
-                
-                MyLabel:
-                    text: "omnivore"
-                    halign: "center"
-                
-                MyLabel:
-                    text: "omnivore"
-                    halign: "center"
-
-                MyLabel:
-                    text: "omnivore"
-                    halign: "center"
-                
-                MyLabel:
-                    text: "omnivore"
-                    halign: "center"
-        
         SubmitAnchor:
             SubmitButton:

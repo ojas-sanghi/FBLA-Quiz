@@ -37,6 +37,11 @@ class FBLAQuizApp(MDApp):
         self.screens = [q.type for q in self.questions]
         
         MCQScreen.set_questions(MCQScreen, self.questions)
+        TFScreen.set_questions(TFScreen, self.questions)
+        BlankScreen.set_questions(BlankScreen, self.questions)
+        MatchingScreen.set_questions(MatchingScreen, self.questions)
+        CheckboxScreen.set_questions(CheckboxScreen, self.questions)
+        SAQScreen.set_questions(SAQScreen, self.questions)
 
     def build(self):
         self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
@@ -51,12 +56,14 @@ class FBLAQuizApp(MDApp):
     def set_questions(self, qs: list):
         self.questions = qs
 
-    def select(self, param):
-        print(param)
     
     def next_screen(self):
-        self.screens.remove(self.root.current)
-
+        # remove this later when we implement a congrats scren
+        try:
+            self.screens.remove(self.root.current)
+        except:
+            pass
+    
         if len(self.screens) > 0:
             next_screen = random.choice(self.screens)
             self.root.current = next_screen
@@ -64,8 +71,8 @@ class FBLAQuizApp(MDApp):
             pass
             # self.root.current = "congrats"
     
-    def matching_select(self, dropdown):
-        MatchingScreen.matching_select(self.root.current_screen, dropdown)
+    def matching_select(self, dropdown, answer_text):
+        MatchingScreen.matching_select(self.root.current_screen, dropdown, answer_text)
         
 if __name__ == "__main__":
     FBLAQuizApp().run()
