@@ -1,7 +1,8 @@
-import quiz_generator
+from kivy_code.FBLAQuizApp import FBLAQuizApp
 
 def begin_quiz():
     questions = quiz_generator.get_questions(5)
+
     question_num = 1
 
     num_correct = 0
@@ -32,7 +33,7 @@ def get_input():
 
 
 def main():
-    begin_quiz()
+    FBLAQuizApp().run()
 
 if __name__ == "__main__":
     main()    
