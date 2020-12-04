@@ -1,17 +1,18 @@
 #:kivy 1.11.1
 
-<MCQScreen>:
-    name: "MCQ"
+<Check@MDCheckbox>:
+    size_hint: None, None
+    pos_hint: {'center_x': .1, 'center_y': .5}
+
+
+<CheckboxScreen>:
+    name: "checkbox"
 
     MDBoxLayout:
-        id: main_thing
-
         orientation: "vertical"
 
         MyLabel:
-            id: question_text
-
-            text: root.question
+            text: "select all that are true of fbla"
             halign: "center"
             size_hint_y: 0.1
         
@@ -24,33 +25,33 @@
             padding: 20
 
             MDBoxLayout:
-                Radio:
-                    on_press: root.select(1)
+                Check:
+                    on_press: app.select(1)
                 MyLabel:
-                    text: root.option_1
+                    text: app.option_1
                     size_hint_x: 0.5
             
             MDBoxLayout:
-                Radio:
-                    on_press: root.select(2)
+                Check:
+                    on_press: app.select(2)
                 MyLabel:
-                    text: root.option_2
+                    text: app.option_2
                     size_hint_x: 0.5
             
             MDBoxLayout:
-                Radio:
-                    on_press: root.select(3)
+                Check:
+                    on_press: app.select(3)
                 MyLabel:
-                    text: root.option_3
+                    text: app.option_3
                     size_hint_x: 0.5
                 
             MDBoxLayout:
-                Radio:
-                    on_press: root.select(4)
+                Check:
+                    on_press: app.select(4)
                 MyLabel:
-                    text: root.option_4
+                    text: app.option_4
                     size_hint_x: 0.5
-
+    
         SubmitAnchor:
             SubmitButton:
-                on_release: root.manager.current = "TF"
+                on_release: app.root.current = 'saq'
