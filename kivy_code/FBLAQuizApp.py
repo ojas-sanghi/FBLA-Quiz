@@ -1,3 +1,5 @@
+import random
+
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
@@ -11,12 +13,6 @@ from .saq import SAQScreen
 
 import quiz_generator
 
-###
-# for the MDDropdownMenu thing
-# maybe define that part in this file,
-# then add_widget(Builder.load_string)
-# or i guess Builder.load_file might work too
-
 class ScreenManagement(ScreenManager):
     pass
 
@@ -28,7 +24,6 @@ class FBLAQuizApp(MDApp):
     option_3 = "option 3"
     option_4 = "option 4"
 
-    questions = []
 
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
@@ -38,6 +33,7 @@ class FBLAQuizApp(MDApp):
             Builder.load_file("kivy_code/" + file)
         
         self.questions = quiz_generator.get_questions(5)
+        self.screens = [q.type for q in self.questions]
         
         MCQScreen.set_questions(MCQScreen, self.questions)
 
@@ -50,6 +46,16 @@ class FBLAQuizApp(MDApp):
 
     def select(self, param):
         print(param)
+    
+    def next_screen(self):
+        self.screens.remove(self.root.current)
+
+        if len(self.screens) > 0:
+            next_screen = random.choice(self.screens)
+            self.root.current = next_screen
+        else:
+            pass
+            # self.root.current = "congrats"
     
     def matching_select(self, dropdown):
         MatchingScreen.matching_select(self.root.current_screen, dropdown)
