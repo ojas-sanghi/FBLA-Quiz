@@ -3,7 +3,6 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.clock import Clock
 
 from kivymd.app import MDApp
-# from kivymd.uix.button import MDRaisedButton
 
 from mcq import MCQScreen
 from tf import TFScreen

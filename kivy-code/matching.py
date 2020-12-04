@@ -2,8 +2,6 @@ from kivy.clock import Clock
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.floatlayout import MDFloatLayout
 
-from kivymd.uix.dropdownitem import MDDropDownItem
-
 from functools import partial
 
 class MatchingScreen(Screen):
