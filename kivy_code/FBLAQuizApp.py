@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
@@ -39,7 +40,13 @@ class FBLAQuizApp(MDApp):
 
     def build(self):
         self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
-        self.theme_cls.theme_style = "Dark" 
+
+        # dark mode after 7 pm
+        now = datetime.now()
+        if now.hour >= 19:
+            self.theme_cls.theme_style = "Dark" 
+        else:
+            self.theme_cls.theme_style = "Light"
     
     def set_questions(self, qs: list):
         self.questions = qs
