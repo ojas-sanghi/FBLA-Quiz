@@ -34,9 +34,9 @@ def make_matching(q_id):
         "id": q_id, 
         "type": "matching", 
         "question": "match the animals to their diets",
-        "options": ["carnivore", "omnivore", "herbivore"], 
+        "options": ["A. carnivore", "B. omnivore", "C. herbivore"], 
         "words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-        "answer": ["omnivore", "carnivore", "herbivore", "herbivore", "omnivore"]
+        "answer": ["B", "A", "C", "C", "B"]
     }
     return s
 

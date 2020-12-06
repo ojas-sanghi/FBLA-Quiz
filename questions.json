@@ -31,9 +31,9 @@
         "type": "matching",
         "question": "match the animals to their diets",
         "options": [
-            "carnivore",
-            "omnivore",
-            "herbivore"
+            "A. carnivore",
+            "B. omnivore",
+            "C. herbivore"
         ],
         "words": [
             "pig",
@@ -43,11 +43,11 @@
             "hedgehog"
         ],
         "answer": [
-            "omnivore",
-            "carnivore",
-            "herbivore",
-            "herbivore",
-            "omnivore"
+            "B",
+            "A",
+            "C",
+            "C",
+            "B"
         ]
     },
     {
@@ -103,9 +103,9 @@
         "type": "matching",
         "question": "match the animals to their diets",
         "options": [
-            "carnivore",
-            "omnivore",
-            "herbivore"
+            "A. carnivore",
+            "B. omnivore",
+            "C. herbivore"
         ],
         "words": [
             "pig",
@@ -115,11 +115,11 @@
             "hedgehog"
         ],
         "answer": [
-            "omnivore",
-            "carnivore",
-            "herbivore",
-            "herbivore",
-            "omnivore"
+            "B",
+            "A",
+            "C",
+            "C",
+            "B"
         ]
     },
     {
@@ -175,9 +175,9 @@
         "type": "matching",
         "question": "match the animals to their diets",
         "options": [
-            "carnivore",
-            "omnivore",
-            "herbivore"
+            "A. carnivore",
+            "B. omnivore",
+            "C. herbivore"
         ],
         "words": [
             "pig",
@@ -187,11 +187,11 @@
             "hedgehog"
         ],
         "answer": [
-            "omnivore",
-            "carnivore",
-            "herbivore",
-            "herbivore",
-            "omnivore"
+            "B",
+            "A",
+            "C",
+            "C",
+            "B"
         ]
     },
     {
@@ -247,9 +247,9 @@
         "type": "matching",
         "question": "match the animals to their diets",
         "options": [
-            "carnivore",
-            "omnivore",
-            "herbivore"
+            "A. carnivore",
+            "B. omnivore",
+            "C. herbivore"
         ],
         "words": [
             "pig",
@@ -259,11 +259,11 @@
             "hedgehog"
         ],
         "answer": [
-            "omnivore",
-            "carnivore",
-            "herbivore",
-            "herbivore",
-            "omnivore"
+            "B",
+            "A",
+            "C",
+            "C",
+            "B"
         ]
     },
     {
@@ -319,9 +319,9 @@
         "type": "matching",
         "question": "match the animals to their diets",
         "options": [
-            "carnivore",
-            "omnivore",
-            "herbivore"
+            "A. carnivore",
+            "B. omnivore",
+            "C. herbivore"
         ],
         "words": [
             "pig",
@@ -331,11 +331,11 @@
             "hedgehog"
         ],
         "answer": [
-            "omnivore",
-            "carnivore",
-            "herbivore",
-            "herbivore",
-            "omnivore"
+            "B",
+            "A",
+            "C",
+            "C",
+            "B"
         ]
     },
     {
@@ -391,9 +391,9 @@
         "type": "matching",
         "question": "match the animals to their diets",
         "options": [
-            "carnivore",
-            "omnivore",
-            "herbivore"
+            "A. carnivore",
+            "B. omnivore",
+            "C. herbivore"
         ],
         "words": [
             "pig",
@@ -403,11 +403,11 @@
             "hedgehog"
         ],
         "answer": [
-            "omnivore",
-            "carnivore",
-            "herbivore",
-            "herbivore",
-            "omnivore"
+            "B",
+            "A",
+            "C",
+            "C",
+            "B"
         ]
     },
     {
@@ -463,9 +463,9 @@
         "type": "matching",
         "question": "match the animals to their diets",
         "options": [
-            "carnivore",
-            "omnivore",
-            "herbivore"
+            "A. carnivore",
+            "B. omnivore",
+            "C. herbivore"
         ],
         "words": [
             "pig",
@@ -475,11 +475,11 @@
             "hedgehog"
         ],
         "answer": [
-            "omnivore",
-            "carnivore",
-            "herbivore",
-            "herbivore",
-            "omnivore"
+            "B",
+            "A",
+            "C",
+            "C",
+            "B"
         ]
     },
     {
@@ -535,9 +535,9 @@
         "type": "matching",
         "question": "match the animals to their diets",
         "options": [
-            "carnivore",
-            "omnivore",
-            "herbivore"
+            "A. carnivore",
+            "B. omnivore",
+            "C. herbivore"
         ],
         "words": [
             "pig",
@@ -547,11 +547,11 @@
             "hedgehog"
         ],
         "answer": [
-            "omnivore",
-            "carnivore",
-            "herbivore",
-            "herbivore",
-            "omnivore"
+            "B",
+            "A",
+            "C",
+            "C",
+            "B"
         ]
     },
     {

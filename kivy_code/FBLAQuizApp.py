@@ -45,31 +45,33 @@ class FBLAQuizApp(MDApp):
 
     def build(self):
         self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
-
+        # self.next_screen()
+        
         # dark mode after 7 pm
         now = datetime.now()
         if now.hour >= 19:
             self.theme_cls.theme_style = "Dark" 
         else:
             self.theme_cls.theme_style = "Light"
-    
-    def set_questions(self, qs: list):
-        self.questions = qs
+        
 
-    
     def next_screen(self):
-        # remove this later when we implement a congrats scren
+        # remove this later when we implement a congrats screen
+        # we finished all the questions, nowhere to go next
         try:
             self.screens.remove(self.root.current)
         except:
+            # TODO: move to congrats screen
             pass
+
+        print(len(self.screens))
     
-        if len(self.screens) > 0:
+        if len(self.screens) >= 1:
             next_screen = random.choice(self.screens)
             self.root.current = next_screen
+            print(next_screen)
         else:
             pass
-            # self.root.current = "congrats"
     
     def matching_select(self, dropdown, answer_text):
         MatchingScreen.matching_select(self.root.current_screen, dropdown, answer_text)

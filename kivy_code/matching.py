@@ -25,6 +25,7 @@ class MatchingScreen(Screen):
         # set button size to the dropdown_item size
         # subtract 2 from width to make it look better
         for drop_button in dropdown_buttons:
+            print(dropdown_item)
             drop_button.size = dropdown_item.size
             drop_button.size[0] -= 2
 
