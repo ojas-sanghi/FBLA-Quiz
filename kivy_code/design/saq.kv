@@ -7,7 +7,7 @@
         orientation: "vertical"
 
         MyLabel:
-            text: root.question
+            text: root.text
             halign: "center"
             size_hint_y: 0.1
 
@@ -24,4 +24,4 @@
     
         SubmitAnchor:
             SubmitButton:
-                on_release: root.select(text_field.text); app.next_screen()
+                on_release: root.select(text_field.text)

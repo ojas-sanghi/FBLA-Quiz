@@ -2,10 +2,13 @@ from kivy.uix.screenmanager import Screen
 from kivy.properties import StringProperty
 
 class TFScreen(Screen):
-    question = StringProperty("T/F question")
+    text = StringProperty("T/F question")
+    response = ""
+
+    answer = ""
 
     def select(self, param):
-        self.answer = param
+        self.response = param
 
     def set_questions(self, qs: list):
         self.questions = qs
@@ -13,4 +16,5 @@ class TFScreen(Screen):
     def on_pre_enter(self):
         for q in self.questions:
             if q.type == "tf":
-                self.question = q.text
+                self.text = q.text
+                self.answer = q.answer

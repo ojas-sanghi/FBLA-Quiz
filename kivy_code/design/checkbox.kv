@@ -12,7 +12,7 @@
         orientation: "vertical"
 
         MyLabel:
-            text: root.question
+            text: root.text
             halign: "center"
             size_hint_y: 0.1
         
@@ -28,28 +28,28 @@
                 Check:
                     on_press: root.select(0)
                 MyLabel:
-                    text: root.option_1
+                    text: root.options[0]
                     size_hint_x: 0.5
             
             MDBoxLayout:
                 Check:
                     on_press: root.select(1)
                 MyLabel:
-                    text: root.option_2
+                    text: root.options[1]
                     size_hint_x: 0.5
             
             MDBoxLayout:
                 Check:
                     on_press: root.select(2)
                 MyLabel:
-                    text: root.option_3
+                    text: root.options[2]
                     size_hint_x: 0.5
                 
             MDBoxLayout:
                 Check:
                     on_press: root.select(3)
                 MyLabel:
-                    text: root.option_4
+                    text: root.options[3]
                     size_hint_x: 0.5
     
         SubmitAnchor:

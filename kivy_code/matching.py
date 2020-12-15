@@ -3,37 +3,31 @@ from functools import partial
 from kivy.clock import Clock
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.floatlayout import MDFloatLayout
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, ListProperty
 
 class MatchingScreen(Screen):
-    question = StringProperty("Matching question")
+    text = StringProperty("Matching question")
+    options = ListProperty(["option 1", "option 2", "option 3"])
+    words = ListProperty(["word 1", "word 2", "word 3", "word 4", "word 5"])
+    response = []
 
-    option_1 = StringProperty("option 1")
-    option_2 = StringProperty("option 2")
-    option_3 = StringProperty("option 3")
-
-    word_1 = StringProperty("word 1")
-    word_2 = StringProperty("word 2")
-    word_3 = StringProperty("word 3")
-    word_4 = StringProperty("word 4")
-    word_5 = StringProperty("word 5")
-
-    answers = []
+    answer = ""
 
     times_called = 0
     def update_dropdown_item_size(self, dropdown_item, dropdown_buttons, *largs):
         # set button size to the dropdown_item size
         # subtract 2 from width to make it look better
         for drop_button in dropdown_buttons:
-            print(dropdown_item)
+            # print(self.times_called, dropdown_item)
             drop_button.size = dropdown_item.size
             drop_button.size[0] -= 2
 
-        # increment times called
-        # cancel event once called 10 times
+        # increment times_called
+        # cancel event once called twice
         self.times_called += 1
-        if self.times_called == 10:
-            self.update_event.cancel()
+        if self.times_called == 2:
+            Clock.unschedule(self.update_event)
+            self.times_called = 0
 
 
     # when we select a choice, we need to change the size of the "MyDropDownButton"s
@@ -43,7 +37,7 @@ class MatchingScreen(Screen):
     # which is called 10 times over 1 second
     # we have to do it repeatedly since doing it once or after the next frame doesn't work for some reason
     def matching_select(self, dropdown, answer_text):
-        self.answers.append(answer_text)
+        self.response.append(answer_text)
 
         dropdown_grid = self.ids.option_grid.children
 
@@ -60,8 +54,7 @@ class MatchingScreen(Screen):
                 # doing the .children actually gets the "MyDropDownButton"s
                 dropdown_buttons = dropdown.children[0].children
 
-        self.update_event = Clock.schedule_interval(partial(self.update_dropdown_item_size, dropdown_item, dropdown_buttons), 0.1)
-
+        self.update_event = Clock.schedule_interval(partial(self.update_dropdown_item_size, dropdown_item, dropdown_buttons) , 0.001)
 
     def set_questions(self, qs: list):
         self.questions = qs
@@ -69,13 +62,7 @@ class MatchingScreen(Screen):
     def on_pre_enter(self):
         for q in self.questions:
             if q.type == "matching":
-                self.question = q.text
-                self.option_1 = q.options[0]
-                self.option_2 = q.options[1]
-                self.option_3 = q.options[2]
-
-                self.word_1 = q.words[0]
-                self.word_2 = q.words[1]
-                self.word_3 = q.words[2]
-                self.word_4 = q.words[3]
-                self.word_5 = q.words[4]
+                self.text = q.text
+                self.options = q.options
+                self.words = q.words
+                self.answer = q.answer

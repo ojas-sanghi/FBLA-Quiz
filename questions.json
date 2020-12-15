@@ -15,10 +15,7 @@
         "id": 1,
         "type": "tf",
         "question": "True/False: FBLA is goated",
-        "answer": [
-            "true",
-            "t"
-        ]
+        "answer": "True"
     },
     {
         "id": 2,
@@ -69,7 +66,7 @@
         "id": 5,
         "type": "saq",
         "question": "full form of BAA",
-        "answer": "business achievemnt awards"
+        "answer": "business achievement awards"
     },
     {
         "id": 6,
@@ -87,10 +84,7 @@
         "id": 7,
         "type": "tf",
         "question": "True/False: FBLA is goated",
-        "answer": [
-            "true",
-            "t"
-        ]
+        "answer": "True"
     },
     {
         "id": 8,
@@ -141,7 +135,7 @@
         "id": 11,
         "type": "saq",
         "question": "full form of BAA",
-        "answer": "business achievemnt awards"
+        "answer": "business achievement awards"
     },
     {
         "id": 12,
@@ -159,10 +153,7 @@
         "id": 13,
         "type": "tf",
         "question": "True/False: FBLA is goated",
-        "answer": [
-            "true",
-            "t"
-        ]
+        "answer": "True"
     },
     {
         "id": 14,
@@ -213,7 +204,7 @@
         "id": 17,
         "type": "saq",
         "question": "full form of BAA",
-        "answer": "business achievemnt awards"
+        "answer": "business achievement awards"
     },
     {
         "id": 18,
@@ -231,10 +222,7 @@
         "id": 19,
         "type": "tf",
         "question": "True/False: FBLA is goated",
-        "answer": [
-            "true",
-            "t"
-        ]
+        "answer": "True"
     },
     {
         "id": 20,
@@ -285,7 +273,7 @@
         "id": 23,
         "type": "saq",
         "question": "full form of BAA",
-        "answer": "business achievemnt awards"
+        "answer": "business achievement awards"
     },
     {
         "id": 24,
@@ -303,10 +291,7 @@
         "id": 25,
         "type": "tf",
         "question": "True/False: FBLA is goated",
-        "answer": [
-            "true",
-            "t"
-        ]
+        "answer": "True"
     },
     {
         "id": 26,
@@ -357,7 +342,7 @@
         "id": 29,
         "type": "saq",
         "question": "full form of BAA",
-        "answer": "business achievemnt awards"
+        "answer": "business achievement awards"
     },
     {
         "id": 30,
@@ -375,10 +360,7 @@
         "id": 31,
         "type": "tf",
         "question": "True/False: FBLA is goated",
-        "answer": [
-            "true",
-            "t"
-        ]
+        "answer": "True"
     },
     {
         "id": 32,
@@ -429,7 +411,7 @@
         "id": 35,
         "type": "saq",
         "question": "full form of BAA",
-        "answer": "business achievemnt awards"
+        "answer": "business achievement awards"
     },
     {
         "id": 36,
@@ -447,10 +429,7 @@
         "id": 37,
         "type": "tf",
         "question": "True/False: FBLA is goated",
-        "answer": [
-            "true",
-            "t"
-        ]
+        "answer": "True"
     },
     {
         "id": 38,
@@ -501,7 +480,7 @@
         "id": 41,
         "type": "saq",
         "question": "full form of BAA",
-        "answer": "business achievemnt awards"
+        "answer": "business achievement awards"
     },
     {
         "id": 42,
@@ -519,10 +498,7 @@
         "id": 43,
         "type": "tf",
         "question": "True/False: FBLA is goated",
-        "answer": [
-            "true",
-            "t"
-        ]
+        "answer": "True"
     },
     {
         "id": 44,
@@ -573,7 +549,7 @@
         "id": 47,
         "type": "saq",
         "question": "full form of BAA",
-        "answer": "business achievemnt awards"
+        "answer": "business achievement awards"
     },
     {
         "id": 48,
@@ -591,9 +567,6 @@
         "id": 49,
         "type": "tf",
         "question": "True/False: FBLA is goated",
-        "answer": [
-            "true",
-            "t"
-        ]
+        "answer": "True"
     }
 ]

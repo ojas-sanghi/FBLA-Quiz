@@ -47,7 +47,7 @@
 
         # question and divider
         MyLabel:
-            text: root.question
+            text: root.text
             halign: "center"
             size_hint_y: 0.1
         LineDivider:
@@ -63,38 +63,38 @@
 
                 MyDropDown:
                 MyLabel:
-                    text: root.word_1
+                    text: root.words[0]
                 
                 MyDropDown:
                 MyLabel:
-                    text: root.word_2
+                    text: root.words[1]
                 
                 MyDropDown:
                 MyLabel:
-                    text: root.word_3
+                    text: root.words[2]
                 
                 MyDropDown:
                 MyLabel:
-                    text: root.word_4
+                    text: root.words[3]
             
                 MyDropDown:
                 MyLabel:
-                    text: root.word_5
+                    text: root.words[4]
     
             # options
             MDBoxLayout:
                 orientation: "vertical"
 
                 MyLabel:
-                    text: root.option_1
+                    text: root.options[0]
                     halign: "center"
 
                 MyLabel:
-                    text: root.option_2
+                    text: root.options[0]
                     halign: "center"
                 
                 MyLabel:
-                    text: root.option_3
+                    text: root.options[0]
                     halign: "center"
                 
         SubmitAnchor:

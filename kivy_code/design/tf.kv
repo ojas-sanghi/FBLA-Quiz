@@ -7,7 +7,7 @@
         orientation: "vertical"
 
         MyLabel:
-            text: root.question
+            text: root.text
             halign: "center"
             size_hint_y: 0.1
         
@@ -17,18 +17,18 @@
             cols: 2
             rows: 1
             size_hint_x: 1.2
-            padding: 20
+            padding: 50
 
             MDBoxLayout:
                 Radio:
-                    on_press: root.select(0)
+                    on_press: root.select("True")
                 MyLabel:
                     text: "True"
                     size_hint_x: 0.5
             
             MDBoxLayout:
                 Radio:
-                    on_press: root.select(1)
+                    on_press: root.select("False")
                 MyLabel:
                     text: "False"
                     size_hint_x: 0.5

@@ -2,10 +2,13 @@ from kivy.uix.screenmanager import Screen
 from kivy.properties import StringProperty
 
 class SAQScreen(Screen):
-    question = StringProperty("Short Answer Question")
+    text = StringProperty("Short Answer Question")
+    response = ""
+
+    answer = ""
 
     def select(self, param):
-        self.answer = param
+        self.response = param.strip().lower()
 
     def set_questions(self, qs: list):
         self.questions = qs
@@ -13,4 +16,5 @@ class SAQScreen(Screen):
     def on_pre_enter(self):
         for q in self.questions:
             if q.type == "saq":
-                self.question = q.text
+                self.text = q.text
+                self.answer = q.answer

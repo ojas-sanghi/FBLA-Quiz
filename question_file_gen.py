@@ -15,7 +15,7 @@ def make_tf(q_id):
         "id": q_id, 
         "type": "tf", 
         "question": "True/False: FBLA is goated",
-        "answer": ["true", "t"]
+        "answer": "True"
     }
     return s
 
@@ -55,7 +55,7 @@ def make_saq(q_id):
         "id": q_id,
         "type": "saq",
         "question": "full form of BAA",
-        "answer": "business achievemnt awards"
+        "answer": "business achievement awards"
     }
     return s
 

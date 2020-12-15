@@ -1,16 +1,15 @@
 from kivy.uix.screenmanager import Screen
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, ListProperty
 
 class MCQScreen(Screen):
-    question = StringProperty("MCQ Question")
+    text = StringProperty("MCQ Question")
+    options = ListProperty(["option 1", "option 2", "option 3", "option 4"])
+    response = ""
 
-    option_1 = StringProperty("option 1")
-    option_2 = StringProperty("option 2")
-    option_3 = StringProperty("option 3")
-    option_4 = StringProperty("option 4")
+    answer = ""
 
     def select(self, param):
-        self.answer = param
+        self.response = self.options[param]
     
     def set_questions(self, qs: list):
         self.questions = qs
@@ -18,8 +17,6 @@ class MCQScreen(Screen):
     def on_pre_enter(self):
         for q in self.questions:
             if q.type == "mcq":
-                self.question = q.text
-                self.option_1 = q.options[0]
-                self.option_2 = q.options[1]
-                self.option_3 = q.options[2]
-                self.option_4 = q.options[3]
+                self.text = q.text
+                self.options = q.options
+                self.answer = q.answer

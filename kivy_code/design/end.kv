@@ -1,0 +1,72 @@
+#:kivy 1.11.1
+
+<EndScreen>:
+    name: "end"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MyLabel:
+            text: "Results"
+            halign: "center"
+            font_style: "H2"
+            size_hint_y: 0.6
+        MyLabel:
+            text: "Total Correct: 5/5"
+            halign: "center"
+            font_style: "H4"
+            size_hint_y: 0.6
+        
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: 0
+        
+            MyLabel:
+                id: question1
+                text: "Question 1: Correct"
+                halign: "center"
+                font_style: "H6"
+            MyLabel:
+                id: question2
+                text: "Question 2: Correct"
+                halign: "center"
+                font_style: "H6"
+            MyLabel:
+                id: question3
+                text: "Question 3: Correct"
+                halign: "center"
+                font_style: "H6"
+            MyLabel:
+                id: question4
+                text: "Question 4: Correct"
+                halign: "center"
+                font_style: "H6"
+            MyLabel:
+                id: question5
+                text: "Question 5: Correct"
+                halign: "center"
+                font_style: "H6"
+        
+        AnchorLayout:
+            anchor_x: "center"
+            MDBoxLayout:
+                size_hint_x: 0.525
+                padding: 50
+                spacing: 25
+
+                MDRaisedButton:
+                    text: "Print results"
+                    font_size: "20dp"
+                    size_hint_y: 0.8
+                    elevation_normal: 1
+
+                    on_release: app.print_results()
+                
+                MDRaisedButton:
+                    text: "       Exit       "
+                    font_size: "20dp"
+                    size_hint_y: 0.8
+                    elevation_normal: 1
+                    md_bg_color: 1, 0.4, 0.4, 1
+
+                    on_release: app.stop()

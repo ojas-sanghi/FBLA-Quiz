@@ -1,0 +1,28 @@
+#:kivy 1.11.1
+
+<HomeScreen>:
+    name: "home"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MyLabel:
+            text: "FBLA Quiz"
+            halign: "center"
+            font_style: "H1"
+            
+        
+        MyLabel:
+            text: "Welcome! Press 'Begin Quiz' to start!"
+            halign: "center"
+            font_style: "H4"
+        
+        AnchorLayout:
+            anchor_x: "center"
+            padding: 50
+
+            MDRaisedButton:
+                text: "Begin Quiz"
+                font_size: "25sp"
+                size_hint_y: 0.7
+                on_release: app.next_screen()
