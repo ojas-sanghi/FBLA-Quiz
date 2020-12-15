@@ -14,7 +14,7 @@ class CheckboxScreen(Screen):
             self.response.remove(self.options[param])
         else:
             self.response.append(self.options[param])
-    
+        
     def set_questions(self, qs: list):
         self.questions = qs
     

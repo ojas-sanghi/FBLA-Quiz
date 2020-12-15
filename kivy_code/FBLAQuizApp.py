@@ -26,8 +26,7 @@ class FBLAQuizApp(MDApp):
     # 0-indexed, uses self.screens list
     screen_num = 0
 
-    questions_correct = ListProperty([])
-    num_correct = NumericProperty(0)
+    questions_correct = []
 
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
@@ -39,6 +38,7 @@ class FBLAQuizApp(MDApp):
 
         self.questions = quiz_generator.get_questions(5)
         self.screens = [q.type for q in self.questions]
+
 
         MCQScreen.set_questions(MCQScreen, self.questions)
         TFScreen.set_questions(TFScreen, self.questions)
@@ -58,6 +58,8 @@ class FBLAQuizApp(MDApp):
         else:
             self.theme_cls.theme_style = "Light"
         
+        # self.root.current = "end"
+        
     def has_answered_question(self):
         # don't go if the user hasn't answered
         # but we don't care about home and end screen
@@ -75,8 +77,8 @@ class FBLAQuizApp(MDApp):
         return True
         
     def next_screen(self):
-        if not self.has_answered_question():
-            return
+        # if not self.has_answered_question():
+        #     return
 
         # list has 5 items, so index cannot exceed 4
         if self.screen_num <= 4:
@@ -89,13 +91,13 @@ class FBLAQuizApp(MDApp):
     def calculate_correct(self):
         for s in self.screens:
             screen = self.root.get_screen(s)
-
             # append whether or not the user got it right
-            self.questions_correct.append(screen.response == screen.answer)
-
-        self.num_correct = self.questions_correct.count(True)
-
-        print(self.questions_correct)
+            if s == "checkbox":
+                self.questions_correct.append(sorted(screen.response) == sorted(screen.answer))
+            else:
+                self.questions_correct.append(screen.response == screen.answer)
+        
+        EndScreen.set_response_data(EndScreen, self.questions_correct)
     
     def print_results(self):
         pass
