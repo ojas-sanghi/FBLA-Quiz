@@ -6,12 +6,10 @@ from kivymd.uix.floatlayout import MDFloatLayout
 from kivy.properties import StringProperty, ListProperty
 
 class MatchingScreen(Screen):
+    question = None
     text = StringProperty("Matching question")
     options = ListProperty(["option 1", "option 2", "option 3"])
     words = ListProperty(["word 1", "word 2", "word 3", "word 4", "word 5"])
-    response = []
-
-    answer = ""
 
     times_called = 0
     def update_dropdown_item_size(self, dropdown_item, dropdown_buttons, *largs):
@@ -37,7 +35,7 @@ class MatchingScreen(Screen):
     # which is called 10 times over 1 second
     # we have to do it repeatedly since doing it once or after the next frame doesn't work for some reason
     def matching_select(self, dropdown, answer_text):
-        self.response.append(answer_text)
+        self.question.response.append(answer_text)
 
         dropdown_grid = self.ids.option_grid.children
 
@@ -62,7 +60,7 @@ class MatchingScreen(Screen):
     def on_pre_enter(self):
         for q in self.questions:
             if q.type == "matching":
+                self.question = q
                 self.text = q.text
                 self.options = q.options
                 self.words = q.words
-                self.answer = q.answer

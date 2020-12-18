@@ -13,22 +13,22 @@ class EndScreen(Screen):
 
         print(self.questions_correct)
     
-    def on_pre_enter(self, *args):
+    def on_pre_enter(self):
 
         # set "total correct" label to correct number
         total_label = self.ids.results
         total_label.text = f"Total Correct: {self.total_correct}/5"
 
 
-        twod_labels = []
+        two_d_labels = []
         # get all the boxes underneath the "MDBoxLayout" whose id is "box_of_labels_box"
         # add the labels which are children of those boxes to a list
         for box in self.ids.box_of_labels_box.children:
-            twod_labels.append(box.children)
-        twod_labels.reverse()
+            two_d_labels.append(box.children)
+        two_d_labels.reverse()
 
         question_num = 1        
-        for label_list in twod_labels:
+        for label_list in two_d_labels:
             for label in label_list:
                 # CorrectResultLabel
                 if label.text == "Incorrect":

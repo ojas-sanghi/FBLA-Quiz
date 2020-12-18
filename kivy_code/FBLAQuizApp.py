@@ -1,7 +1,10 @@
 from datetime import datetime
 from typing import List
-from kivy.event import EventDispatcher
 
+from kivy.config import Config
+Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
+
+from kivy.event import EventDispatcher
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
@@ -48,6 +51,13 @@ class FBLAQuizApp(MDApp):
         SAQScreen.set_questions(SAQScreen, self.questions)
 
 
+        # figure out how to change the format for matching
+
+        # next screen and previous screen
+        # maybe use https://github.com/kivymd-extensions/akivymd for cool fx
+        # mainly the cool x/25 thing for the end screen
+
+
     def build(self):
         self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
         
@@ -58,6 +68,8 @@ class FBLAQuizApp(MDApp):
         else:
             self.theme_cls.theme_style = "Light"
         
+        # self.theme_cls.theme_style = "Dark" 
+        
         # self.root.current = "end"
         
     def has_answered_question(self):
@@ -65,13 +77,13 @@ class FBLAQuizApp(MDApp):
         # but we don't care about home and end screen
         if self.root.current_screen.name not in ["home", "end"]:
             
-            if not self.root.current_screen.response:
+            if not self.root.current_screen.question.response:
                 return False
 
             # for matching screen
             # ensure as many answers as there are words
             if self.root.current == "matching":
-                if len(self.root.current_screen.response) != len(self.root.current_screen.words):
+                if len(self.root.current_screen.question.response) != len(self.root.current_screen.words):
                     return False
         
         return True
@@ -91,11 +103,7 @@ class FBLAQuizApp(MDApp):
     def calculate_correct(self):
         for s in self.screens:
             screen = self.root.get_screen(s)
-            # append whether or not the user got it right
-            if s == "checkbox":
-                self.questions_correct.append(sorted(screen.response) == sorted(screen.answer))
-            else:
-                self.questions_correct.append(screen.response == screen.answer)
+            self.questions_correct.append(screen.question.is_correct())
         
         EndScreen.set_response_data(EndScreen, self.questions_correct)
     

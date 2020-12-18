@@ -1,5 +1,17 @@
 import json
 
+"""
+File used to generate questions.json
+This was used during development when the format of 
+the questions and their associated data (options, answer etc) were
+in flux.
+
+This file makes a .json file with 50 questions of 6 different types
+To change the format of a particular type of question change the
+associated function.
+"""
+
+
 def make_mcq(q_id):
     s = {
         "id": q_id, 
