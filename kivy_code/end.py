@@ -34,7 +34,7 @@ class EndScreen(Screen):
                 if label.text == "Incorrect":
                     if self.questions_correct[question_num - 1]:
                         label.text = "Correct"
-                        label.text_color = [0, 1, 0, 1]
+                        label.text_color = [0, 0.4, 0, 1]
                     else:
                         label.text = "Incorrect"
                         label.text_color = [1, 0, 0, 1]
