@@ -13,7 +13,7 @@
         id: btn
         text: 'Pick Option'
         on_parent: dropdown.dismiss()
-        on_release: dropdown.open(self)
+        on_release: if app.matching_previous_selected(dropdown_menu): dropdown.open(self)
         
         pos_hint: {"center_x": 0.7, "center_y": 0.5}
 

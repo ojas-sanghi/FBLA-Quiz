@@ -5,6 +5,7 @@ from kivy.config import Config
 from kivy.lang import Builder
 from kivy.properties import BooleanProperty, ListProperty, NumericProperty
 from kivy.uix.screenmanager import ScreenManager
+from kivy.factory import Factory
 from kivymd.app import MDApp
 
 from .blank import BlankScreen
@@ -107,6 +108,28 @@ class FBLAQuizApp(MDApp):
 
     def matching_select(self, dropdown):
         MatchingScreen.matching_select(self.root.current_screen, dropdown)
+    
+    # only expand if previous dropdown is selected
+    def matching_previous_selected(self, drop_menu):
+        dropdown_elements = self.root.current_screen.ids.option_grid.children
+        dropdown_elements = list(reversed(dropdown_elements))
+
+        # construct list of MyDropDowns
+        dropdowns = []
+        for element in dropdown_elements:
+            if type(element) == Factory.classes["MyDropDown"]["cls"]:
+                dropdowns.append(element)
+
+        index = dropdowns.index(drop_menu)
+        previous = dropdowns[index - 1]
+
+        # if the first dropdown itself is checking, then return true
+        # the first dropdown needs to be able to select an option
+        if index == 0:
+            return True
+
+        # should be A/B/C, "pick option" is the default
+        return previous.ids.btn.text != "Pick Option"
         
 if __name__ == "__main__":
     FBLAQuizApp().run()
