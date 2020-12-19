@@ -17,6 +17,7 @@ install = "*"
 kivy = "==1.11.1"
 kivy-examples = "==1.11.1"
 kivymd = "*"
+isort = "*"
 
 [requires]
 python_version = "3.7"

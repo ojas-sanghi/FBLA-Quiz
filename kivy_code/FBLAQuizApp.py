@@ -1,25 +1,20 @@
 from datetime import datetime
-from typing import List
-
-from kivy.config import Config
-Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
-
-from kivy.event import EventDispatcher
-from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager
-from kivymd.app import MDApp
-from kivy.properties import NumericProperty, BooleanProperty, ListProperty
-
-from .home import HomeScreen
-from .mcq import MCQScreen
-from .tf import TFScreen
-from .blank import BlankScreen
-from .matching import MatchingScreen
-from .checkbox import CheckboxScreen
-from .saq import SAQScreen
-from .end import EndScreen
 
 import quiz_generator
+from kivy.config import Config
+from kivy.lang import Builder
+from kivy.properties import BooleanProperty, ListProperty, NumericProperty
+from kivy.uix.screenmanager import ScreenManager
+from kivymd.app import MDApp
+
+from .blank import BlankScreen
+from .checkbox import CheckboxScreen
+from .end import EndScreen
+from .home import HomeScreen
+from .matching import MatchingScreen
+from .mcq import MCQScreen
+from .saq import SAQScreen
+from .tf import TFScreen
 
 class ScreenManagement(ScreenManager):
     pass
