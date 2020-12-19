@@ -19,7 +19,7 @@
 
     DropDown:
         id: dropdown
-        on_select: btn.text = args[1]; app.matching_select(self, args[1]) 
+        on_select: btn.text = args[1]; app.matching_select(self) 
 
         MyDropDownButton:
             text: 'A'
@@ -52,8 +52,8 @@
 
             # dropdowns and words
             MDGridLayout:
-                cols: 2
                 id: option_grid
+                cols: 2
 
                 MyDropDown:
                 MyLabel:

@@ -28,6 +28,7 @@ class FBLAQuizApp(MDApp):
 
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
+        Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
         # load all files
         self.file_names = ["home", "mcq", "tf", "blank", "matching", "checkbox", "saq", "utils", "end"]
@@ -37,6 +38,8 @@ class FBLAQuizApp(MDApp):
         self.questions = quiz_generator.get_questions(5)
         self.screens = [q.type for q in self.questions]
 
+        print(self.screens)
+
 
         MCQScreen.set_questions(MCQScreen, self.questions)
         TFScreen.set_questions(TFScreen, self.questions)
@@ -44,7 +47,6 @@ class FBLAQuizApp(MDApp):
         MatchingScreen.set_questions(MatchingScreen, self.questions)
         CheckboxScreen.set_questions(CheckboxScreen, self.questions)
         SAQScreen.set_questions(SAQScreen, self.questions)
-
 
         # figure out how to change the format for matching
 
@@ -64,9 +66,7 @@ class FBLAQuizApp(MDApp):
             self.theme_cls.theme_style = "Light"
         
         # self.theme_cls.theme_style = "Dark" 
-        
-        # self.root.current = "end"
-        
+
     def has_answered_question(self):
         # don't go if the user hasn't answered
         # but we don't care about home and end screen
@@ -105,8 +105,8 @@ class FBLAQuizApp(MDApp):
     def print_results(self):
         pass
 
-    def matching_select(self, dropdown, answer_text):
-        MatchingScreen.matching_select(self.root.current_screen, dropdown, answer_text)
+    def matching_select(self, dropdown):
+        MatchingScreen.matching_select(self.root.current_screen, dropdown)
         
 if __name__ == "__main__":
     FBLAQuizApp().run()

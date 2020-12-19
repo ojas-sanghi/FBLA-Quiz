@@ -39,13 +39,13 @@
             "horse",
             "hedgehog"
         ],
-        "answer": [
-            "B",
-            "A",
-            "C",
-            "C",
-            "B"
-        ]
+        "answer": {
+            "pig": "B",
+            "lion": "A",
+            "zebra": "C",
+            "horse": "C",
+            "hedgehog": "B"
+        }
     },
     {
         "id": 4,
@@ -108,13 +108,13 @@
             "horse",
             "hedgehog"
         ],
-        "answer": [
-            "B",
-            "A",
-            "C",
-            "C",
-            "B"
-        ]
+        "answer": {
+            "pig": "B",
+            "lion": "A",
+            "zebra": "C",
+            "horse": "C",
+            "hedgehog": "B"
+        }
     },
     {
         "id": 10,
@@ -177,13 +177,13 @@
             "horse",
             "hedgehog"
         ],
-        "answer": [
-            "B",
-            "A",
-            "C",
-            "C",
-            "B"
-        ]
+        "answer": {
+            "pig": "B",
+            "lion": "A",
+            "zebra": "C",
+            "horse": "C",
+            "hedgehog": "B"
+        }
     },
     {
         "id": 16,
@@ -246,13 +246,13 @@
             "horse",
             "hedgehog"
         ],
-        "answer": [
-            "B",
-            "A",
-            "C",
-            "C",
-            "B"
-        ]
+        "answer": {
+            "pig": "B",
+            "lion": "A",
+            "zebra": "C",
+            "horse": "C",
+            "hedgehog": "B"
+        }
     },
     {
         "id": 22,
@@ -315,13 +315,13 @@
             "horse",
             "hedgehog"
         ],
-        "answer": [
-            "B",
-            "A",
-            "C",
-            "C",
-            "B"
-        ]
+        "answer": {
+            "pig": "B",
+            "lion": "A",
+            "zebra": "C",
+            "horse": "C",
+            "hedgehog": "B"
+        }
     },
     {
         "id": 28,
@@ -384,13 +384,13 @@
             "horse",
             "hedgehog"
         ],
-        "answer": [
-            "B",
-            "A",
-            "C",
-            "C",
-            "B"
-        ]
+        "answer": {
+            "pig": "B",
+            "lion": "A",
+            "zebra": "C",
+            "horse": "C",
+            "hedgehog": "B"
+        }
     },
     {
         "id": 34,
@@ -453,13 +453,13 @@
             "horse",
             "hedgehog"
         ],
-        "answer": [
-            "B",
-            "A",
-            "C",
-            "C",
-            "B"
-        ]
+        "answer": {
+            "pig": "B",
+            "lion": "A",
+            "zebra": "C",
+            "horse": "C",
+            "hedgehog": "B"
+        }
     },
     {
         "id": 40,
@@ -522,13 +522,13 @@
             "horse",
             "hedgehog"
         ],
-        "answer": [
-            "B",
-            "A",
-            "C",
-            "C",
-            "B"
-        ]
+        "answer": {
+            "pig": "B",
+            "lion": "A",
+            "zebra": "C",
+            "horse": "C",
+            "hedgehog": "B"
+        }
     },
     {
         "id": 46,

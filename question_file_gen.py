@@ -48,7 +48,7 @@ def make_matching(q_id):
         "question": "match the animals to their diets",
         "options": ["A. carnivore", "B. omnivore", "C. herbivore"], 
         "words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-        "answer": ["B", "A", "C", "C", "B"]
+        "answer": {"pig": "B", "lion": "A", "zebra": "C", "horse": "C", "hedgehog": "B"}
     }
     return s
 
@@ -111,4 +111,4 @@ def generate():
 f = open("questions.json", "w+")
 f.write(generate())
 
-print(generate())
+print("Done.")
