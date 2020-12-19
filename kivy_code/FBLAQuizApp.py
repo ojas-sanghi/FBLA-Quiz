@@ -1,6 +1,7 @@
 from datetime import datetime
 
 import quiz_generator
+from printer import Printer
 from kivy.config import Config
 from kivy.lang import Builder
 from kivy.properties import BooleanProperty, ListProperty, NumericProperty
@@ -39,9 +40,6 @@ class FBLAQuizApp(MDApp):
         self.questions = quiz_generator.get_questions(5)
         self.screens = [q.type for q in self.questions]
 
-        print(self.screens)
-
-
         MCQScreen.set_questions(MCQScreen, self.questions)
         TFScreen.set_questions(TFScreen, self.questions)
         BlankScreen.set_questions(BlankScreen, self.questions)
@@ -49,11 +47,25 @@ class FBLAQuizApp(MDApp):
         CheckboxScreen.set_questions(CheckboxScreen, self.questions)
         SAQScreen.set_questions(SAQScreen, self.questions)
 
-        # figure out how to change the format for matching
-
         # next screen and previous screen
         # maybe use https://github.com/kivymd-extensions/akivymd for cool fx
         # mainly the cool x/25 thing for the end screen
+
+        # verify printing works on windows/mac
+        # figure how to programmatically generate html code using dominate
+            # pass in self.questions_correct 
+            # and self.questions 
+            # to Printer.print() 
+            # use to print:
+            # a) question itself 
+            # b) options
+            # c) correct or incorrect
+            # d) what the actual answer is
+            # e) what ur answer is 
+
+            # maybe go thru git history to find how
+            # we printed out the questions in cli mode
+            
 
 
     def build(self):
@@ -67,6 +79,7 @@ class FBLAQuizApp(MDApp):
             self.theme_cls.theme_style = "Light"
         
         # self.theme_cls.theme_style = "Dark" 
+        self.root.current = "end"
 
     def has_answered_question(self):
         # don't go if the user hasn't answered
@@ -104,7 +117,8 @@ class FBLAQuizApp(MDApp):
         EndScreen.set_response_data(EndScreen, self.questions_correct)
     
     def print_results(self):
-        pass
+        p = Printer()
+        p.print("")
 
     def matching_select(self, dropdown):
         MatchingScreen.matching_select(self.root.current_screen, dropdown)

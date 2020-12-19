@@ -18,6 +18,8 @@ kivy = "==1.11.1"
 kivy-examples = "==1.11.1"
 kivymd = "*"
 isort = "*"
+weasyprint = "*"
+dominate = "*"
 
 [requires]
 python_version = "3.7"
