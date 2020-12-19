@@ -1,6 +1,5 @@
 from functools import partial
 from question import Question
-from typing import KeysView
 
 from kivy.clock import Clock
 from kivy.uix.screenmanager import Screen
