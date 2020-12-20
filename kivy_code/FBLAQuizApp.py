@@ -51,7 +51,11 @@ class FBLAQuizApp(MDApp):
         # maybe use https://github.com/kivymd-extensions/akivymd for cool fx
         # mainly the cool x/25 thing for the end screen
 
-        # verify printing works on windows/mac
+        # verify printing mac
+        # add questions in questions.json
+        # maybe make html look prettier?
+
+        # WRAP LABELS IN KIVY????
 
 
     def build(self):

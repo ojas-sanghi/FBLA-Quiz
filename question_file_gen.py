@@ -17,8 +17,8 @@ def make_mcq(q_id):
         "id": q_id, 
         "type": "mcq", 
         "question": "What does FBLA stand for?",
-        "options": ["future dumb", "future smart", "future scammers", "future leaders"],
-        "answer": "future leaders"
+        "options": ["Future Blooming Leaders of America", "Future Business Leaders of America", "Future Bundle Leaders of America", "Future Business Leaders of Austria"],
+        "answer": "Future Business Leaders of America"
     }
     return s
 
@@ -26,7 +26,7 @@ def make_tf(q_id):
     s = {
         "id": q_id, 
         "type": "tf", 
-        "question": "True/False: FBLA is goated",
+        "question": "True/False: FBLA holds regional competitions",
         "options": ["True", "False"],
         "answer": "True"
     }
@@ -47,9 +47,9 @@ def make_matching(q_id):
         "id": q_id, 
         "type": "matching", 
         "question": "Match the animals to their diets",
-        "options": ["A) carnivore", "B) omnivore", "C) herbivore"], 
-        "words": ["pig", "lion", "zebra", "horse", "hedgehog"],
-        "answer": {"pig": "B", "lion": "A", "zebra": "C", "horse": "C", "hedgehog": "B"}
+        "options": ["A) Carnivore", "B) Omnivore", "C) Herbivore"], 
+        "words": ["Pig", "Lion", "Zebra", "Horse", "Hedgehog"],
+        "answer": {"Pig": "B", "Lion": "A", "Zebra": "C", "Horse": "C", "Hedgehog": "B"}
     }
     return s
 
@@ -58,8 +58,8 @@ def make_checkbox(q_id):
         "id": q_id, 
         "type": "checkbox", 
         "question": "Which of the following are true about FBLA? (Choose all that apply)",
-        "options": ["has BAA", "is college program", "is high school program", "costs $20,000"],
-        "answer": ["has BAA", "is high school program"]
+        "options": ["Has the BAA program", "It is a college program", "It is a high school program", "It has an entry fee of $150"],
+        "answer": ["Has the BAA program", "It is a high school program"]
     }
     return s
 
