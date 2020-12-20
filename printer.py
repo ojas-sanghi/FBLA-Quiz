@@ -5,9 +5,9 @@ from question import Question
 import tempfile
 import dominate
 from dominate.tags import *
-from dominate.util import raw
 
 import weasyprint
+import subprocess
 
 class Printer:
     questions: List[Question]
@@ -19,27 +19,6 @@ class Printer:
         self.questions = questions
         self.correct_list = correct_list
         self.num_correct = self.correct_list.count(True)
-
-    def print_win(self):
-        import win32api
-        import win32print
-
-        # os.startfile("C:/Users/TestFile.txt", "print")
-
-        with open("results.txt", "w+") as f:
-            f.write("RESULT")
-            # f.
-
-    def print_linux(self):
-        print(self.filename)
-        return
-
-        import subprocess
-        subprocess.Popen(["/usr/bin/lp", self.filename])
-
-
-    def print_mac(self):
-        pass
 
 
     def construct_file(self):
@@ -140,15 +119,16 @@ class Printer:
 
     def print(self):
         self.construct_file()
+        print(self.filename)
 
         if platform.system() == "Windows":
-            self.print_win()
+            subprocess.call(('start', self.filename), shell=True)
         
         elif platform.system() == "Linux":
-            self.print_linux()
+            subprocess.call(('xdg-open', self.filename))
 
         elif platform.system() == "Darwin":
-            self.print_mac()
+            subprocess.call(('open', self.filename))
 
     
 if __name__ == "__main__":
