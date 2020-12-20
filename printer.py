@@ -142,7 +142,7 @@ if __name__ == "__main__":
     ]
     questions[0].response = ["has BAA", "is high school program"]
     questions[1].response = "business accolades"
-    questions[2].response = {'pig': 'C', 'lion': 'B', 'zebra': 'A', 'horse': 'D', 'hedgehog': 'D'}
+    questions[2].response = {'pig': 'C', 'lion': 'B', 'zebra': 'A', 'horse': 'A', 'hedgehog': 'B'}
     questions[3].response = "business"
     questions[4].response = "False"
     questions[5].response = "future smart"
