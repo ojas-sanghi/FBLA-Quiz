@@ -109,7 +109,7 @@ class Printer:
                             answer = ", ".join(answer.values())
 
                         # line goes before "your answer" etc
-                        p("-----------------------------------")
+                        if question.type in ["checkbox", "matching"]: p("-----------------------------------")
                         if question.is_correct():
                             p("Your answer: ", span(response, style="color:green"))
                         else:
