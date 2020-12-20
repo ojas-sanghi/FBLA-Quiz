@@ -2,7 +2,7 @@
     {
         "id": 0,
         "type": "mcq",
-        "question": "what does fbla stand for",
+        "question": "What does FBLA stand for?",
         "options": [
             "future dumb",
             "future smart",
@@ -15,22 +15,26 @@
         "id": 1,
         "type": "tf",
         "question": "True/False: FBLA is goated",
+        "options": [
+            "True",
+            "False"
+        ],
         "answer": "True"
     },
     {
         "id": 2,
         "type": "blank",
-        "question": "fbla stands for future _ leaders of america",
+        "question": "FBLA stands for: Future ________ Leaders of America",
         "answer": "business"
     },
     {
         "id": 3,
         "type": "matching",
-        "question": "match the animals to their diets",
+        "question": "Match the animals to their diets",
         "options": [
-            "A. carnivore",
-            "B. omnivore",
-            "C. herbivore"
+            "A) carnivore",
+            "B) omnivore",
+            "C) herbivore"
         ],
         "words": [
             "pig",
@@ -50,7 +54,7 @@
     {
         "id": 4,
         "type": "checkbox",
-        "question": "which of the following are true about fbla?",
+        "question": "Which of the following are true about FBLA? (Choose all that apply)",
         "options": [
             "has BAA",
             "is college program",
@@ -65,13 +69,13 @@
     {
         "id": 5,
         "type": "saq",
-        "question": "full form of BAA",
+        "question": "What is the full form of the BAA?",
         "answer": "business achievement awards"
     },
     {
         "id": 6,
         "type": "mcq",
-        "question": "what does fbla stand for",
+        "question": "What does FBLA stand for?",
         "options": [
             "future dumb",
             "future smart",
@@ -84,22 +88,26 @@
         "id": 7,
         "type": "tf",
         "question": "True/False: FBLA is goated",
+        "options": [
+            "True",
+            "False"
+        ],
         "answer": "True"
     },
     {
         "id": 8,
         "type": "blank",
-        "question": "fbla stands for future _ leaders of america",
+        "question": "FBLA stands for: Future ________ Leaders of America",
         "answer": "business"
     },
     {
         "id": 9,
         "type": "matching",
-        "question": "match the animals to their diets",
+        "question": "Match the animals to their diets",
         "options": [
-            "A. carnivore",
-            "B. omnivore",
-            "C. herbivore"
+            "A) carnivore",
+            "B) omnivore",
+            "C) herbivore"
         ],
         "words": [
             "pig",
@@ -119,7 +127,7 @@
     {
         "id": 10,
         "type": "checkbox",
-        "question": "which of the following are true about fbla?",
+        "question": "Which of the following are true about FBLA? (Choose all that apply)",
         "options": [
             "has BAA",
             "is college program",
@@ -134,13 +142,13 @@
     {
         "id": 11,
         "type": "saq",
-        "question": "full form of BAA",
+        "question": "What is the full form of the BAA?",
         "answer": "business achievement awards"
     },
     {
         "id": 12,
         "type": "mcq",
-        "question": "what does fbla stand for",
+        "question": "What does FBLA stand for?",
         "options": [
             "future dumb",
             "future smart",
@@ -153,22 +161,26 @@
         "id": 13,
         "type": "tf",
         "question": "True/False: FBLA is goated",
+        "options": [
+            "True",
+            "False"
+        ],
         "answer": "True"
     },
     {
         "id": 14,
         "type": "blank",
-        "question": "fbla stands for future _ leaders of america",
+        "question": "FBLA stands for: Future ________ Leaders of America",
         "answer": "business"
     },
     {
         "id": 15,
         "type": "matching",
-        "question": "match the animals to their diets",
+        "question": "Match the animals to their diets",
         "options": [
-            "A. carnivore",
-            "B. omnivore",
-            "C. herbivore"
+            "A) carnivore",
+            "B) omnivore",
+            "C) herbivore"
         ],
         "words": [
             "pig",
@@ -188,7 +200,7 @@
     {
         "id": 16,
         "type": "checkbox",
-        "question": "which of the following are true about fbla?",
+        "question": "Which of the following are true about FBLA? (Choose all that apply)",
         "options": [
             "has BAA",
             "is college program",
@@ -203,13 +215,13 @@
     {
         "id": 17,
         "type": "saq",
-        "question": "full form of BAA",
+        "question": "What is the full form of the BAA?",
         "answer": "business achievement awards"
     },
     {
         "id": 18,
         "type": "mcq",
-        "question": "what does fbla stand for",
+        "question": "What does FBLA stand for?",
         "options": [
             "future dumb",
             "future smart",
@@ -222,22 +234,26 @@
         "id": 19,
         "type": "tf",
         "question": "True/False: FBLA is goated",
+        "options": [
+            "True",
+            "False"
+        ],
         "answer": "True"
     },
     {
         "id": 20,
         "type": "blank",
-        "question": "fbla stands for future _ leaders of america",
+        "question": "FBLA stands for: Future ________ Leaders of America",
         "answer": "business"
     },
     {
         "id": 21,
         "type": "matching",
-        "question": "match the animals to their diets",
+        "question": "Match the animals to their diets",
         "options": [
-            "A. carnivore",
-            "B. omnivore",
-            "C. herbivore"
+            "A) carnivore",
+            "B) omnivore",
+            "C) herbivore"
         ],
         "words": [
             "pig",
@@ -257,7 +273,7 @@
     {
         "id": 22,
         "type": "checkbox",
-        "question": "which of the following are true about fbla?",
+        "question": "Which of the following are true about FBLA? (Choose all that apply)",
         "options": [
             "has BAA",
             "is college program",
@@ -272,13 +288,13 @@
     {
         "id": 23,
         "type": "saq",
-        "question": "full form of BAA",
+        "question": "What is the full form of the BAA?",
         "answer": "business achievement awards"
     },
     {
         "id": 24,
         "type": "mcq",
-        "question": "what does fbla stand for",
+        "question": "What does FBLA stand for?",
         "options": [
             "future dumb",
             "future smart",
@@ -291,22 +307,26 @@
         "id": 25,
         "type": "tf",
         "question": "True/False: FBLA is goated",
+        "options": [
+            "True",
+            "False"
+        ],
         "answer": "True"
     },
     {
         "id": 26,
         "type": "blank",
-        "question": "fbla stands for future _ leaders of america",
+        "question": "FBLA stands for: Future ________ Leaders of America",
         "answer": "business"
     },
     {
         "id": 27,
         "type": "matching",
-        "question": "match the animals to their diets",
+        "question": "Match the animals to their diets",
         "options": [
-            "A. carnivore",
-            "B. omnivore",
-            "C. herbivore"
+            "A) carnivore",
+            "B) omnivore",
+            "C) herbivore"
         ],
         "words": [
             "pig",
@@ -326,7 +346,7 @@
     {
         "id": 28,
         "type": "checkbox",
-        "question": "which of the following are true about fbla?",
+        "question": "Which of the following are true about FBLA? (Choose all that apply)",
         "options": [
             "has BAA",
             "is college program",
@@ -341,13 +361,13 @@
     {
         "id": 29,
         "type": "saq",
-        "question": "full form of BAA",
+        "question": "What is the full form of the BAA?",
         "answer": "business achievement awards"
     },
     {
         "id": 30,
         "type": "mcq",
-        "question": "what does fbla stand for",
+        "question": "What does FBLA stand for?",
         "options": [
             "future dumb",
             "future smart",
@@ -360,22 +380,26 @@
         "id": 31,
         "type": "tf",
         "question": "True/False: FBLA is goated",
+        "options": [
+            "True",
+            "False"
+        ],
         "answer": "True"
     },
     {
         "id": 32,
         "type": "blank",
-        "question": "fbla stands for future _ leaders of america",
+        "question": "FBLA stands for: Future ________ Leaders of America",
         "answer": "business"
     },
     {
         "id": 33,
         "type": "matching",
-        "question": "match the animals to their diets",
+        "question": "Match the animals to their diets",
         "options": [
-            "A. carnivore",
-            "B. omnivore",
-            "C. herbivore"
+            "A) carnivore",
+            "B) omnivore",
+            "C) herbivore"
         ],
         "words": [
             "pig",
@@ -395,7 +419,7 @@
     {
         "id": 34,
         "type": "checkbox",
-        "question": "which of the following are true about fbla?",
+        "question": "Which of the following are true about FBLA? (Choose all that apply)",
         "options": [
             "has BAA",
             "is college program",
@@ -410,13 +434,13 @@
     {
         "id": 35,
         "type": "saq",
-        "question": "full form of BAA",
+        "question": "What is the full form of the BAA?",
         "answer": "business achievement awards"
     },
     {
         "id": 36,
         "type": "mcq",
-        "question": "what does fbla stand for",
+        "question": "What does FBLA stand for?",
         "options": [
             "future dumb",
             "future smart",
@@ -429,22 +453,26 @@
         "id": 37,
         "type": "tf",
         "question": "True/False: FBLA is goated",
+        "options": [
+            "True",
+            "False"
+        ],
         "answer": "True"
     },
     {
         "id": 38,
         "type": "blank",
-        "question": "fbla stands for future _ leaders of america",
+        "question": "FBLA stands for: Future ________ Leaders of America",
         "answer": "business"
     },
     {
         "id": 39,
         "type": "matching",
-        "question": "match the animals to their diets",
+        "question": "Match the animals to their diets",
         "options": [
-            "A. carnivore",
-            "B. omnivore",
-            "C. herbivore"
+            "A) carnivore",
+            "B) omnivore",
+            "C) herbivore"
         ],
         "words": [
             "pig",
@@ -464,7 +492,7 @@
     {
         "id": 40,
         "type": "checkbox",
-        "question": "which of the following are true about fbla?",
+        "question": "Which of the following are true about FBLA? (Choose all that apply)",
         "options": [
             "has BAA",
             "is college program",
@@ -479,13 +507,13 @@
     {
         "id": 41,
         "type": "saq",
-        "question": "full form of BAA",
+        "question": "What is the full form of the BAA?",
         "answer": "business achievement awards"
     },
     {
         "id": 42,
         "type": "mcq",
-        "question": "what does fbla stand for",
+        "question": "What does FBLA stand for?",
         "options": [
             "future dumb",
             "future smart",
@@ -498,22 +526,26 @@
         "id": 43,
         "type": "tf",
         "question": "True/False: FBLA is goated",
+        "options": [
+            "True",
+            "False"
+        ],
         "answer": "True"
     },
     {
         "id": 44,
         "type": "blank",
-        "question": "fbla stands for future _ leaders of america",
+        "question": "FBLA stands for: Future ________ Leaders of America",
         "answer": "business"
     },
     {
         "id": 45,
         "type": "matching",
-        "question": "match the animals to their diets",
+        "question": "Match the animals to their diets",
         "options": [
-            "A. carnivore",
-            "B. omnivore",
-            "C. herbivore"
+            "A) carnivore",
+            "B) omnivore",
+            "C) herbivore"
         ],
         "words": [
             "pig",
@@ -533,7 +565,7 @@
     {
         "id": 46,
         "type": "checkbox",
-        "question": "which of the following are true about fbla?",
+        "question": "Which of the following are true about FBLA? (Choose all that apply)",
         "options": [
             "has BAA",
             "is college program",
@@ -548,13 +580,13 @@
     {
         "id": 47,
         "type": "saq",
-        "question": "full form of BAA",
+        "question": "What is the full form of the BAA?",
         "answer": "business achievement awards"
     },
     {
         "id": 48,
         "type": "mcq",
-        "question": "what does fbla stand for",
+        "question": "What does FBLA stand for?",
         "options": [
             "future dumb",
             "future smart",
@@ -567,6 +599,10 @@
         "id": 49,
         "type": "tf",
         "question": "True/False: FBLA is goated",
+        "options": [
+            "True",
+            "False"
+        ],
         "answer": "True"
     }
 ]

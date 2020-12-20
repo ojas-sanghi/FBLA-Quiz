@@ -11,8 +11,6 @@ class EndScreen(Screen):
 
         self.total_correct = self.questions_correct.count(True)
 
-        print(self.questions_correct)
-    
     def on_pre_enter(self):
 
         # set "total correct" label to correct number

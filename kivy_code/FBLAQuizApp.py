@@ -4,7 +4,6 @@ import quiz_generator
 from printer import Printer
 from kivy.config import Config
 from kivy.lang import Builder
-from kivy.properties import BooleanProperty, ListProperty, NumericProperty
 from kivy.uix.screenmanager import ScreenManager
 from kivy.factory import Factory
 from kivymd.app import MDApp
@@ -47,25 +46,12 @@ class FBLAQuizApp(MDApp):
         CheckboxScreen.set_questions(CheckboxScreen, self.questions)
         SAQScreen.set_questions(SAQScreen, self.questions)
 
+        # TODO:
         # next screen and previous screen
         # maybe use https://github.com/kivymd-extensions/akivymd for cool fx
         # mainly the cool x/25 thing for the end screen
 
         # verify printing works on windows/mac
-        # figure how to programmatically generate html code using dominate
-            # pass in self.questions_correct 
-            # and self.questions 
-            # to Printer.print() 
-            # use to print:
-            # a) question itself 
-            # b) options
-            # c) correct or incorrect
-            # d) what the actual answer is
-            # e) what ur answer is 
-
-            # maybe go thru git history to find how
-            # we printed out the questions in cli mode
-            
 
 
     def build(self):
@@ -79,7 +65,7 @@ class FBLAQuizApp(MDApp):
             self.theme_cls.theme_style = "Light"
         
         # self.theme_cls.theme_style = "Dark" 
-        self.root.current = "end"
+        # self.root.current = "end"
 
     def has_answered_question(self):
         # don't go if the user hasn't answered
@@ -117,8 +103,8 @@ class FBLAQuizApp(MDApp):
         EndScreen.set_response_data(EndScreen, self.questions_correct)
     
     def print_results(self):
-        p = Printer()
-        p.print("")
+        p = Printer(self.questions, self.questions_correct)
+        p.print()
 
     def matching_select(self, dropdown):
         MatchingScreen.matching_select(self.root.current_screen, dropdown)

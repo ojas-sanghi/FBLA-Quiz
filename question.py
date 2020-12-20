@@ -1,6 +1,6 @@
 class Question:
     id: str
-    type: str
+    type: str # mcq, tf, blank, matching, checkbox, saq
     text: str
     options: list
     words: list
@@ -11,13 +11,18 @@ class Question:
 
     def __init__(self, q: dict) -> None:
         self.id = q["id"]
-        self.type = q["type"] # mcq, tf, blank, matching, checkbox, saq
+        self.type = q["type"]
 
         self.text = q["question"]
         self.answer = q["answer"]
+        if self.type == "checkbox":
+            self.answer = sorted(self.answer)
+        
         self.response = []
+        if self.type == "matching":
+            self.response = {}
 
-        if self.type in ["mcq", "matching", "checkbox"]:
+        if self.type in ["mcq", "matching", "checkbox", "tf"]:
             self.options = q["options"]
         else:
             self.options = []
@@ -28,7 +33,4 @@ class Question:
             self.words = []
         
     def is_correct(self) -> bool:
-        if self.type == "checkbox":
-            return sorted(self.response) == sorted(self.answer)
-        
         return self.response == self.answer

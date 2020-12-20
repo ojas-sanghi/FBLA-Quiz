@@ -12,6 +12,7 @@ class CheckboxScreen(Screen):
             self.question.response.remove(self.options[param])
         else:
             self.question.response.append(self.options[param])
+        self.question.response = sorted(self.question.response)
         
     def set_questions(self, qs: list):
         self.questions = qs

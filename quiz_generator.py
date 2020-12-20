@@ -20,7 +20,7 @@ def get_questions(num: int) -> list:
     # lists to keep track of question ids (to ensure each is unique)
     # and to keep track of question types (to ensure each question type is unique)
     ids_used = []
-    types_used = []
+    types_used = ["saq"]
     
     i = 0
     while i < num:

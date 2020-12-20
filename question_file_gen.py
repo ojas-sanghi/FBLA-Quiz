@@ -16,7 +16,7 @@ def make_mcq(q_id):
     s = {
         "id": q_id, 
         "type": "mcq", 
-        "question": "what does fbla stand for",
+        "question": "What does FBLA stand for?",
         "options": ["future dumb", "future smart", "future scammers", "future leaders"],
         "answer": "future leaders"
     }
@@ -27,6 +27,7 @@ def make_tf(q_id):
         "id": q_id, 
         "type": "tf", 
         "question": "True/False: FBLA is goated",
+        "options": ["True", "False"],
         "answer": "True"
     }
     return s
@@ -35,7 +36,7 @@ def make_blank(q_id):
     s = {
         "id": q_id, 
         "type": "blank", 
-        "question": "fbla stands for future _ leaders of america",
+        "question": "FBLA stands for: Future ________ Leaders of America",
         "answer": "business"
     }
     return s
@@ -45,8 +46,8 @@ def make_matching(q_id):
     s = {
         "id": q_id, 
         "type": "matching", 
-        "question": "match the animals to their diets",
-        "options": ["A. carnivore", "B. omnivore", "C. herbivore"], 
+        "question": "Match the animals to their diets",
+        "options": ["A) carnivore", "B) omnivore", "C) herbivore"], 
         "words": ["pig", "lion", "zebra", "horse", "hedgehog"],
         "answer": {"pig": "B", "lion": "A", "zebra": "C", "horse": "C", "hedgehog": "B"}
     }
@@ -56,7 +57,7 @@ def make_checkbox(q_id):
     s = {
         "id": q_id, 
         "type": "checkbox", 
-        "question": "which of the following are true about fbla?",
+        "question": "Which of the following are true about FBLA? (Choose all that apply)",
         "options": ["has BAA", "is college program", "is high school program", "costs $20,000"],
         "answer": ["has BAA", "is high school program"]
     }
@@ -66,7 +67,7 @@ def make_saq(q_id):
     s = {
         "id": q_id,
         "type": "saq",
-        "question": "full form of BAA",
+        "question": "What is the full form of the BAA?",
         "answer": "business achievement awards"
     }
     return s
