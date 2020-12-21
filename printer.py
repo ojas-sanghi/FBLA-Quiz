@@ -79,7 +79,7 @@ class Printer:
                         answer = question.answer
                         # specially formatted response string
 
-                        if question.type in ["checkbox"]: #, "matching"]:
+                        if question.type in ["checkbox"]:
                             response = ", ".join(question.response)
                             answer = ", ".join(question.answer)
                         

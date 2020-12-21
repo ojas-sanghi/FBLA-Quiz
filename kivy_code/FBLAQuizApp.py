@@ -1,12 +1,16 @@
 from datetime import datetime
 
+from kivy.event import EventDispatcher
+
 import quiz_generator
 from printer import Printer
 from kivy.config import Config
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 from kivy.factory import Factory
+from kivy.properties import NumericProperty, OptionProperty
 from kivymd.app import MDApp
+from kivymd.uix.progressbar import MDProgressBar
 
 from .blank import BlankScreen
 from .checkbox import CheckboxScreen
@@ -57,6 +61,12 @@ class FBLAQuizApp(MDApp):
 
         # WRAP LABELS IN KIVY????
 
+        # use akivymd extensions
+        # dialog box after question to show correct/incorrect
+        # progress widget on the end screen
+
+        # endgame challenge: keep progressbar, move just the  question
+
 
     def build(self):
         self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
@@ -95,6 +105,10 @@ class FBLAQuizApp(MDApp):
         if self.screen_num <= 4:
             self.root.current = self.screens[self.screen_num]
             self.screen_num += 1
+
+            progress_value = self.screen_num * 20
+            self.root.current_screen.ids.progress_bar.value = progress_value
+
         else:
             self.calculate_correct()
             self.root.current = "end"
@@ -109,6 +123,10 @@ class FBLAQuizApp(MDApp):
     def print_results(self):
         p = Printer(self.questions, self.questions_correct)
         p.print()
+
+    ######################################
+    # utility functions screens/widgets
+    #######################################
 
     def matching_select(self, dropdown):
         MatchingScreen.matching_select(self.root.current_screen, dropdown)
@@ -135,5 +153,6 @@ class FBLAQuizApp(MDApp):
         # should be A/B/C, "pick option" is the default
         return previous.ids.btn.text != "Pick Option"
         
+
 if __name__ == "__main__":
     FBLAQuizApp().run()
