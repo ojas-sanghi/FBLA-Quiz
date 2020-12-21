@@ -1,6 +1,7 @@
 from kivy.uix.screenmanager import Screen
 from kivy.properties import NumericProperty, ListProperty
-import kivy.factory 
+
+import kivymd_extensions.akivymd
 
 class EndScreen(Screen):
     questions_correct = ListProperty([False, False, False, False, False])
@@ -12,12 +13,6 @@ class EndScreen(Screen):
         self.total_correct = self.questions_correct.count(True)
 
     def on_pre_enter(self):
-
-        # set "total correct" label to correct number
-        total_label = self.ids.results
-        total_label.text = f"Total Correct: {self.total_correct}/5"
-
-
         two_d_labels = []
         # get all the boxes underneath the "MDBoxLayout" whose id is "box_of_labels_box"
         # add the labels which are children of those boxes to a list
@@ -41,3 +36,7 @@ class EndScreen(Screen):
                     label.text = f"Question {question_num}: "
             
             question_num += 1
+
+    def on_enter(self, *args):
+        progress_circle = self.ids.progress
+        progress_circle.current_percent = self.total_correct

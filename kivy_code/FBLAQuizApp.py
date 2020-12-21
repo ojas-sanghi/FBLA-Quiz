@@ -52,8 +52,6 @@ class FBLAQuizApp(MDApp):
 
         # TODO:
         # next screen and previous screen
-        # maybe use https://github.com/kivymd-extensions/akivymd for cool fx
-        # mainly the cool x/25 thing for the end screen
 
         # verify printing mac
         # add questions in questions.json
@@ -63,7 +61,6 @@ class FBLAQuizApp(MDApp):
 
         # use akivymd extensions
         # dialog box after question to show correct/incorrect
-        # progress widget on the end screen
 
         # endgame challenge: keep progressbar, move just the  question
 
@@ -79,7 +76,7 @@ class FBLAQuizApp(MDApp):
             self.theme_cls.theme_style = "Light"
         
         # self.theme_cls.theme_style = "Dark" 
-        # self.root.current = "end"
+        self.root.current = "end"
 
     def has_answered_question(self):
         # don't go if the user hasn't answered
