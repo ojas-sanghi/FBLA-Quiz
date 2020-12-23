@@ -1,16 +1,12 @@
 from datetime import datetime
 
-from kivy.event import EventDispatcher
-
 import quiz_generator
 from printer import Printer
 from kivy.config import Config
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 from kivy.factory import Factory
-from kivy.properties import NumericProperty, OptionProperty
 from kivymd.app import MDApp
-from kivymd.uix.progressbar import MDProgressBar
 
 from .blank import BlankScreen
 from .checkbox import CheckboxScreen
@@ -43,6 +39,8 @@ class FBLAQuizApp(MDApp):
         self.questions = quiz_generator.get_questions(5)
         self.screens = [q.type for q in self.questions]
 
+        print(self.screens)
+
         MCQScreen.set_questions(MCQScreen, self.questions)
         TFScreen.set_questions(TFScreen, self.questions)
         BlankScreen.set_questions(BlankScreen, self.questions)
@@ -52,31 +50,32 @@ class FBLAQuizApp(MDApp):
 
         # TODO:
         # next screen and previous screen
+        # use akivymd extensions
+            # dialog box after question to show correct/incorrect
+        # WRAP LABELS IN KIVY????
+        # add questions in questions.json
 
         # verify printing mac
-        # add questions in questions.json
-        # maybe make html look prettier?
 
-        # WRAP LABELS IN KIVY????
-
-        # use akivymd extensions
-        # dialog box after question to show correct/incorrect
-
-        # endgame challenge: keep progressbar, move just the  question
+        # endgame challenges: 
+        # keep progressbar, move just the question
+        # make html look prettier
+        
 
 
     def build(self):
         self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
         
-        # dark mode after 7 pm
+        # dark mode after 7 pm, before 6 am
         now = datetime.now()
-        if now.hour >= 19:
+        print(now.hour)
+        if now.hour >= 19 or now.hour <= 6:
             self.theme_cls.theme_style = "Dark" 
         else:
             self.theme_cls.theme_style = "Light"
         
         # self.theme_cls.theme_style = "Dark" 
-        self.root.current = "end"
+        # self.root.current = "end"
 
     def has_answered_question(self):
         # don't go if the user hasn't answered
@@ -98,10 +97,12 @@ class FBLAQuizApp(MDApp):
         # if not self.has_answered_question():
         #     return
 
+        self.root.transition.direction = "left"
         # list has 5 items, so index cannot exceed 4
         if self.screen_num <= 4:
             self.root.current = self.screens[self.screen_num]
             self.screen_num += 1
+            self.check_prev_btn_opacity()
 
             progress_value = self.screen_num * 20
             self.root.current_screen.ids.progress_bar.value = progress_value
@@ -109,12 +110,36 @@ class FBLAQuizApp(MDApp):
         else:
             self.calculate_correct()
             self.root.current = "end"
+
+
+    def previous_question(self):
+        # don't go out of bounds
+        # screen_num of 1 means we're on the first screen
+        if self.screen_num == 1:
+            return
+        
+        self.screen_num -= 2
+
+        self.root.transition.direction = "right"
+        self.root.current = self.screens[self.screen_num]
+        self.screen_num += 1
+
+        self.check_prev_btn_opacity()
+
+    # function called after every scene transition
+    # "previous" button shouldn't be on 1st question page
+    def check_prev_btn_opacity(self):
+        btn = self.root.current_screen.ids.prev_btn
+
+        if self.screen_num == 1: 
+            btn.opacity = 0 
+            btn.disabled = True
     
     def calculate_correct(self):
         for s in self.screens:
             screen = self.root.get_screen(s)
             self.questions_correct.append(screen.question.is_correct())
-        
+
         EndScreen.set_response_data(EndScreen, self.questions_correct)
     
     def print_results(self):

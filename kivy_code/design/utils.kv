@@ -7,18 +7,30 @@
     size_hint: None, None
     pos_hint: {'center_x': .1, 'center_y': .5}
 
+<NextPrevBox@MDBoxLayout>:
+    size_hint_y: 0.2
+    padding: 0, 0, 0, 30
 
-<SubmitAnchor@AnchorLayout>:
+<NextAnchor@AnchorLayout>:
     anchor_x: 'right'   
     padding: 25
     size_hint_y: 0.2
 
-<SubmitButton@MDRaisedButton>:
-    id: btn
-    text: 'Submit Answer'
-    halign: 'right'
-    pos_hint: {'right': 1}
+<NextQuestion@MDRaisedButton>:
+    text: 'Next Question'
     on_release: app.next_screen()
+
+<PreviousAnchor@AnchorLayout>:
+    anchor_x: 'left'
+    padding: 25
+    size_hint_y: 0.2
+
+<PreviousQuestion@MDRaisedButton>:
+    text: 'Previous Question'
+    halign: 'left'
+    on_release: app.previous_question()
+    opacity: 1
+        
 
 <LineDivider@MDProgressBar>:
     id: progress_bar
