@@ -29,6 +29,8 @@ class FBLAQuizApp(MDApp):
 
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
+
+        # don't make red circles on RMB click
         Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
         # load all files
@@ -36,11 +38,11 @@ class FBLAQuizApp(MDApp):
         for file in self.file_names:
             Builder.load_file("kivy_code/design/" + file + ".kv")
 
+        # generate 5 random questions
         self.questions = quiz_generator.get_questions(5)
         self.screens = [q.type for q in self.questions]
 
-        print(self.screens)
-
+        # set details for the questions in each respective screen
         MCQScreen.set_questions(MCQScreen, self.questions)
         TFScreen.set_questions(TFScreen, self.questions)
         BlankScreen.set_questions(BlankScreen, self.questions)
@@ -49,7 +51,6 @@ class FBLAQuizApp(MDApp):
         SAQScreen.set_questions(SAQScreen, self.questions)
 
         # TODO:
-        # next screen and previous screen
         # use akivymd extensions
             # dialog box after question to show correct/incorrect
         # WRAP LABELS IN KIVY????
