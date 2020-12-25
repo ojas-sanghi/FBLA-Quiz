@@ -20,7 +20,7 @@ kivymd = "*"
 isort = "*"
 weasyprint = "*"
 dominate = "*"
-kivymd-extensions-akivymd = "*"
+"kivymd-extensions.akivymd" = "*"
 
 [requires]
 python_version = "3.7"
