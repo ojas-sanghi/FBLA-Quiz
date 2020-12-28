@@ -1,6 +1,5 @@
 #:kivy 1.11.1
 
-
 # file with kv classes used in more than 1 screen
 
 # MCQ/TF options
@@ -10,7 +9,7 @@
     pos_hint: {'center_x': .1, 'center_y': .5}
 
 # Box which holds the following elements
-<NextPrevBox@MDBoxLayout>:
+<BottomBox@MDBoxLayout>:
     size_hint_y: 0.2
     padding: 0, 0, 0, 30
 
@@ -29,7 +28,7 @@
     text: 'Submit Answer'
     on_release: app.submit_answer()
 
-<CorrectDialog@BoxLayout>:
+<CorrectBox@BoxLayout>:
     orientation: "vertical"
     padding: dp(40)
 
@@ -58,8 +57,7 @@
         pos_hint: {"center_x": .5}
         on_release: app.next_screen()
 
-
-<IncorrectDialog@BoxLayout>:
+<IncorrectBox@BoxLayout>:
     orientation: "vertical"
     spacing: dp(10)
     padding: dp(20)
@@ -85,7 +83,7 @@
         on_release: app.next_screen()
 
 
-<IncompleteDialog@BoxLayout>:
+<IncompleteBox@BoxLayout>:
     orientation: "vertical"
     padding: dp(20)
 
@@ -108,20 +106,10 @@
         pos_hint: {"center_x": .5}
         md_bg_color: 1, .75, 0, 1
 
+
 <Dialogs>:
 
 ########################################
-
-# Anchor which holds the PreviousQuestion Button
-<PreviousAnchor@AnchorLayout>:
-    anchor_x: 'left'
-    padding: 25
-    size_hint_y: 0.2
-
-<PreviousQuestion@MDRaisedButton>:
-    text: 'Previous Question'
-    halign: 'left'
-    on_release: app.previous_question()
 
 # line between question and the options
 <LineDivider@MDProgressBar>:

@@ -113,7 +113,6 @@ class FBLAQuizApp(MDApp):
         if self.screen_num <= 4:
             self.root.current = self.screens[self.screen_num]
             self.screen_num += 1
-            self.check_prev_btn_opacity()
 
             progress_value = self.screen_num * 20
             self.root.current_screen.ids.progress_bar.value = progress_value
@@ -122,29 +121,6 @@ class FBLAQuizApp(MDApp):
             self.calculate_correct()
             self.root.current = "end"
 
-
-    def previous_question(self):
-        # don't go out of bounds
-        # screen_num of 1 means we're on the first screen
-        if self.screen_num == 1:
-            return
-        
-        self.screen_num -= 2
-
-        self.root.transition.direction = "right"
-        self.root.current = self.screens[self.screen_num]
-        self.screen_num += 1
-
-        self.check_prev_btn_opacity()
-
-    # function called after every scene transition
-    # "previous" button shouldn't be on 1st question page
-    def check_prev_btn_opacity(self):
-        btn = self.root.current_screen.ids.prev_btn
-
-        if self.screen_num == 1: 
-            btn.opacity = 0 
-            btn.disabled = True
 
     def calculate_correct(self):
         for s in self.screens:
