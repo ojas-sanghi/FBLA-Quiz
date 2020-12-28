@@ -119,7 +119,6 @@ class Printer:
 
     def print(self):
         self.construct_file()
-        print(self.filename)
 
         if platform.system() == "Windows":
             subprocess.call(('start', self.filename), shell=True)

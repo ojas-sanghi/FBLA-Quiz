@@ -27,6 +27,10 @@ class FBLAQuizApp(MDApp):
 
     questions_correct = []
 
+    # colors we use 
+    green_color = [0, 0.8, 0, 1]
+    red_color = [1, 0.2, 0.2, 1]
+
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
 
@@ -69,13 +73,12 @@ class FBLAQuizApp(MDApp):
         
         # dark mode after 7 pm, before 6 am
         now = datetime.now()
-        print(now.hour)
         if now.hour >= 19 or now.hour <= 6:
             self.theme_cls.theme_style = "Dark" 
         else:
             self.theme_cls.theme_style = "Light"
-        
-        # self.theme_cls.theme_style = "Dark" 
+
+        # self.theme_cls.theme_style = "Light"
         # self.root.current = "end"
 
     def has_answered_question(self):
