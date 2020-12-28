@@ -98,14 +98,14 @@ class FBLAQuizApp(MDApp):
     
     def submit_answer(self):
         d = Dialogs()
-        d.disable_others(self, self.root.current_screen)
+        d.disable_others(self.root.current_screen)
         
         if not self.has_answered_question():
-            d.incomplete()
+            d.incomplete_dialog.open()
         elif self.root.current_screen.question.is_correct():
-            d.correct()
+            d.correct_dialog.open()
         else:
-            d.incorrect()
+            d.incorrect_dialog.open()
             
     def next_screen(self):
         self.root.transition.direction = "left"
