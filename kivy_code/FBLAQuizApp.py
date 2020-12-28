@@ -16,6 +16,7 @@ from .matching import MatchingScreen
 from .mcq import MCQScreen
 from .saq import SAQScreen
 from .tf import TFScreen
+from .utils import Dialogs
 
 class ScreenManagement(ScreenManager):
     pass
@@ -55,8 +56,6 @@ class FBLAQuizApp(MDApp):
         SAQScreen.set_questions(SAQScreen, self.questions)
 
         # TODO:
-        # use akivymd extensions
-            # dialog box after question to show correct/incorrect
         # WRAP LABELS IN KIVY????
         # add questions in questions.json
 
@@ -96,11 +95,19 @@ class FBLAQuizApp(MDApp):
                     return False
         
         return True
+    
+    def submit_answer(self):
+        d = Dialogs()
+        d.disable_others(self, self.root.current_screen)
         
+        if not self.has_answered_question():
+            d.incomplete()
+        elif self.root.current_screen.question.is_correct():
+            d.correct()
+        else:
+            d.incorrect()
+            
     def next_screen(self):
-        # if not self.has_answered_question():
-        #     return
-
         self.root.transition.direction = "left"
         # list has 5 items, so index cannot exceed 4
         if self.screen_num <= 4:
@@ -138,7 +145,7 @@ class FBLAQuizApp(MDApp):
         if self.screen_num == 1: 
             btn.opacity = 0 
             btn.disabled = True
-    
+
     def calculate_correct(self):
         for s in self.screens:
             screen = self.root.get_screen(s)
