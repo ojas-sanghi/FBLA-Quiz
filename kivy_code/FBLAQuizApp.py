@@ -53,8 +53,11 @@ class FBLAQuizApp(MDApp):
         SAQScreen.set_questions(SAQScreen, self.questions)
 
         # TODO:
+        # use issues instead of comments lol
+
         # add questions in questions.json
 
+        # debug matching "Your answer:" coming out as reversed in printer.py
         # verify printing mac
 
         # endgame challenges: 
