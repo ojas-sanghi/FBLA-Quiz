@@ -4,7 +4,6 @@ import quiz_generator
 from printer import Printer
 from kivy.config import Config
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager
 from kivy.factory import Factory
 from kivymd.app import MDApp
 
@@ -17,9 +16,6 @@ from .mcq import MCQScreen
 from .saq import SAQScreen
 from .tf import TFScreen
 from .dialogs import Dialogs
-
-class ScreenManagement(ScreenManager):
-    pass
 
 class FBLAQuizApp(MDApp):
     # what screen we're on
