@@ -17,7 +17,7 @@
         MDGridLayout:
             cols: 2
             rows: 1
-            size_hint_x: 1.2
+            size_hint_x: 1
             padding: 50
 
             MDBoxLayout:
@@ -25,14 +25,12 @@
                     on_press: root.select("True")
                 MyLabel:
                     text: "True"
-                    size_hint_x: 0.5
             
             MDBoxLayout:
                 Radio:
                     on_press: root.select("False")
                 MyLabel:
                     text: "False"
-                    size_hint_x: 0.5
 
         BottomBox: 
             NextAnchor:

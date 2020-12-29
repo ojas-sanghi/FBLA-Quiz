@@ -17,7 +17,7 @@
         MDGridLayout:
             cols: 2
             rows: 2
-            size_hint_x: 1.2
+            size_hint_x: 1
             padding: 20
 
             MDBoxLayout:
@@ -25,28 +25,24 @@
                     on_press: root.select(0)
                 MyLabel:
                     text: root.options[0]
-                    size_hint_x: 0.5
             
             MDBoxLayout:
                 Radio:
                     on_press: root.select(1)
                 MyLabel:
                     text: root.options[1]
-                    size_hint_x: 0.5
             
             MDBoxLayout:
                 Radio:
                     on_press: root.select(2)
                 MyLabel:
                     text: root.options[2]
-                    size_hint_x: 0.5
                 
             MDBoxLayout:
                 Radio:
                     on_press: root.select(3)
                 MyLabel:
                     text: root.options[3]
-                    size_hint_x: 0.5
 
         BottomBox: 
             NextAnchor:
