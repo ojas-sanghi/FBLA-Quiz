@@ -92,17 +92,17 @@ def generate():
         if not i < 50:
             break
 
-        question_list.append(make_matching(i))
-        i += 1
-        if not i < 50:
-            break
-
         question_list.append(make_checkbox(i))
         i += 1
         if not i < 50:
             break
 
         question_list.append(make_saq(i))
+        i += 1
+        if not i < 50:
+            break
+        
+        question_list.append(make_matching(i))
         i += 1
         if not i < 50:
             break

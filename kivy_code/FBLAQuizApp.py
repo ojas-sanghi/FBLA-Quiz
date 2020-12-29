@@ -55,8 +55,6 @@ class FBLAQuizApp(MDApp):
         # TODO:
         # add questions in questions.json
 
-        # grey-ish theme color instead of white
-
         # verify printing mac
 
         # endgame challenges: 
