@@ -16,7 +16,7 @@ from .matching import MatchingScreen
 from .mcq import MCQScreen
 from .saq import SAQScreen
 from .tf import TFScreen
-from .utils import Dialogs
+from .dialogs import Dialogs
 
 class ScreenManagement(ScreenManager):
     pass
@@ -39,7 +39,7 @@ class FBLAQuizApp(MDApp):
         Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
         # load all files
-        self.file_names = ["home", "mcq", "tf", "blank", "matching", "checkbox", "saq", "utils", "end"]
+        self.file_names = ["home", "mcq", "tf", "blank", "matching", "checkbox", "saq", "utils", "dialogs", "end"]
         for file in self.file_names:
             Builder.load_file("kivy_code/design/" + file + ".kv")
 
@@ -59,11 +59,19 @@ class FBLAQuizApp(MDApp):
         # WRAP LABELS IN KIVY????
         # add questions in questions.json
 
+        # grey-ish theme color instead of white
+        # make progressbar show green/red for correct/incorrect question
         # verify printing mac
 
         # endgame challenges: 
         # keep progressbar, move just the question
         # make html look prettier
+
+        # question ideas
+        # founding of fbla
+        # about events, what in those events
+        # which events isn't a fbla event
+        # trivia like jackbox game
         
 
 
