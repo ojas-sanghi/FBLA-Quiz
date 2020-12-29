@@ -2,11 +2,19 @@
 
 # file with kv classes used in more than 1 screen
 
-# MCQ/TF options
-<Radio@MDCheckbox>:
-    group: 'radios'
+
+# label used everywhere to change color (black/white) based on theme
+<MyLabel@MDLabel>:
+    theme_text_color: "Primary"
+
+<Check@MDCheckbox>:
     size_hint: None, None
     pos_hint: {'center_x': .1, 'center_y': .5}
+
+# MCQ/TF options
+<Radio@Check>:
+    group: 'radios'
+
 
 # Box which holds the next 2 elements
 <BottomBox@MDBoxLayout>:
@@ -23,7 +31,6 @@
     text: 'Submit Answer'
     on_release: app.submit_answer()
 
-##
 
 # line between question and the options
 <LineDivider@MDProgressBar>:
@@ -31,7 +38,3 @@
     value: 0
     size_hint_y: 0.1
     color: app.green_color
-
-# label used everywhere to change color (black/white) based on theme
-<MyLabel@MDLabel>:
-    theme_text_color: "Primary"
