@@ -52,27 +52,6 @@ class FBLAQuizApp(MDApp):
         CheckboxScreen.set_questions(CheckboxScreen, self.questions)
         SAQScreen.set_questions(SAQScreen, self.questions)
 
-        # TODO:
-        # use issues instead of comments lol
-
-        # add questions in questions.json
-
-        # debug matching "Your answer:" coming out as reversed in printer.py
-        # verify printing mac
-
-        # endgame challenges: 
-        # keep progressbar, move just the question
-        # make html look prettier?
-
-        ###############
-        # question ideas
-        # founding of fbla
-        # about events, what in those events
-        # which events isn't a fbla event
-        # trivia like jackbox game
-        
-
-
     def build(self):
         self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
         
