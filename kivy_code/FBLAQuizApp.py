@@ -1,5 +1,9 @@
 from datetime import datetime
 
+from kivy.uix.screenmanager import ScreenManager
+from kivymd.uix.progressbar import ProgressBar
+from kivy.animation import Animation
+
 import quiz_generator
 from printer import Printer
 from kivy.config import Config
@@ -29,6 +33,8 @@ class FBLAQuizApp(MDApp):
     red_color = [1, 0.2, 0.2, 1]
     yellow_color = [1, .75, 0, 1]
 
+    sm: ScreenManager
+
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
 
@@ -54,6 +60,7 @@ class FBLAQuizApp(MDApp):
 
     def build(self):
         self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
+        self.sm = self.root.ids.sm
         
         # dark mode after 7 pm, before 6 am
         now = datetime.now()
@@ -63,53 +70,57 @@ class FBLAQuizApp(MDApp):
             self.theme_cls.theme_style = "Light"
 
         # self.theme_cls.theme_style = "Light"
-        # self.root.current = "blank"
+        # self.sm.current = "blank"
 
     def has_answered_question(self):
         # don't go if the user hasn't answered
         # but we don't care about home and end screen
-        if self.root.current_screen.name not in ["home", "end"]:
+        if self.sm.current_screen.name not in ["home", "end"]:
             
-            if not self.root.current_screen.question.response:
+            if not self.sm.current_screen.question.response:
                 return False
 
             # for matching screen
             # ensure as many answers as there are words
-            if self.root.current == "matching":
-                if len(self.root.current_screen.question.response) != len(self.root.current_screen.words):
+            if self.sm.current == "matching":
+                if len(self.sm.current_screen.question.response) != len(self.sm.current_screen.words):
                     return False
         
         return True
     
     def submit_answer(self):
         d = Dialogs()
-        d.disable_others(self.root.current_screen)
+        d.disable_others(self.sm.current_screen)
         
         if not self.has_answered_question():
             d.incomplete_dialog.open()
-        elif self.root.current_screen.question.is_correct():
+        elif self.sm.current_screen.question.is_correct():
             d.correct_dialog.open()
         else:
             d.incorrect_dialog.open()
             
     def next_screen(self):
-        self.root.transition.direction = "left"
+        self.sm.transition.direction = "left"
+        bar: ProgressBar = self.root.ids.progress_bar
+
         # list has 5 items, so index cannot exceed 4
         if self.screen_num <= 4:
-            self.root.current = self.screens[self.screen_num]
+            self.sm.current = self.screens[self.screen_num]
             self.screen_num += 1
 
-            progress_value = self.screen_num * 20
-            self.root.current_screen.ids.progress_bar.value = progress_value
-
+            bar.opacity = 1
+            anim = Animation(value = self.screen_num * 20, t = "out_cubic")
+            anim.start(bar)
+            
         else:
+            bar.opacity = 0
             self.calculate_correct()
-            self.root.current = "end"
+            self.sm.current = "end"
 
 
     def calculate_correct(self):
         for s in self.screens:
-            screen = self.root.get_screen(s)
+            screen = self.sm.get_screen(s)
             self.questions_correct.append(screen.question.is_correct())
 
         EndScreen.set_response_data(EndScreen, self.questions_correct)
@@ -123,11 +134,11 @@ class FBLAQuizApp(MDApp):
     #######################################
 
     def matching_select(self, dropdown):
-        MatchingScreen.matching_select(self.root.current_screen, dropdown)
+        MatchingScreen.matching_select(self.sm.current_screen, dropdown)
     
     # only expand if previous dropdown is selected
     def matching_previous_selected(self, drop_menu):
-        dropdown_elements = self.root.current_screen.ids.option_grid.children
+        dropdown_elements = self.sm.current_screen.ids.option_grid.children
         dropdown_elements = list(reversed(dropdown_elements))
 
         # construct list of MyDropDowns

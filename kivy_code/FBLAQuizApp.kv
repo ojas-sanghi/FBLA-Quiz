@@ -1,17 +1,29 @@
 #:kivy 1.11.1
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
 
-ScreenManager:
-    transition: SlideTransition()
+FloatLayout:
 
-    HomeScreen:
-    MCQScreen:
-    TFScreen:
-    BlankScreen:
-    MatchingScreen:
-    CheckboxScreen:
-    SAQScreen:
-    EndScreen:
-    Dialogs:
+    # line between question and the options
+    # also shows how much of the quiz is done
+    MDProgressBar:
+        id: progress_bar
+        type: "determinate"
+        size_hint_y: 0.1
+        pos_hint: {"center_y": 0.8925}
+        running_duration: 2
+        catching_duration: 2
+        opacity: 0
+    
+    ScreenManager:
+        id: sm
+        transition: SlideTransition()
 
-<HomeScreen>:
+        HomeScreen:
+        MCQScreen:
+        TFScreen:
+        BlankScreen:
+        MatchingScreen:
+        CheckboxScreen:
+        SAQScreen:
+        EndScreen:
+        Dialogs:
