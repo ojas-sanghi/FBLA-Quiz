@@ -81,7 +81,7 @@ class FBLAQuizApp(MDApp):
             self.theme_cls.theme_style = "Light"
 
         # self.theme_cls.theme_style = "Light"
-        self.root.current = "blank"
+        # self.root.current = "blank"
 
     def has_answered_question(self):
         # don't go if the user hasn't answered
