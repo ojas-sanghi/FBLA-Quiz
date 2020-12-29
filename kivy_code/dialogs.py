@@ -21,7 +21,7 @@ class Dialogs(Screen):
     def correct(self):
         dialog = AKAlertDialog(
             header_icon="check-circle-outline", 
-            header_bg=[0, 0.7, 0, 1], 
+            header_bg=[0, 0.8, 0, 1], 
         )
         content = Factory.CorrectBox()
         content.ids.button.bind(on_release=dialog.dismiss)
@@ -32,7 +32,7 @@ class Dialogs(Screen):
     def incorrect(self):
         dialog = AKAlertDialog(
             header_icon="close-circle-outline", 
-            header_bg=[0.9, 0, 0, 1], 
+            header_bg=[1, 0.2, 0.2, 1], 
         )
         content = Factory.IncorrectBox()
         content.ids.button.bind(on_release=dialog.dismiss)

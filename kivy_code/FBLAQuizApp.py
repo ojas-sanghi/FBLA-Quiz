@@ -27,6 +27,7 @@ class FBLAQuizApp(MDApp):
     # colors we use 
     green_color = [0, 0.8, 0, 1]
     red_color = [1, 0.2, 0.2, 1]
+    yellow_color = [1, .75, 0, 1]
 
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
@@ -52,17 +53,17 @@ class FBLAQuizApp(MDApp):
         SAQScreen.set_questions(SAQScreen, self.questions)
 
         # TODO:
-        # WRAP LABELS IN KIVY????
         # add questions in questions.json
 
         # grey-ish theme color instead of white
-        # make progressbar show green/red for correct/incorrect question
+
         # verify printing mac
 
         # endgame challenges: 
         # keep progressbar, move just the question
-        # make html look prettier
+        # make html look prettier?
 
+        ###############
         # question ideas
         # founding of fbla
         # about events, what in those events
@@ -82,7 +83,7 @@ class FBLAQuizApp(MDApp):
             self.theme_cls.theme_style = "Light"
 
         # self.theme_cls.theme_style = "Light"
-        # self.root.current = "end"
+        self.root.current = "blank"
 
     def has_answered_question(self):
         # don't go if the user hasn't answered

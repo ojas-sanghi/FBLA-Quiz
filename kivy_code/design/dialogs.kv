@@ -1,13 +1,12 @@
+#:kivy 1.11.1
+
 <CorrectBox@BoxLayout>:
     orientation: "vertical"
     padding: dp(40)
 
     MDLabel:
         text: "Correct!"
-        size_hint_y: None
-        height: self.texture_size[1]
         halign: "center"
-        valign: "center"
         bold: True
         theme_text_color: "Custom"
         text_color: app.green_color
@@ -15,7 +14,6 @@
     MDLabel:
         text: "Good job!"
         halign: "center"
-        valign: "top"
         theme_text_color: "Custom"
         text_color: app.green_color
         font_style: "Caption"
@@ -29,12 +27,12 @@
 
 <IncorrectBox@BoxLayout>:
     orientation: "vertical"
-    spacing: dp(10)
-    padding: dp(20)
+    padding: dp(40)
 
     MDLabel:
         text: "Incorrect"
         halign: "center"
+        bold: True
         theme_text_color: "Custom"
         text_color: app.red_color
 
@@ -52,29 +50,30 @@
         pos_hint: {"center_x": .5}
         on_release: app.next_screen()
 
-
 <IncompleteBox@BoxLayout>:
     orientation: "vertical"
-    padding: dp(20)
+    padding: dp(40)
 
     MDLabel:
         text: "Input required"
         halign: "center"
-        valign: "center"
+        bold: True
         theme_text_color: "Custom"
-        text_color: 1, .75, 0, 1
+        text_color: app.yellow_color
 
     MDLabel:
         text: "Please answer the question"
         halign: "center"
-        theme_text_color: "Primary"
+        theme_text_color: "Custom"
+        text_color: app.yellow_color
         font_style: "Caption"
 
     MDFillRoundFlatButton:
         id: button
         text: "Dismiss"
+        md_bg_color: app.yellow_color
         pos_hint: {"center_x": .5}
-        md_bg_color: 1, .75, 0, 1
+        
 
 
 <Dialogs>:
