@@ -84,7 +84,11 @@ class Printer:
                             answer = ", ".join(question.answer)
                         
                         if question.type == "matching":
-                            response = ", ".join(response.values())
+                            # reverse values list
+                            # we need to do this because of the way values are added to the dictionary initially
+                            response = list(reversed(response.values()))
+                            response = ", ".join(response)
+                            
                             answer = ", ".join(answer.values())
 
                         # line goes before "your answer" etc
@@ -141,7 +145,7 @@ if __name__ == "__main__":
     ]
     questions[0].response = ["has BAA", "is high school program"]
     questions[1].response = "business accolades"
-    questions[2].response = {'pig': 'C', 'lion': 'B', 'zebra': 'A', 'horse': 'A', 'hedgehog': 'B'}
+    questions[2].response = {"hedgehog": "B", "horse": "A", "zebra": "A", "lion": "B", "pig": "C"}
     questions[3].response = "business"
     questions[4].response = "False"
     questions[5].response = "future smart"

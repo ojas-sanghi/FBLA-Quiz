@@ -8,12 +8,12 @@
 
 # dropdown menu
 <MyDropDown@MDFloatLayout>:
-    id: dropdown_menu
+    dropdown: dropdown.__self__
     MDDropDownItem:
         id: btn
         text: 'Pick Option'
         on_parent: dropdown.dismiss()
-        on_release: if app.matching_previous_selected(dropdown_menu): dropdown.open(self)
+        on_release: dropdown.open(self) if app.matching_previous_selected(root) else ""
         
         pos_hint: {"center_x": 0.7, "center_y": 0.5}
 

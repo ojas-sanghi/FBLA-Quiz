@@ -157,7 +157,3 @@ class FBLAQuizApp(MDApp):
 
         # should be A/B/C, "pick option" is the default
         return previous.ids.btn.text != "Pick Option"
-        
-
-if __name__ == "__main__":
-    FBLAQuizApp().run()

@@ -41,7 +41,6 @@ class MatchingScreen(Screen):
         dropdown_item = None
         dropdown_buttons = None
 
-
         my_label_class = Factory.classes["MyLabel"]["cls"]
         my_dropdown_class = Factory.classes["MyDropDown"]["cls"]
         word: str = ""
@@ -57,8 +56,6 @@ class MatchingScreen(Screen):
             if type(item) == my_dropdown_class:
                 dropdown_item = item.ids.btn
                 self.question.response[word] = dropdown_item.text
-
-                # get tree elements to pass to update_dropdown_item_size as described above
 
                 # dropdown.children[0] gets a GridLayout (used internally)
                 # doing the .children actually gets the "MyDropDownButton"s
