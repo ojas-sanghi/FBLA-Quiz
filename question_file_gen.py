@@ -109,7 +109,7 @@ def generate():
 
     return json.dumps(question_list, indent = 4)
 
-f = open("questions.json", "w+")
-f.write(generate())
+with open("questions.json", "w+") as f: 
+    f.write(generate())
 
 print("Done.")
