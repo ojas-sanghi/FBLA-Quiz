@@ -20,7 +20,6 @@ class Printer:
         self.correct_list = correct_list
         self.num_correct = self.correct_list.count(True)
 
-
     def construct_file(self):
         # make a temporary file
         # this is where we will write our output
@@ -47,20 +46,24 @@ class Printer:
                     h4(question.text)
 
                     if question.type in ["mcq", "tf", "checkbox"]:
-                        u("Options:")
-                        for option in question.options:
-                            with ul():
-                                # green for the answer
-                                if option == question.answer:
-                                    li(p(option, style="color: green"))
-                                    continue
-                                # yellow for wrong user choice
-                                if option == question.response:
-                                    li(p(option, style="color: chocolate"))
-                                    continue
-                                li(p(option))
-                        
+                        # split list into two
+                        first_half_options = question.options[:len(question.options)//2]
+                        second_half_options = question.options[len(question.options)//2:]
 
+                        # two columns for options
+                        with div(style="display: flex"):
+                            with div(style="flex: 50%"):
+                                for option in first_half_options:
+                                    with ul():
+                                        li(p(option))
+                            
+                            with div(style="flex: 50%"):
+                                for option in second_half_options:
+                                    with ul():
+                                        li(p(option))
+                            
+                    # two columns for matching; one with options, one with words
+                    # mimics the actual question screen so it's familiar
                     if question.type == "matching":
                         with div(style="display: flex"):
                             with div(style="flex: 50%"):
@@ -71,51 +74,41 @@ class Printer:
                                     [p(option) for option in question.options]
                             
                         
-                    # for checkbox and matching, the previous part just prints out options
-                    # this also prints out what the user's answer is and what the correct answer is
-                    if question.type in ["blank", "saq", "checkbox", "matching"]:
-
-                        response = question.response
-                        answer = question.answer
-                        # specially formatted response string
-
-                        if question.type in ["checkbox"]:
-                            response = ", ".join(question.response)
-                            answer = ", ".join(question.answer)
+                    # prints out what the user's answer is and what the correct answer is
+                    response = question.response
+                    answer = question.answer
+                    
+                    # specially formatted response string
+                    if question.type in ["checkbox"]:
+                        response = ", ".join(question.response)
+                        answer = ", ".join(question.answer)
+                    
+                    if question.type == "matching":
+                        # reverse response list to make it in order of the questions
+                        # we need to do this because of the way values are added to the dictionary initially
+                        response = list(reversed(response.values()))
+                        response = ", ".join(response)
                         
-                        if question.type == "matching":
-                            # reverse values list
-                            # we need to do this because of the way values are added to the dictionary initially
-                            response = list(reversed(response.values()))
-                            response = ", ".join(response)
-                            
-                            answer = ", ".join(answer.values())
+                        answer = ", ".join(answer.values())
 
-                        # line goes before "your answer" etc
-                        if question.type in ["checkbox", "matching"]: p("-----------------------------------")
-                        if question.is_correct():
-                            p("Your answer: ", span(response, style="color:green"))
-                        else:
-                            p("Your answer: ", span(response, style="color:chocolate"))
-                        p("Correct answer: ", span(answer, style="color:green"))
-
-                    else:
-                        # line only goes before "result"
-                        # done for mcq and tf
+                    # line goes before "your answer" etc
+                    # looks odd for blank and saq so not done for those
+                    if question.type not in ["blank", "saq"]: 
                         p("-----------------------------------")
                     
+                    style_str = "color: green" if question.is_correct() else "color: chocolate"
+                    p("Your answer: ", span(response, style=style_str))
+                    p("Correct answer: ", span(answer, style="color:green"))
 
                     # color-coded correct/incorrent
                     if question.is_correct():
-                        p("Result:", span("Correct", style="color: green"))
+                        b(p("Result:", span("Correct", style="color: green")))
                     else:
-                        p("Result:", span("Incorrect", style="color: red"))
+                        b(p("Result:", span("Incorrect", style="color: red")))
                     
                 question_num += 1
 
 
-        with open("test.html", "w") as f:
-            f.write(doc.render())
         # load html code into HTML object as a string
         # then convert it to a pdf and write it to the temp file created
         weasyprint.HTML(string=doc.render()).write_pdf(self.filename)
@@ -150,7 +143,7 @@ if __name__ == "__main__":
     questions[4].response = "False"
     questions[5].response = "future smart"
 
-    correct_list = [True, True, False, True, False, True]
+    correct_list = [True, False, False, True, False, False]
 
     printer = Printer(questions, correct_list)
     printer.print()
