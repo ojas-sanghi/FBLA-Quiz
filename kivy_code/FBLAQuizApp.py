@@ -50,13 +50,9 @@ class FBLAQuizApp(MDApp):
         self.questions = quiz_generator.get_questions(5)
         self.screens = [q.type for q in self.questions]
 
-        # set details for the questions in each respective screen
-        MCQScreen.set_questions(MCQScreen, self.questions)
-        TFScreen.set_questions(TFScreen, self.questions)
-        BlankScreen.set_questions(BlankScreen, self.questions)
-        MatchingScreen.set_questions(MatchingScreen, self.questions)
-        CheckboxScreen.set_questions(CheckboxScreen, self.questions)
-        SAQScreen.set_questions(SAQScreen, self.questions)
+        # set details for the questions in each screen
+        for s in [MCQScreen, TFScreen, BlankScreen, MatchingScreen, CheckboxScreen, SAQScreen]:
+            s.set_questions(s, self.questions)
 
     def build(self):
         self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
@@ -70,7 +66,7 @@ class FBLAQuizApp(MDApp):
             self.theme_cls.theme_style = "Light"
 
         # self.theme_cls.theme_style = "Light"
-        # self.sm.current = "blank"
+        # self.sm.current = "saq"
 
     def has_answered_question(self):
         # don't go if the user hasn't answered

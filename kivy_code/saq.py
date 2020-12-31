@@ -15,4 +15,4 @@ class SAQScreen(Screen):
         for q in self.questions:
             if q.type == "saq":
                 self.question = q
-                self.text = self.question.text
+                self.text = q.text
