@@ -79,8 +79,11 @@ class FBLAQuizApp(MDApp):
             # for matching screen
             # ensure as many answers as there are words
             if self.sm.current == "matching":
-                if len(self.sm.current_screen.question.response) != len(self.sm.current_screen.words):
-                    return False
+                # get the list of answers {'Hedgehog': 'Pick Option', 'Horse': 'B'} -> ['Pick Option', 'B']
+                # if any of then are more than 1 letter, then they haven't responded
+                for r in self.sm.current_screen.question.response.values():
+                    if len(r) > 1:
+                        return False
         
         return True
     
