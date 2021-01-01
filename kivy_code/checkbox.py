@@ -1,6 +1,7 @@
 from kivy.uix.screenmanager import Screen
 from kivy.properties import StringProperty, ListProperty
 
+
 class CheckboxScreen(Screen):
     question = None
     text = StringProperty("Checkbox Question")
@@ -13,10 +14,10 @@ class CheckboxScreen(Screen):
         else:
             self.question.response.append(self.options[param])
         self.question.response = sorted(self.question.response)
-        
+
     def set_questions(self, qs: list):
         self.questions = qs
-    
+
     def on_pre_enter(self):
         for q in self.questions:
             if q.type == "checkbox":

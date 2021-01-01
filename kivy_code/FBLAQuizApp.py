@@ -21,6 +21,7 @@ from .saq import SAQScreen
 from .tf import TFScreen
 from .dialogs import Dialogs
 
+
 class FBLAQuizApp(MDApp):
     # what screen we're on
     # 0-indexed, uses self.screens list
@@ -28,10 +29,10 @@ class FBLAQuizApp(MDApp):
 
     questions_correct = []
 
-    # colors we use 
+    # colors we use
     green_color = [0, 0.8, 0, 1]
     red_color = [1, 0.2, 0.2, 1]
-    yellow_color = [1, .75, 0, 1]
+    yellow_color = [1, 0.75, 0, 1]
 
     sm: ScreenManager
 
@@ -39,10 +40,21 @@ class FBLAQuizApp(MDApp):
         super().__init__(**kwargs)
 
         # don't make red circles on RMB click
-        Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
+        Config.set("input", "mouse", "mouse,multitouch_on_demand")
 
         # load all files
-        self.file_names = ["home", "mcq", "tf", "blank", "matching", "checkbox", "saq", "utils", "dialogs", "end"]
+        self.file_names = [
+            "home",
+            "mcq",
+            "tf",
+            "blank",
+            "matching",
+            "checkbox",
+            "saq",
+            "utils",
+            "dialogs",
+            "end",
+        ]
         for file in self.file_names:
             Builder.load_file("kivy_code/design/" + file + ".kv")
 
@@ -51,17 +63,24 @@ class FBLAQuizApp(MDApp):
         self.screens = [q.type for q in self.questions]
 
         # set details for the questions in each screen
-        for s in [MCQScreen, TFScreen, BlankScreen, MatchingScreen, CheckboxScreen, SAQScreen]:
+        for s in [
+            MCQScreen,
+            TFScreen,
+            BlankScreen,
+            MatchingScreen,
+            CheckboxScreen,
+            SAQScreen,
+        ]:
             s.set_questions(s, self.questions)
 
     def build(self):
         self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
         self.sm = self.root.ids.sm
-        
+
         # dark mode after 7 pm, before 6 am
         now = datetime.now()
         if now.hour >= 19 or now.hour <= 6:
-            self.theme_cls.theme_style = "Dark" 
+            self.theme_cls.theme_style = "Dark"
         else:
             self.theme_cls.theme_style = "Light"
 
@@ -72,7 +91,7 @@ class FBLAQuizApp(MDApp):
         # don't go if the user hasn't answered
         # but we don't care about home and end screen
         if self.sm.current_screen.name not in ["home", "end"]:
-            
+
             if not self.sm.current_screen.question.response:
                 return False
 
@@ -84,20 +103,20 @@ class FBLAQuizApp(MDApp):
                 for r in self.sm.current_screen.question.response.values():
                     if len(r) > 1:
                         return False
-        
+
         return True
-    
+
     def submit_answer(self):
         d = Dialogs()
         d.disable_others(self.sm.current_screen)
-        
+
         if not self.has_answered_question():
             d.incomplete_dialog.open()
         elif self.sm.current_screen.question.is_correct():
             d.correct_dialog.open()
         else:
             d.incorrect_dialog.open()
-            
+
     def next_screen(self):
         self.sm.transition.direction = "left"
         bar: ProgressBar = self.root.ids.progress_bar
@@ -108,14 +127,13 @@ class FBLAQuizApp(MDApp):
             self.screen_num += 1
 
             bar.opacity = 1
-            anim = Animation(value = self.screen_num * 20, t = "out_cubic")
+            anim = Animation(value=self.screen_num * 20, t="out_cubic")
             anim.start(bar)
-            
+
         else:
             bar.opacity = 0
             self.calculate_correct()
             self.sm.current = "end"
-
 
     def calculate_correct(self):
         for s in self.screens:
@@ -123,7 +141,7 @@ class FBLAQuizApp(MDApp):
             self.questions_correct.append(screen.question.is_correct())
 
         EndScreen.set_response_data(EndScreen, self.questions_correct)
-    
+
     def print_results(self):
         p = Printer(self.questions, self.questions_correct)
         p.print()
@@ -134,7 +152,7 @@ class FBLAQuizApp(MDApp):
 
     def matching_select(self, dropdown):
         MatchingScreen.matching_select(self.sm.current_screen, dropdown)
-    
+
     # only expand if previous dropdown is selected
     def matching_previous_selected(self, drop_menu):
         dropdown_elements = self.sm.current_screen.ids.option_grid.children

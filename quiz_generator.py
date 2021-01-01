@@ -3,6 +3,7 @@ import random
 
 from question import Question
 
+
 def load_data():
     with open("questions.json", "r") as questions:
         raw_data = questions.read()
@@ -21,7 +22,7 @@ def get_questions(num: int) -> list:
     # and to keep track of question types (to ensure each question type is unique)
     ids_used = []
     types_used = []
-    
+
     i = 0
     while i < num:
         new_q = get_question(data)
@@ -37,9 +38,9 @@ def get_questions(num: int) -> list:
             types_used.append(new_q.type)
 
             i += 1
-    
+
     return question_list
-        
+
 
 # return random question from questions lists
 def get_question(data: list) -> Question:

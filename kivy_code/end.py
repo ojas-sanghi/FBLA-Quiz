@@ -3,6 +3,7 @@ from kivy.properties import NumericProperty, ListProperty
 
 import kivymd_extensions.akivymd
 
+
 class EndScreen(Screen):
     questions_correct = ListProperty([False, False, False, False, False])
     total_correct = NumericProperty(0)
@@ -20,7 +21,7 @@ class EndScreen(Screen):
             two_d_labels.append(box.children)
         two_d_labels.reverse()
 
-        question_num = 1        
+        question_num = 1
         for label_list in two_d_labels:
             for label in label_list:
                 # CorrectResultLabel
@@ -34,7 +35,7 @@ class EndScreen(Screen):
                 # QuestionResultLabel
                 else:
                     label.text = f"Question {question_num}: "
-            
+
             question_num += 1
 
     def on_enter(self, *args):

@@ -1,6 +1,6 @@
 class Question:
     id: str
-    type: str # mcq, tf, blank, matching, checkbox, saq
+    type: str  # mcq, tf, blank, matching, checkbox, saq
     text: str
     options: list
     words: list
@@ -17,7 +17,7 @@ class Question:
         self.answer = q["answer"]
         if self.type == "checkbox":
             self.answer = sorted(self.answer)
-        
+
         self.response = []
         if self.type == "matching":
             self.response = {}
@@ -26,11 +26,11 @@ class Question:
             self.options = q["options"]
         else:
             self.options = []
-        
+
         if self.type == "matching":
             self.words = q["words"]
         else:
             self.words = []
-        
+
     def is_correct(self) -> bool:
         return self.response == self.answer

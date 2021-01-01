@@ -3,11 +3,12 @@ from kivy.uix.screenmanager import Screen
 from kivymd.uix.button import MDRaisedButton
 from kivymd_extensions.akivymd.uix.dialogs import AKAlertDialog
 
+
 class Dialogs(Screen):
     submit: MDRaisedButton
 
     correct_dialog: AKAlertDialog
-    incorrect_dialog: AKAlertDialog    
+    incorrect_dialog: AKAlertDialog
     incomplete_dialog: AKAlertDialog
 
     def __init__(self, **kw):
@@ -20,8 +21,8 @@ class Dialogs(Screen):
 
     def correct(self):
         dialog = AKAlertDialog(
-            header_icon="check-circle-outline", 
-            header_bg=[0, 0.8, 0, 1], 
+            header_icon="check-circle-outline",
+            header_bg=[0, 0.8, 0, 1],
         )
         content = Factory.CorrectBox()
         content.ids.button.bind(on_release=dialog.dismiss)
@@ -31,8 +32,8 @@ class Dialogs(Screen):
 
     def incorrect(self):
         dialog = AKAlertDialog(
-            header_icon="close-circle-outline", 
-            header_bg=[1, 0.2, 0.2, 1], 
+            header_icon="close-circle-outline",
+            header_bg=[1, 0.2, 0.2, 1],
         )
         content = Factory.IncorrectBox()
         content.ids.button.bind(on_release=dialog.dismiss)
@@ -42,7 +43,7 @@ class Dialogs(Screen):
 
     def incomplete(self):
         dialog = AKAlertDialog(
-            header_icon="exclamation", 
+            header_icon="exclamation",
             header_bg=[1, 0.75, 0, 1],
         )
         content = Factory.IncompleteBox()
@@ -50,14 +51,14 @@ class Dialogs(Screen):
         dialog.content_cls = content
 
         self.incomplete_dialog = dialog
-    
+
     def incomplete_dialog_callback(self, *args):
         self.incomplete_dialog.dismiss()
         self.enable_others()
-    
+
     def disable_others(self, current: Screen):
         self.submit = current.ids.submit_btn
-        
+
         self.submit.disabled = True
         self.submit.opacity = 0
 

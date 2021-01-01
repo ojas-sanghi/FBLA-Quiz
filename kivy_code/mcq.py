@@ -1,6 +1,7 @@
 from kivy.uix.screenmanager import Screen
 from kivy.properties import StringProperty, ListProperty
 
+
 class MCQScreen(Screen):
     question = None
     text = StringProperty("MCQ Question")
@@ -12,10 +13,10 @@ class MCQScreen(Screen):
             self.question.response = None
         else:
             self.question.response = self.options[param]
-    
+
     def set_questions(self, qs: list):
         self.questions = qs
-    
+
     def on_pre_enter(self):
         for q in self.questions:
             if q.type == "mcq":

@@ -9,6 +9,7 @@ from dominate.tags import *
 import weasyprint
 import subprocess
 
+
 class Printer:
     questions: List[Question]
     correct_list: List[bool]
@@ -47,8 +48,12 @@ class Printer:
 
                     if question.type in ["mcq", "tf", "checkbox"]:
                         # split list into two
-                        first_half_options = question.options[:len(question.options)//2]
-                        second_half_options = question.options[len(question.options)//2:]
+                        first_half_options = question.options[
+                            : len(question.options) // 2
+                        ]
+                        second_half_options = question.options[
+                            len(question.options) // 2 :
+                        ]
 
                         # two columns for options
                         with div(style="display: flex"):
@@ -56,12 +61,12 @@ class Printer:
                                 for option in first_half_options:
                                     with ul():
                                         li(p(option))
-                            
+
                             with div(style="flex: 50%"):
                                 for option in second_half_options:
                                     with ul():
                                         li(p(option))
-                            
+
                     # two columns for matching; one with options, one with words
                     # mimics the actual question screen so it's familiar
                     if question.type == "matching":
@@ -72,31 +77,32 @@ class Printer:
                             with div(style="flex: 50%"):
                                 with ul():
                                     [p(option) for option in question.options]
-                            
-                        
+
                     # prints out what the user's answer is and what the correct answer is
                     response = question.response
                     answer = question.answer
-                    
+
                     # specially formatted response string
                     if question.type in ["checkbox"]:
                         response = ", ".join(question.response)
                         answer = ", ".join(question.answer)
-                    
+
                     if question.type == "matching":
                         # reverse response list to make it in order of the questions
                         # we need to do this because of the way values are added to the dictionary initially
                         response = list(reversed(response.values()))
                         response = ", ".join(response)
-                        
+
                         answer = ", ".join(answer.values())
 
                     # line goes before "your answer" etc
                     # looks odd for blank and saq so not done for those
-                    if question.type not in ["blank", "saq"]: 
+                    if question.type not in ["blank", "saq"]:
                         p("-----------------------------------")
-                    
-                    style_str = "color: green" if question.is_correct() else "color: chocolate"
+
+                    style_str = (
+                        "color: green" if question.is_correct() else "color: chocolate"
+                    )
                     p("Your answer: ", span(response, style=style_str))
                     p("Correct answer: ", span(answer, style="color:green"))
 
@@ -105,28 +111,27 @@ class Printer:
                         b(p("Result:", span("Correct", style="color: green")))
                     else:
                         b(p("Result:", span("Incorrect", style="color: red")))
-                    
-                question_num += 1
 
+                question_num += 1
 
         # load html code into HTML object as a string
         # then convert it to a pdf and write it to the temp file created
         weasyprint.HTML(string=doc.render()).write_pdf(self.filename)
 
-
     def print(self):
         self.construct_file()
 
         if platform.system() == "Windows":
-            subprocess.call(('start', self.filename), shell=True)
-        
+            subprocess.call(("start", self.filename), shell=True)
+
         elif platform.system() == "Linux":
-            subprocess.call(('xdg-open', self.filename))
+            subprocess.call(("xdg-open", self.filename))
 
         elif platform.system() == "Darwin":
-            subprocess.call(('open', self.filename))
+            subprocess.call(("open", self.filename))
 
-    
+
+# fmt: off
 if __name__ == "__main__":
     questions = [
         Question({'id': 4, 'type': 'checkbox', 'question': 'Which of the following are true about FBLA? (Choose all that apply)', 'options': ['has BAA', 'is college program', 'is high school program', 'costs $20,000'], 'answer': ['has BAA', 'is high school program']}),
