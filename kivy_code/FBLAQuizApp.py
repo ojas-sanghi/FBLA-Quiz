@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from kivy.uix.screenmanager import ScreenManager
+from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.uix.progressbar import ProgressBar
 from kivy.animation import Animation
 
@@ -57,8 +57,26 @@ class FBLAQuizApp(MDApp):
         ]
         for file in self.file_names:
             Builder.load_file("kivy_code/design/" + file + ".kv")
+        
+        self.reset()
 
-        # generate 5 random questions
+    
+    def build(self):
+        self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
+        self.sm = self.root.ids.sm
+
+        # dark mode after 7 pm, before 6 am
+        now = datetime.now()
+        if now.hour >= 19 or now.hour <= 6:
+            self.theme_cls.theme_style = "Dark"
+        else:
+            self.theme_cls.theme_style = "Light"
+        
+        # self.theme_cls.theme_style = "Light"
+        # self.sm.current = "mcq"
+    
+    def reset(self):
+         # generate 5 random questions
         self.questions = quiz_generator.get_questions(5)
         self.screens = [q.type for q in self.questions]
 
@@ -72,22 +90,18 @@ class FBLAQuizApp(MDApp):
             SAQScreen,
         ]:
             s.set_questions(s, self.questions)
+        
+        self.screen_num = 0
+        self.questions_correct = []
+    
+    def restart(self):
+        self.reset()
+        self.root.ids.progress_bar.value = 0
 
-    def build(self):
-        self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
-        self.sm = self.root.ids.sm
-
-        # dark mode after 7 pm, before 6 am
-        now = datetime.now()
-        if now.hour >= 19 or now.hour <= 6:
-            self.theme_cls.theme_style = "Dark"
-        else:
-            self.theme_cls.theme_style = "Light"
-
-        # self.theme_cls.theme_style = "Light"
-        # self.sm.current = "saq"
+        self.sm.current = "home"
 
     def has_answered_question(self):
+        return True
         # don't go if the user hasn't answered
         # but we don't care about home and end screen
         if self.sm.current_screen.name not in ["home", "end"]:
@@ -124,8 +138,17 @@ class FBLAQuizApp(MDApp):
         # list has 5 items, so index cannot exceed 4
         if self.screen_num <= 4:
             self.sm.current = self.screens[self.screen_num]
+            
+            # show submit button every screen
+            # gets hidden after restart so we need to show it again
+            s = self.sm.current_screen.ids.submit_btn
+            s.disabled = False
+            s.opacity = 1
+
+            # increment counter
             self.screen_num += 1
 
+            # make sure bar is visible, and smoothly animate its value increasing
             bar.opacity = 1
             anim = Animation(value=self.screen_num * 20, t="out_cubic")
             anim.start(bar)
@@ -136,11 +159,17 @@ class FBLAQuizApp(MDApp):
             self.sm.current = "end"
 
     def calculate_correct(self):
+        # don't calculate anything if we're at the starting and ending screens
+        if self.sm.current in ["home", "end"]:
+            return
+
         for s in self.screens:
             screen = self.sm.get_screen(s)
             self.questions_correct.append(screen.question.is_correct())
 
-        EndScreen.set_response_data(EndScreen, self.questions_correct)
+        for s in self.sm.screens:
+            if s.name == "end":
+                s.set_response_data(self.questions_correct)
 
     def print_results(self):
         p = Printer(self.questions, self.questions_correct)

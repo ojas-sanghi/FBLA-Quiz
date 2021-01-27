@@ -37,6 +37,8 @@ class MatchingScreen(Screen):
     # then we pass that to update_dropdown_item_size()
     # which is called twice over 0.002s
     def matching_select(self, dropdown):
+        self.times_called = 0
+
         option_grid_children = self.ids.option_grid.children
         dropdown_item = None
         dropdown_buttons = None
@@ -70,6 +72,7 @@ class MatchingScreen(Screen):
         self.questions = qs
 
     def on_pre_enter(self):
+        self.reset()
         for q in self.questions:
             if q.type == "matching":
                 self.question = q
@@ -78,3 +81,10 @@ class MatchingScreen(Screen):
                 self.words = q.words
 
                 self.question.response = {}
+    
+    def reset(self):
+        self.ids.drop1.ids.btn.text = "Pick Option"
+        self.ids.drop2.ids.btn.text = "Pick Option"
+        self.ids.drop3.ids.btn.text = "Pick Option"
+        self.ids.drop4.ids.btn.text = "Pick Option"
+        self.ids.drop5.ids.btn.text = "Pick Option"

@@ -61,26 +61,31 @@
                 spacing: 0
                 QuestionResultLabel:
                 CorrectResultLabel:
+                    id: correct1
 
             MDBoxLayout:
                 spacing: 0
                 QuestionResultLabel:
                 CorrectResultLabel:
+                    id: correct2
             
             MDBoxLayout:
                 spacing: 0
                 QuestionResultLabel:
                 CorrectResultLabel:
+                    id: correct3
             
             MDBoxLayout:
                 spacing: 0
                 QuestionResultLabel:
                 CorrectResultLabel:
+                    id: correct4
             
             MDBoxLayout:
                 spacing: 0
                 QuestionResultLabel:
                 CorrectResultLabel:
+                    id: correct5
         
         AnchorLayout:
             anchor_x: "center"
@@ -98,11 +103,11 @@
                     on_release: app.print_results()
                 
                 MDRaisedButton:
-                    text: "Exit"
+                    text: "Restart"
                     font_size: "20dp"
                     size_hint_y: 0.7
                     size_hint_x: 0.7
 
-                    md_bg_color: app.red_color
+                    md_bg_color: 0.3, 0.8, 0.3, 1
 
-                    on_release: app.stop()
+                    on_release: root.reset(); app.restart()

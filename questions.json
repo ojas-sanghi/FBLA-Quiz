@@ -328,7 +328,7 @@
         "options": [
             "National Awards program",
             "Adviser Wall of Fame",
-            "Hello Kitty award",
+            "Forkner award",
             "Sweep Stakes challenge"
         ],
         "answer": [
@@ -388,7 +388,6 @@
         ],
         "answer": "True"
     },
-    ///////////////
     {
         "id": 32,
         "type": "blank",
@@ -440,7 +439,6 @@
             "Hedgehog": "B"
         }
     },
-    // -- done --
     {
         "id": 36,
         "type": "mcq",
@@ -453,7 +451,6 @@
         ],
         "answer": "November 15"
     },
-    ///////////////
     {
         "id": 37,
         "type": "tf",

@@ -17,7 +17,12 @@ class TFScreen(Screen):
         self.questions = qs
 
     def on_pre_enter(self):
+        self.reset()
         for q in self.questions:
             if q.type == "tf":
                 self.question = q
                 self.text = q.text
+
+    def reset(self):
+        self.ids.radio1.active = False
+        self.ids.radio2.active = False

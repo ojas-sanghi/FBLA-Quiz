@@ -19,8 +19,15 @@ class CheckboxScreen(Screen):
         self.questions = qs
 
     def on_pre_enter(self):
+        self.reset()
         for q in self.questions:
             if q.type == "checkbox":
                 self.question = q
                 self.text = q.text
                 self.options = q.options
+
+    def reset(self):
+        self.ids.check1.active = False
+        self.ids.check2.active = False
+        self.ids.check3.active = False
+        self.ids.check4.active = False

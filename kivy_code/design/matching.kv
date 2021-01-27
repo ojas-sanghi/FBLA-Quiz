@@ -48,6 +48,7 @@
         MDBoxLayout:
             id: question_box
             spacing: dp(25)
+            padding: [0, 25, 0, 0] # padding on top, away from progress bar
 
             # dropdowns and words
             MDGridLayout:
@@ -55,22 +56,27 @@
                 cols: 2
 
                 MyDropDown:
+                    id: drop1
                 MyLabel:
                     text: root.words[0]
                 
                 MyDropDown:
+                    id: drop2
                 MyLabel:
                     text: root.words[1]
                 
                 MyDropDown:
+                    id: drop3
                 MyLabel:
                     text: root.words[2]
                 
                 MyDropDown:
+                    id: drop4
                 MyLabel:
                     text: root.words[3]
             
                 MyDropDown:
+                    id: drop5
                 MyLabel:
                     text: root.words[4]
     

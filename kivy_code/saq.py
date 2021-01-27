@@ -13,7 +13,11 @@ class SAQScreen(Screen):
         self.questions = qs
 
     def on_pre_enter(self):
+        self.reset()
         for q in self.questions:
             if q.type == "saq":
                 self.question = q
                 self.text = q.text
+
+    def reset(self):
+        self.ids.text_field.text = ""

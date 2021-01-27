@@ -1,8 +1,6 @@
 from kivy.uix.screenmanager import Screen
 from kivy.properties import NumericProperty, ListProperty
 
-import kivymd_extensions.akivymd
-
 
 class EndScreen(Screen):
     questions_correct = ListProperty([False, False, False, False, False])
@@ -10,10 +8,12 @@ class EndScreen(Screen):
 
     def set_response_data(self, qs_correct: list):
         self.questions_correct = qs_correct
+        print(self.questions_correct)
 
         self.total_correct = self.questions_correct.count(True)
 
     def on_pre_enter(self):
+        print(self.questions_correct)
         two_d_labels = []
         # get all the boxes underneath the "MDBoxLayout" whose id is "box_of_labels_box"
         # add the labels which are children of those boxes to a list
@@ -41,3 +41,16 @@ class EndScreen(Screen):
     def on_enter(self, *args):
         progress_circle = self.ids.progress
         progress_circle.current_percent = self.total_correct
+    
+    # called when you exit the screen, rather than when you enter it
+    def reset(self):
+        self.questions_correct = [False, False, False, False, False]
+        self.total_correct = 0
+
+        self.ids.progress.current_percent = 0
+
+        self.ids.correct1.text = "Incorrect"
+        self.ids.correct2.text = "Incorrect"
+        self.ids.correct3.text = "Incorrect"
+        self.ids.correct4.text = "Incorrect"
+        self.ids.correct5.text = "Incorrect"
