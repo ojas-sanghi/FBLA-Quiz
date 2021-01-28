@@ -24,7 +24,7 @@
     {
         "id": 2,
         "type": "blank",
-        "question": "FBLA stands for: Future ________ Leaders of America",
+        "question": "Fill in the missing word: Future ________ Leaders of America",
         "answer": "business"
     },
     {
@@ -98,8 +98,8 @@
     {
         "id": 8,
         "type": "blank",
-        "question": "First name of the founder of FBLA-PBL (in the 1900s)",
-        "answer": "hamden"
+        "question": "The name of the founder of FBLA-PBL was: Hamden L. _______",
+        "answer": "forkner"
     },
     {
         "id": 9,
@@ -172,7 +172,7 @@
         "id": 14,
         "type": "blank",
         "question": "The full form of PBL is: Phi ____ Lambda",
-        "answer": "Beta"
+        "answer": "beta"
     },
     {
         "id": 15,
@@ -391,24 +391,26 @@
     {
         "id": 32,
         "type": "blank",
-        "question": "FBLA stands for: Future ________ Leaders of America",
+        "question": "Fill in the missing word: ______ Business Leaders of America",
         "answer": "business"
     },
     {
         "id": 33,
         "type": "checkbox",
-        "question": "Which of the following are true about FBLA? (Choose all that apply)",
+        "question": "Which of the following are core FBLA goals? (Choose all that apply)",
         "options": [
-            "Has the BAA program",
-            "It is a college program",
-            "It is a high school program",
-            "It has an entry fee of $150"
+            "Strengthen the confidence of students",
+            "Develop character",
+            "Invest into stocks for profit",
+            "Encourage and practice efficient money management"
         ],
         "answer": [
-            "Has the BAA program",
-            "It is a high school program"
+            "Strengthen the confidence of students",
+            "Develop character",
+            "Encourage and practice efficient money management"
         ]
     },
+    ///////////////////////
     {
         "id": 34,
         "type": "saq",
@@ -439,6 +441,7 @@
             "Hedgehog": "B"
         }
     },
+    // -- DONE  --
     {
         "id": 36,
         "type": "mcq",
@@ -454,34 +457,36 @@
     {
         "id": 37,
         "type": "tf",
-        "question": "True/False: FBLA holds regional competitions",
+        "question": "True/False: Indiana was the FBLA state chapter",
         "options": [
             "True",
             "False"
         ],
-        "answer": "True"
+        "answer": "False"
     },
     {
         "id": 38,
         "type": "blank",
-        "question": "FBLA stands for: Future ________ Leaders of America",
+        "question": "Fill in the missing word: Future Business _______ of America",
         "answer": "business"
     },
     {
         "id": 39,
         "type": "checkbox",
-        "question": "Which of the following are true about FBLA? (Choose all that apply)",
+        "question": "Which of the following are adherent to the FBLA-PBL creed? (Choose all that apply)",
         "options": [
-            "Has the BAA program",
-            "It is a college program",
-            "It is a high school program",
-            "It has an entry fee of $150"
+            "education is the right of every person",
+            "every person has the right to earn a living at a useful occupation",
+            "businesses growth must be pursued at all costs",
+            "I promise to use my abilities to make the world a better place for everyone."
         ],
         "answer": [
-            "Has the BAA program",
-            "It is a high school program"
+            "education is the right of every person",
+            "every person has the right to earn a living at a useful occupation",
+            "I promise to use my abilities to make the world a better place for everyone."
         ]
     },
+    ////////////////
     {
         "id": 40,
         "type": "saq",
@@ -512,49 +517,51 @@
             "Hedgehog": "B"
         }
     },
+    // -- DONE --
     {
         "id": 42,
         "type": "mcq",
-        "question": "What does FBLA stand for?",
+        "question": "What is February 15 in FBLA-PBL Week?",
         "options": [
-            "Future Blooming Leaders of America",
-            "Future Business Leaders of America",
-            "Future Bundle Leaders of America",
-            "Future Business Leaders of Austria"
+            "Each One Reach One Day",
+            "Webinar: National Presidents' Forum",
+            "Career Awareness Day",
+            "Community Service Day"
         ],
         "answer": "Future Business Leaders of America"
     },
     {
         "id": 43,
         "type": "tf",
-        "question": "True/False: FBLA holds regional competitions",
+        "question": "True/False: FBLA's headquarters are in Richmond, VA",
         "options": [
             "True",
             "False"
         ],
-        "answer": "True"
+        "answer": "False"
     },
     {
         "id": 44,
         "type": "blank",
-        "question": "FBLA stands for: Future ________ Leaders of America",
+        "question": "Fill in the missing word: Future Business Leaders of _______",
         "answer": "business"
     },
     {
         "id": 45,
         "type": "checkbox",
-        "question": "Which of the following are true about FBLA? (Choose all that apply)",
+        "question": "Which of the following are included in the FBLA Code of Ethics? (Choose all that apply)",
         "options": [
-            "Has the BAA program",
-            "It is a college program",
-            "It is a high school program",
-            "It has an entry fee of $150"
+            "be honest and sincere.",
+            "abide by the rules and regulations of my school",
+            "take tasks with caution, questioning your skill",
+            "wear business casual to school everyday"
         ],
         "answer": [
-            "Has the BAA program",
-            "It is a high school program"
+            "be honest and sincere.",
+            "abide by the rules and regulations of my school"
         ]
     },
+    /////////////////
     {
         "id": 46,
         "type": "saq",
@@ -565,7 +572,7 @@
         "id": 47,
         "type": "matching",
         "question": "Match the animals to their diets",
-        "options": [
+        "options": [    
             "A) Carnivore",
             "B) Omnivore",
             "C) Herbivore"
@@ -585,22 +592,23 @@
             "Hedgehog": "B"
         }
     },
+    // -- DONE --
     {
         "id": 48,
         "type": "mcq",
-        "question": "What does FBLA stand for?",
+        "question": "Which organization is FBLA's national charity partner?",
         "options": [
-            "Future Blooming Leaders of America",
-            "Future Business Leaders of America",
-            "Future Bundle Leaders of America",
-            "Future Business Leaders of Austria"
+            "Salvation Army",
+            "YMCA of the USA",
+            "March of Dimes",
+            "Step Up for Students"
         ],
-        "answer": "Future Business Leaders of America"
+        "answer": "March of Dimes"
     },
     {
         "id": 49,
         "type": "tf",
-        "question": "True/False: FBLA holds regional competitions",
+        "question": "True/False: The 2021 NLC will be held virtually",
         "options": [
             "True",
             "False"
