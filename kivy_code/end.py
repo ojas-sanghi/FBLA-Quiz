@@ -8,12 +8,10 @@ class EndScreen(Screen):
 
     def set_response_data(self, qs_correct: list):
         self.questions_correct = qs_correct
-        print(self.questions_correct)
 
         self.total_correct = self.questions_correct.count(True)
 
     def on_pre_enter(self):
-        print(self.questions_correct)
         two_d_labels = []
         # get all the boxes underneath the "MDBoxLayout" whose id is "box_of_labels_box"
         # add the labels which are children of those boxes to a list

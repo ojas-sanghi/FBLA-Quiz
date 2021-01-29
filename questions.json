@@ -253,7 +253,7 @@
         "type": "checkbox",
         "question": "Which BAA events have their deadline on March 1? (Choose all that apply)",
         "options": [
-            "Serivice",
+            "Service",
             "Leader",
             "Business",
             "America"
@@ -392,7 +392,7 @@
         "id": 32,
         "type": "blank",
         "question": "Fill in the missing word: ______ Business Leaders of America",
-        "answer": "business"
+        "answer": "future"
     },
     {
         "id": 33,
@@ -466,7 +466,7 @@
         "id": 38,
         "type": "blank",
         "question": "Fill in the missing word: Future Business _______ of America",
-        "answer": "business"
+        "answer": "leaders"
     },
     {
         "id": 39,
@@ -540,7 +540,7 @@
         "id": 44,
         "type": "blank",
         "question": "Fill in the missing word: Future Business Leaders of _______",
-        "answer": "business"
+        "answer": "america"
     },
     {
         "id": 45,
