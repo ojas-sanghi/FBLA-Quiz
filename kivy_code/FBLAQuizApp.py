@@ -101,7 +101,6 @@ class FBLAQuizApp(MDApp):
         self.sm.current = "home"
 
     def has_answered_question(self):
-        return True
         # don't go if the user hasn't answered
         # but we don't care about home and end screen
         if self.sm.current_screen.name not in ["home", "end"]:
