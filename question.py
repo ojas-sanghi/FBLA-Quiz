@@ -17,6 +17,8 @@ class Question:
         self.answer = q["answer"]
         if self.type == "checkbox":
             self.answer = sorted(self.answer)
+        if self.type in ["saq", "blank"]:
+            self.answer = self.answer.lower().strip()
 
         self.response = []
         if self.type == "matching":
