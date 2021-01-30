@@ -2,9 +2,8 @@
 
 Quiz about various aspects of FBLA!
 
-It randomly generates a 5 question quiz based off a 50 question database in `questions.json`
-
----
+It randomly generates a 5 question quiz based off a 50 question database in `questions.json`  
+There are 6 different types of questions, and once you finish the quiz, it will tell you the results of the quiz and also present the option to open a PDF file with detailed information, which you can print.
 
 ## Tools Used
 
@@ -14,6 +13,9 @@ It randomly generates a 5 question quiz based off a 50 question database in `que
   - It is released under the [MIT License](https://github.com/kivy/kivy/blob/master/LICENSE)  
 - Although Kivy provided the base for the GUI, I primarily used [KivyMD](https://github.com/kivymd/KivyMD), a library of Google's [Material Design](https://material.io/design)-adherent Kivy widgets
   - This is also licensed under the [MIT License](https://github.com/kivymd/KivyMD/blob/master/LICENSE)
+
+  - I also used some widgets from [akivymd](https://github.com/quitegreensky/akivymd), a library containing customized widgets utilizing the KivyMD library
+    - This, too, is under the [MIT License](https://github.com/quitegreensky/akivymd/blob/master/LICENSE)
 
 Kivy(MD) was the primary 3rd party library I used throughout the app, but for the printing functionality I used a couple others:  
 
@@ -37,8 +39,6 @@ This project uses [Black](https://github.com/psf/black) as a code formatter tool
 ### Dependencies
 
 I used [pipenv](https://pipenv.pypa.io/en/latest/) to install and maintain project dependencies. They can be viewed in `Pipfile`
-
----
 
 ## Installation and Usage
 
