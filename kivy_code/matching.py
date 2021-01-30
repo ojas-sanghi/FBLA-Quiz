@@ -81,7 +81,7 @@ class MatchingScreen(Screen):
                 self.words = q.words
 
                 self.question.response = {}
-    
+
     def reset(self):
         self.ids.drop1.ids.btn.text = "Pick Option"
         self.ids.drop2.ids.btn.text = "Pick Option"

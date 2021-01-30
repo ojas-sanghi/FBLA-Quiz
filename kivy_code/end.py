@@ -39,7 +39,7 @@ class EndScreen(Screen):
     def on_enter(self, *args):
         progress_circle = self.ids.progress
         progress_circle.current_percent = self.total_correct
-    
+
     # called when you exit the screen, rather than when you enter it
     def reset(self):
         self.questions_correct = [False, False, False, False, False]

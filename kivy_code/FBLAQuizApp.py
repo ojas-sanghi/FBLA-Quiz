@@ -57,10 +57,9 @@ class FBLAQuizApp(MDApp):
         ]
         for file in self.file_names:
             Builder.load_file("kivy_code/design/" + file + ".kv")
-        
+
         self.reset()
 
-    
     def build(self):
         self.root = Builder.load_file("kivy_code/FBLAQuizApp.kv")
         self.sm = self.root.ids.sm
@@ -71,12 +70,12 @@ class FBLAQuizApp(MDApp):
             self.theme_cls.theme_style = "Dark"
         else:
             self.theme_cls.theme_style = "Light"
-        
+
         # self.theme_cls.theme_style = "Light"
         # self.sm.current = "mcq"
-    
+
     def reset(self):
-         # generate 5 random questions
+        # generate 5 random questions
         self.questions = quiz_generator.get_questions(5)
         self.screens = [q.type for q in self.questions]
 
@@ -90,10 +89,10 @@ class FBLAQuizApp(MDApp):
             SAQScreen,
         ]:
             s.set_questions(s, self.questions)
-        
+
         self.screen_num = 0
         self.questions_correct = []
-    
+
     def restart(self):
         self.reset()
         self.root.ids.progress_bar.value = 0
@@ -137,7 +136,7 @@ class FBLAQuizApp(MDApp):
         # list has 5 items, so index cannot exceed 4
         if self.screen_num <= 4:
             self.sm.current = self.screens[self.screen_num]
-            
+
             # show submit button every screen
             # gets hidden after restart so we need to show it again
             s = self.sm.current_screen.ids.submit_btn
