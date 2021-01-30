@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from kivy.uix.screenmanager import Screen, ScreenManager
+from kivy.uix.screenmanager import ScreenManager
 from kivymd.uix.progressbar import ProgressBar
 from kivy.animation import Animation
 
