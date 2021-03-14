@@ -11,6 +11,9 @@ kivy = {extras = ["base"],version = "~=2.0.0"}
 kivymd-extensions-akivymd = "*"
 weasyprint = "*"
 dominate = "*"
+rsa = "*"
+pycryptodome = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"
