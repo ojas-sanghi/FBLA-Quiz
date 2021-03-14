@@ -31,7 +31,7 @@ def load_data():
     # We could theoretically go as low as 862 but extra bits were added for assurance, as well as due to the fact that 
     # "accurate" is set to False, meaning the number of bits may fall a bit below the amount specified; a tradeoff made for speed
     # 900 bits is enough to ensure that even with "accurate" set to False, the actual number of bits will remain uncrackable
-    (rsa_pubkey, rsa_privkey) = rsa.newkeys(900, False);
+    (rsa_pubkey, rsa_privkey) = rsa.newkeys(900, False)
 
     # serialize pubkey into pickle
     pickled_pubkey = pickle.dumps(rsa_pubkey)
@@ -43,7 +43,7 @@ def load_data():
     encoded_pickled_pubkey = encoded_pickled_pubkey.replace("\n", "").replace("/", "\\") 
     
     # request questions from server and give it our public key
-    response: Response = requests.get("http://127.0.0.1:5000/get_questions/" + encoded_pickled_pubkey)
+    response: Response = requests.get("https://fbla-quiz-server.herokuapp.com/get_questions/" + encoded_pickled_pubkey)
     # get JSON representation of data
     encoded_data = response.json()
     # decode each item back into a bytes object
@@ -52,7 +52,7 @@ def load_data():
         decoded_data.append(codecs.decode(data.encode(), "base64"))
     
     # unpack list into indivdual varibales
-    encrypted_raw_data, aes_tag, encrypted_aes_key, aes_nonce = decoded_data
+    encrypted_questions, aes_tag, encrypted_aes_key, aes_nonce = decoded_data
 
     # decrypt AES key with RSA private key
     decrypted_aes_key = rsa.decrypt(encrypted_aes_key, rsa_privkey)
@@ -60,7 +60,7 @@ def load_data():
     # create AES instance with AES key
     decrypt_cipher = AES.new(decrypted_aes_key, AES.MODE_EAX, nonce=aes_nonce)
     # decrypt questions with AES instance
-    decrypted_questions: bytes = decrypt_cipher.decrypt(encrypted_raw_data)
+    decrypted_questions: bytes = decrypt_cipher.decrypt(encrypted_questions)
     
     # convert bytes to str
     decrypted_questions: str = decrypted_questions.decode("utf8")
