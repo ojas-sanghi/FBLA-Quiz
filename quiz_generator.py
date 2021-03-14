@@ -29,9 +29,12 @@ Outline of how it is done here:
 def load_data():
     # 900 bits chosen because it is slightly higher than RSA-260, RSA-270 and RSA-896, none of which have been factored yet
     # We could theoretically go as low as 862 but extra bits were added for assurance, as well as due to the fact that 
-    # "accurate" is set to False, meaning the number of bits may fall a bit below the amount specified; a tradeoff made for speed
+    # "accurate" is set to False, meaning the number of bits may fall a bit below the amount specified; a tradeoff made for speed.
     # 900 bits is enough to ensure that even with "accurate" set to False, the actual number of bits will remain uncrackable
     (rsa_pubkey, rsa_privkey) = rsa.newkeys(900, False)
+
+    # TODO: use pkcs1 format instead of pickle
+    # p = rsa_pubkey.save_pkcs1().decode()
 
     # serialize pubkey into pickle
     pickled_pubkey = pickle.dumps(rsa_pubkey)

@@ -1,10 +1,13 @@
 from typing import List
 
 import platform
+
+from dominate import tags
 from question import Question
 import tempfile
 import dominate
 from dominate.tags import *
+from dominate.util import raw, text
 
 import weasyprint
 import subprocess
@@ -20,18 +23,28 @@ class Printer:
         self.questions = questions
         self.correct_list = correct_list
         self.num_correct = self.correct_list.count(True)
+        
 
     def construct_file(self):
         # make a temporary file
         # this is where we will write our output
         self.filename = tempfile.mktemp(".pdf")
 
+        self.temphtml = tempfile.mktemp(".html")
+
         # make a new html doc
-        doc = dominate.document(title="FBLA Quiz Results")
+        doc = dominate.document()
 
         question_num = 1
 
+        show_hide_code = "var x = document.getElementById('{}'); var button = document.getElementById('{}'); if (x.style.visibility === 'hidden') {{ x.style.visibility = 'visible'; button.innerText = 'Hide' }} else {{ x.style.visibility = 'hidden'; button.innerText = 'Show'; }}"
+
+
         with doc:
+            with head():
+                title("FBLA Quiz Results")
+                link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css")
+
             h1("FBLA Quiz Results")
             h2(f"Total Correct: {self.num_correct}/{len(self.questions)}")
 
@@ -103,16 +116,35 @@ class Printer:
                     style_str = (
                         "color: green" if question.is_correct() else "color: chocolate"
                     )
-                    p("Your answer: ", span(response, style=style_str))
-                    p("Correct answer: ", span(answer, style="color:green"))
 
-                    # color-coded correct/incorrent
-                    if question.is_correct():
-                        b(p("Result:", span("Correct", style="color: green")))
-                    else:
-                        b(p("Result:", span("Incorrect", style="color: red")))
+                    with div(style="display: flex"):
+                        with div(style="flex: 1"):
+                            button("Show", id="userAnsButton" + str(question_num), onclick=show_hide_code.format("userAnswer" + str(question_num), "userAnsButton" + str(question_num)))
+                            
+                        with div(style="flex: 20"):
+                            p("Your answer: ", span(response, id="userAnswer" + str(question_num), style=style_str + "; visibility:hidden"))
+
+                    with div(style="display: flex"):
+                        with div(style="flex: 1"):
+                            button("Show", id="correctAnsButton" + str(question_num), onclick=show_hide_code.format("correctAnswer" + str(question_num), "correctAnsButton" + str(question_num)))
+                        
+                        with div(style="flex: 20"):
+                            p("Correct answer: ", span(answer, id="correctAnswer" + str(question_num), style="color:green; visibility:hidden"))
+                    
+                    with div(style="display: flex"):
+                        with div(style="flex: 1"):
+                            button("Show", id="resultButton" + str(question_num), onclick=show_hide_code.format("resultText" + str(question_num), "resultButton" + str(question_num)))
+                        
+                        with div(style="flex: 20"):
+                            if question.is_correct():
+                                b(p("Result:", span("Correct", id="resultText" + str(question_num), style="color: green; visibility:hidden")))
+                            else:
+                                b(p("Result:", span("Incorrect", id="resultText" + str(question_num),style="color: red; visibility:hidden")))
 
                 question_num += 1
+            
+        with open(self.temphtml, "w") as f:
+            f.write(doc.render())
 
         # load html code into HTML object as a string
         # then convert it to a pdf and write it to the temp file created
@@ -122,7 +154,8 @@ class Printer:
         self.construct_file()
 
         if platform.system() == "Windows":
-            subprocess.call(("start", self.filename), shell=True)
+            # subprocess.call(("start", self.filename), shell=True)
+            subprocess.call(("start", self.temphtml), shell=True)
 
         elif platform.system() == "Linux":
             subprocess.call(("xdg-open", self.filename))
