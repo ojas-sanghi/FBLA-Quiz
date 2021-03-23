@@ -38,110 +38,129 @@ class Printer:
         question_num = 1
 
         show_hide_code = "var x = document.getElementById('{}'); var button = document.getElementById('{}'); if (x.style.visibility === 'hidden') {{ x.style.visibility = 'visible'; button.innerText = 'Hide' }} else {{ x.style.visibility = 'hidden'; button.innerText = 'Show'; }}"
+        
+        hide_buttons_code = "var self = document.getElementById('hideAllButtons'); var hiding = true; if (self.textContent == '-- Buttons visible; press to hide all --') { hiding = true; self.textContent = '-- Buttons hidden --'; } else { hiding = false;  self.textContent = '-- Buttons visible; press to hide all --'; } for (var i = 1; i <= 6 ; i++) { var user = document.getElementById('userAnsButton' + i); var correct = document.getElementById('correctAnsButton' + i); var result = document.getElementById('resultButton' + i); if (hiding) { console.log('hiding'); user.style.display = 'none'; correct.style.display = 'none'; result.style.display = 'none'; } else { console.log('showing'); self.textContent = '-- Buttons visible; press to hide all --'; user.style.display = ''; correct.style.display = ''; result.style.display = ''; } } "
 
 
+        with doc.head:
+            title("FBLA Quiz Results", style="font-family: Georgia")
+            raw("<meta charset='utf-8'>")
+            link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css")
+            link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
+            # link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+        
         with doc:
-            with head():
-                title("FBLA Quiz Results")
-                link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css")
+            with div(cls="container", style="font-family: Georgia"):
+                h1("FBLA Quiz Results")
+                h2(f"Total Correct: {self.num_correct}/{len(self.questions)}")
 
-            h1("FBLA Quiz Results")
-            h2(f"Total Correct: {self.num_correct}/{len(self.questions)}")
+                button("-- Buttons visible; press to hide all --", id="hideAllButtons", cls="waves-effect waves-teal btn-flat", onclick=hide_buttons_code)
 
-            br()
+                br()
 
-            for question in self.questions:
-                with div(style=f"margin-top: -19px", title=f"Q{question_num}"):
-                    if question_num != 1:
+                for question in self.questions:
+                    with div(style=f"margin-top: -19px", title=f"Q{question_num}"):
+                        if question_num != 1:
+                            br()
+                        hr()
+
+                        h3(u(f"Question {question_num}"))
+                        h4(question.text)
+
                         br()
-                    hr()
 
-                    h3(u(f"Question {question_num}"))
-                    h4(question.text)
+                        if question.type in ["mcq", "tf", "checkbox"]:
+                            # split list into two
+                            first_half_options = question.options[
+                                : len(question.options) // 2
+                            ]
+                            second_half_options = question.options[
+                                len(question.options) // 2 :
+                            ]
 
-                    if question.type in ["mcq", "tf", "checkbox"]:
-                        # split list into two
-                        first_half_options = question.options[
-                            : len(question.options) // 2
-                        ]
-                        second_half_options = question.options[
-                            len(question.options) // 2 :
-                        ]
+                            # two columns for options
+                            with div(cls="row"):
+                                with div(cls="col s2"):
+                                    with table(cls="highlight", style="font-size: 1rem"):
+                                        with tbody():
+                                            with tr():
+                                                for option in first_half_options:
+                                                    td(option)
+                                            with tr():
+                                                for option in second_half_options:
+                                                    td(option)
+                                with div(cls="col s10"):
+                                    p("")
 
-                        # two columns for options
-                        with div(style="display: flex"):
-                            with div(style="flex: 50%"):
-                                for option in first_half_options:
-                                    with ul():
-                                        li(p(option))
+                        # two columns for matching; one with options, one with words
+                        # mimics the actual question screen so it's familiar
+                        if question.type == "matching":
+                            with div(cls="row"):
+                                with div(cls="col s2"):
+                                    with table(cls="highlight", style="font-size: 1rem"):
+                                        with tbody():
+                                            for i in range(0, 3):
+                                                with tr():
+                                                    td(question.words[i])
+                                                    td(question.options[i])
+                                            for i in range(3, 5):
+                                                with tr():
+                                                    td(question.words[i])
+                                                    td("")
+                                with div(cls="col s10"):
+                                    p("")
 
-                            with div(style="flex: 50%"):
-                                for option in second_half_options:
-                                    with ul():
-                                        li(p(option))
+                        # prints out what the user's answer is and what the correct answer is
+                        response = question.response
+                        answer = question.answer
 
-                    # two columns for matching; one with options, one with words
-                    # mimics the actual question screen so it's familiar
-                    if question.type == "matching":
-                        with div(style="display: flex"):
-                            with div(style="flex: 50%"):
-                                with ul():
-                                    [li(p(word)) for word in question.words]
-                            with div(style="flex: 50%"):
-                                with ul():
-                                    [p(option) for option in question.options]
+                        # specially formatted response string
+                        if question.type in ["checkbox"]:
+                            response = ", ".join(question.response)
+                            answer = ", ".join(question.answer)
 
-                    # prints out what the user's answer is and what the correct answer is
-                    response = question.response
-                    answer = question.answer
+                        if question.type == "matching":
+                            # reverse response list to make it in order of the questions
+                            # we need to do this because of the way values are added to the dictionary initially
+                            response = list(reversed(response.values()))
+                            response = ", ".join(response)
 
-                    # specially formatted response string
-                    if question.type in ["checkbox"]:
-                        response = ", ".join(question.response)
-                        answer = ", ".join(question.answer)
+                            answer = ", ".join(answer.values())
 
-                    if question.type == "matching":
-                        # reverse response list to make it in order of the questions
-                        # we need to do this because of the way values are added to the dictionary initially
-                        response = list(reversed(response.values()))
-                        response = ", ".join(response)
+                        # line goes before "your answer" etc
+                        # looks odd for blank and saq so not done for those
+                        # if question.type not in ["blank", "saq"]:
+                        #     p("-----------------------------------")
 
-                        answer = ", ".join(answer.values())
+                        style_str = (
+                            "color: green" if question.is_correct() else "color: chocolate"
+                        )
 
-                    # line goes before "your answer" etc
-                    # looks odd for blank and saq so not done for those
-                    if question.type not in ["blank", "saq"]:
-                        p("-----------------------------------")
+                        with div(cls="row"):
+                            with div(cls="col s2"):
+                                button("Show", id="userAnsButton" + str(question_num), cls="waves-effect waves-light btn-small", onclick=show_hide_code.format("userAnswer" + str(question_num), "userAnsButton" + str(question_num)))
+                                
+                            with div(cls="col s10 pull-s5"):
+                                p("Your answer: ", span(response, id="userAnswer" + str(question_num), style=style_str + "; visibility:hidden"))
 
-                    style_str = (
-                        "color: green" if question.is_correct() else "color: chocolate"
-                    )
-
-                    with div(style="display: flex"):
-                        with div(style="flex: 1"):
-                            button("Show", id="userAnsButton" + str(question_num), onclick=show_hide_code.format("userAnswer" + str(question_num), "userAnsButton" + str(question_num)))
+                        with div(cls="row"):
+                            with div(cls="col s2"):
+                                button("Show", id="correctAnsButton" + str(question_num), cls="waves-effect waves-light btn-small", onclick=show_hide_code.format("correctAnswer" + str(question_num), "correctAnsButton" + str(question_num)))
                             
-                        with div(style="flex: 20"):
-                            p("Your answer: ", span(response, id="userAnswer" + str(question_num), style=style_str + "; visibility:hidden"))
-
-                    with div(style="display: flex"):
-                        with div(style="flex: 1"):
-                            button("Show", id="correctAnsButton" + str(question_num), onclick=show_hide_code.format("correctAnswer" + str(question_num), "correctAnsButton" + str(question_num)))
+                            with div(cls="col s10 pull-s5"):
+                                p("Correct answer: ", span(answer, id="correctAnswer" + str(question_num), style="color:green; visibility:hidden"))
                         
-                        with div(style="flex: 20"):
-                            p("Correct answer: ", span(answer, id="correctAnswer" + str(question_num), style="color:green; visibility:hidden"))
-                    
-                    with div(style="display: flex"):
-                        with div(style="flex: 1"):
-                            button("Show", id="resultButton" + str(question_num), onclick=show_hide_code.format("resultText" + str(question_num), "resultButton" + str(question_num)))
-                        
-                        with div(style="flex: 20"):
-                            if question.is_correct():
-                                b(p("Result:", span("Correct", id="resultText" + str(question_num), style="color: green; visibility:hidden")))
-                            else:
-                                b(p("Result:", span("Incorrect", id="resultText" + str(question_num),style="color: red; visibility:hidden")))
+                        with div(cls="row"):
+                            with div(cls="col s2"):
+                                button("Show", id="resultButton" + str(question_num), cls="waves-effect waves-light btn-small", onclick=show_hide_code.format("resultText" + str(question_num), "resultButton" + str(question_num)))
+                            
+                            with div(cls="col s10 pull-s5"):
+                                if question.is_correct():
+                                    b(p("Result:", span("Correct", id="resultText" + str(question_num), style="color: green; visibility:hidden")))
+                                else:
+                                    b(p("Result:", span("Incorrect", id="resultText" + str(question_num),style="color: red; visibility:hidden")))
 
-                question_num += 1
+                    question_num += 1
             
         with open(self.temphtml, "w") as f:
             f.write(doc.render())
