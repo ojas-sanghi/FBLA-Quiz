@@ -81,7 +81,7 @@ class Printer:
                             # two columns for options
                             with div(cls="row"):
                                 with div(cls="col s2"):
-                                    with table(cls="highlight", style="font-size: 1rem"):
+                                    with table(cls="centered", style="font-size: 1rem"):
                                         with tbody():
                                             with tr():
                                                 for option in first_half_options:
@@ -97,7 +97,7 @@ class Printer:
                         if question.type == "matching":
                             with div(cls="row"):
                                 with div(cls="col s2"):
-                                    with table(cls="highlight", style="font-size: 1rem"):
+                                    with table(cls="centered", style="font-size: 1rem"):
                                         with tbody():
                                             for i in range(0, 3):
                                                 with tr():
