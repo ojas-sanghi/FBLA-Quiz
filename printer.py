@@ -150,24 +150,24 @@ class Printer:
                         )
 
                         with div(cls="row"):
-                            with div(cls="col s2"):
+                            with div(cls="col s2", name="buttonCol"):
                                 button("Show", id="userAnsButton" + str(question_num), cls="waves-effect waves-light btn-small browser-default", onclick=f"showHide('userAnswer{question_num}', 'userAnsButton{question_num}')")
                                 
-                            with div(cls="col s10 pull-s5"):
+                            with div(cls="col s10 pull-s5", name="answerCol"):
                                 p("Your answer: ", span(response, id="userAnswer" + str(question_num), style=style_str + "; visibility:hidden"))
 
                         with div(cls="row"):
-                            with div(cls="col s2"):
+                            with div(cls="col s2", name="buttonCol"):
                                 button("Show", id="correctAnsButton" + str(question_num), cls="waves-effect waves-light btn-small browser-default", onclick=f"showHide('correctAnswer{question_num}', 'correctAnsButton{question_num}')")
                             
-                            with div(cls="col s10 pull-s5"):
+                            with div(cls="col s10 pull-s5", name="answerCol"):
                                 p("Correct answer: ", span(answer, id="correctAnswer" + str(question_num), style="color:green; visibility:hidden"))
                         
                         with div(cls="row"):
-                            with div(cls="col s2"):
+                            with div(cls="col s2", name="buttonCol"):
                                 button("Show", id="resultButton" + str(question_num), cls="waves-effect waves-light btn-small browser-default", onclick=f"showHide('resultText{question_num}', 'resultButton{question_num}')")
                             
-                            with div(cls="col s10 pull-s5"):
+                            with div(cls="col s10 pull-s5", name="answerCol"):
                                 if question.is_correct():
                                     b(p("Result:", span("Correct", id="resultText" + str(question_num), style="color: green; visibility:hidden")))
                                 else:

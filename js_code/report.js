@@ -3,19 +3,29 @@ document.addEventListener('DOMContentLoaded', function () {
     var instances = M.Collapsible.init(elems);
 });
 
+function showText(textId, buttonId) {
+    var text = document.getElementById(textId);
+    var button = document.getElementById(buttonId);
 
-function showHide(id1, id2) {
-    console.log('show hide being called');
+    text.style.visibility = 'visible';
+    button.innerText = 'Hide';
+}
 
-    var x = document.getElementById(id1);
-    var button = document.getElementById(id2);
+function hideText(textId, buttonId) {
+    var text = document.getElementById(textId);
+    var button = document.getElementById(buttonId);
 
-    if (x.style.visibility === 'hidden') {
-        x.style.visibility = 'visible';
-        button.innerText = 'Hide';
+    text.style.visibility = 'hidden';
+    button.innerText = 'Show';
+}
+
+function showHide(textId, buttonId) {
+    var text = document.getElementById(textId);
+
+    if (text.style.visibility === 'hidden') {
+        showText(textId, buttonId);
     } else {
-        x.style.visibility = 'hidden';
-        button.innerText = 'Show';
+        hideText(textId, buttonId);
     }
 }
 
@@ -23,37 +33,70 @@ function printingMode() {
     console.log('pritbintg mode being called');
 
     var self = document.getElementById('printingMode');
-    var hiding = false;
+    var enabled = false;
 
     if (self.textContent === 'Enable printing mode') {
-        hiding = true;
+        enabled = true;
         self.textContent = 'Disable printing mode';
     } else {
-        hiding = false;
+        enabled = false;
         self.textContent = 'Enable printing mode';
     }
 
     for (let i = 1; i < 7; i++) {
-        var user = document.getElementById('userAnsButton' + i);
-        var correct = document.getElementById('correctAnsButton' + i);
-        var result = document.getElementById('resultButton' + i);
-        if (hiding) {
-            console.log('hiding');
-            // user.classList.add("hide")
-            // correct.classList.add("hide")
-            // result.classList.add("hide")
-            user.style.display = 'none';
-            correct.style.display = 'none';
-            result.style.display = 'none';
+        var userAnswerId = 'userAnswer' + i
+        var correctAnswerId = 'correctAnswer' + i
+        var resultAnswerId = 'resultText' + i
+
+        var userButtonId = 'userAnsButton' + i
+        var correctButtonId = 'correctAnsButton' + i
+        var resultButtonId = 'resultButton' + i
+
+        
+        // Hide all the buttons
+        var userButton = document.getElementById(userButtonId);
+        var correctButton = document.getElementById(correctButtonId);
+        var resultButton = document.getElementById(resultButtonId);
+        
+        var buttonCols = document.getElementsByName("buttonCol");
+        var answerCols = document.getElementsByName("answerCol");
+        if (enabled) {
+            // Show all the answers
+            showText(userAnswerId, userButtonId);
+            showText(correctAnswerId, correctButtonId);
+            showText(resultAnswerId, resultButtonId);
+
+            for (var j = 0; j < buttonCols.length; j++) {
+                buttonCols[j].classList.add('hide');
+            }
+            for (var k = 0; k < answerCols.length; k++) {
+                console.log(answerCols[k].classList);
+                answerCols[k].classList.remove('col');
+                answerCols[k].classList.remove('s10');
+                answerCols[k].classList.remove('pull-s5');
+            }
+            userButton.classList.add('hide');
+            correctButton.classList.add('hide');
+            resultButton.classList.add('hide');
         } else {
-            console.log('showing');
             self.textContent = 'Enable printing mode';
-            // user.classList.remove("hide")
-            // correct.classList.remove("hide")
-            // result.classList.remove("hide")
-            user.style.display = 'block';
-            correct.style.display = 'block';
-            result.style.display = 'block';
+
+            // Hide all the answers
+            hideText(userAnswerId, userButtonId);
+            hideText(correctAnswerId, correctButtonId);
+            hideText(resultAnswerId, resultButtonId);
+
+            for (var j = 0; j < buttonCols.length; j++) {
+                buttonCols[j].classList.remove('hide');
+            }
+            for (var k = 0; k < answerCols.length; k++) {
+                answerCols[k].classList.add('col');
+                answerCols[k].classList.add('s10');
+                answerCols[k].classList.add('pull-s5');
+            }
+            userButton.classList.remove('hide')
+            correctButton.classList.remove('hide')
+            resultButton.classList.remove('hide')
         }
 
     }
