@@ -32,12 +32,11 @@ class Printer:
         self.temphtml = tempfile.mktemp(".html")
 
         # make a new html doc
-        doc = dominate.document()
+        doc = dominate.document("FBLA Quiz Results")
 
         question_num = 1
 
         with doc.head:
-            title("FBLA Quiz Results", style="font-family: Georgia")
             raw("<meta charset='utf-8'>")
             link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css")
             link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
@@ -49,9 +48,9 @@ class Printer:
                 raw("<script>" + f.read() + "</script>")
         
         with doc:
-            with div(cls="container", style="font-family: Georgia"):
-                h1("FBLA Quiz Results")
-                h2(f"Total Correct: {self.num_correct}/{len(self.questions)}")
+            with div(cls="container", style="font-family:Georgia"):
+                h1("FBLA Quiz Results", style="font-size:40px")
+                h2(f"Total Correct: {self.num_correct}/{len(self.questions)}", style="font-size:40px")
 
                 f"showHide('userAnswer{question_num}', 'userAnsButton{question_num}')"
                 button("Enable printing mode", id="printingMode", cls="waves-effect waves-teal btn-flat", onclick="printingMode()")
@@ -63,10 +62,12 @@ class Printer:
                             p("Printing Instructions")
                         with div(cls="collapsible-body"):
                             raw("""<p>
+                            (Read and understand this first, then collapse it and follow the steps) <br>
                             1. Press 'ENABLE PRINTING MODE' above <br>
                             2. Press Ctrl+P <br>
                             3. In the dialogue that appears, select options as desired (# of copies, color/black and white, 2-sided printing, etc) <br>
-                            4. Press print! </p>
+                            4. Make sure that "Print headers and footers" is unselected <br>
+                            5. Press print! </p>
                             """)
 
                 br()
@@ -77,8 +78,8 @@ class Printer:
                             br()
                         hr()
 
-                        h3(u(f"Question {question_num}"))
-                        h4(question.text)
+                        h3(u(f"Question {question_num}"), style="font-size:30px")
+                        h4(question.text, style="font-size:25px")
 
                         br()
 
