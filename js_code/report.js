@@ -52,12 +52,12 @@ function printingMode() {
         var correctButtonId = 'correctAnsButton' + i
         var resultButtonId = 'resultButton' + i
 
-        
+
         // Hide all the buttons
         var userButton = document.getElementById(userButtonId);
         var correctButton = document.getElementById(correctButtonId);
         var resultButton = document.getElementById(resultButtonId);
-        
+
         var buttonCols = document.getElementsByName("buttonCol");
         var answerCols = document.getElementsByName("answerCol");
         if (enabled) {

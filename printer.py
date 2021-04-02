@@ -12,6 +12,7 @@ from dominate.util import raw, text
 import weasyprint
 import subprocess
 
+
 class Printer:
     questions: List[Question]
     correct_list: List[bool]
@@ -22,7 +23,6 @@ class Printer:
         self.questions = questions
         self.correct_list = correct_list
         self.num_correct = self.correct_list.count(True)
-        
 
     def construct_file(self):
         # make a temporary file
@@ -38,22 +38,41 @@ class Printer:
 
         with doc.head:
             raw("<meta charset='utf-8'>")
-            link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css")
-            link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
-            link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
-            
-            script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js")
+            link(
+                rel="stylesheet",
+                href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css",
+            )
+            link(
+                rel="stylesheet",
+                href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css",
+            )
+            link(
+                rel="stylesheet",
+                href="https://fonts.googleapis.com/icon?family=Material+Icons",
+            )
+
+            script(
+                src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"
+            )
             # doing raw since script() replaces < with &lt; and causes problems
             with open("js_code/report.js", "r") as f:
                 raw("<script>" + f.read() + "</script>")
-        
+
         with doc:
             with div(cls="container", style="font-family:Georgia"):
                 h1("FBLA Quiz Results", style="font-size:40px")
-                h2(f"Total Correct: {self.num_correct}/{len(self.questions)}", style="font-size:40px")
+                h2(
+                    f"Total Correct: {self.num_correct}/{len(self.questions)}",
+                    style="font-size:40px",
+                )
 
                 f"showHide('userAnswer{question_num}', 'userAnsButton{question_num}')"
-                button("Enable printing mode", id="printingMode", cls="waves-effect waves-teal btn-flat", onclick="printingMode()")
+                button(
+                    "Enable printing mode",
+                    id="printingMode",
+                    cls="waves-effect waves-teal btn-flat",
+                    onclick="printingMode()",
+                )
 
                 with ul(cls="collapsible"):
                     with li():
@@ -61,14 +80,16 @@ class Printer:
                             em("arrow_drop_down", cls="material-icons")
                             p("Printing Instructions")
                         with div(cls="collapsible-body"):
-                            raw("""<p>
+                            raw(
+                                """<p>
                             (Read and understand this first, then collapse it and follow the steps) <br>
                             1. Press 'ENABLE PRINTING MODE' above <br>
                             2. Press Ctrl+P <br>
                             3. In the dialogue that appears, select options as desired (# of copies, color/black and white, 2-sided printing, etc) <br>
                             4. Make sure that "Print headers and footers" is unselected <br>
                             5. Press print! </p>
-                            """)
+                            """
+                            )
 
                 br()
 
@@ -141,41 +162,85 @@ class Printer:
 
                             answer = ", ".join(answer.values())
 
-                        # line goes before "your answer" etc
-                        # looks odd for blank and saq so not done for those
-                        # if question.type not in ["blank", "saq"]:
-                        #     p("-----------------------------------")
-
                         style_str = (
-                            "color: green" if question.is_correct() else "color: chocolate"
+                            "color: green"
+                            if question.is_correct()
+                            else "color: chocolate"
                         )
 
                         with div(cls="row"):
                             with div(cls="col s2", name="buttonCol"):
-                                button("Show", id="userAnsButton" + str(question_num), cls="waves-effect waves-light btn-small browser-default", onclick=f"showHide('userAnswer{question_num}', 'userAnsButton{question_num}')")
-                                
+                                button(
+                                    "Show",
+                                    id="userAnsButton" + str(question_num),
+                                    cls="waves-effect waves-light btn-small browser-default",
+                                    onclick=f"showHide('userAnswer{question_num}', 'userAnsButton{question_num}')",
+                                )
+
                             with div(cls="col s10 pull-s5", name="answerCol"):
-                                p("Your answer: ", span(response, id="userAnswer" + str(question_num), style=style_str + "; visibility:hidden"))
+                                p(
+                                    "Your answer: ",
+                                    span(
+                                        response,
+                                        id="userAnswer" + str(question_num),
+                                        style=style_str + "; visibility:hidden",
+                                    ),
+                                )
 
                         with div(cls="row"):
                             with div(cls="col s2", name="buttonCol"):
-                                button("Show", id="correctAnsButton" + str(question_num), cls="waves-effect waves-light btn-small browser-default", onclick=f"showHide('correctAnswer{question_num}', 'correctAnsButton{question_num}')")
-                            
+                                button(
+                                    "Show",
+                                    id="correctAnsButton" + str(question_num),
+                                    cls="waves-effect waves-light btn-small browser-default",
+                                    onclick=f"showHide('correctAnswer{question_num}', 'correctAnsButton{question_num}')",
+                                )
+
                             with div(cls="col s10 pull-s5", name="answerCol"):
-                                p("Correct answer: ", span(answer, id="correctAnswer" + str(question_num), style="color:green; visibility:hidden"))
-                        
+                                p(
+                                    "Correct answer: ",
+                                    span(
+                                        answer,
+                                        id="correctAnswer" + str(question_num),
+                                        style="color:green; visibility:hidden",
+                                    ),
+                                )
+
                         with div(cls="row"):
                             with div(cls="col s2", name="buttonCol"):
-                                button("Show", id="resultButton" + str(question_num), cls="waves-effect waves-light btn-small browser-default", onclick=f"showHide('resultText{question_num}', 'resultButton{question_num}')")
-                            
+                                button(
+                                    "Show",
+                                    id="resultButton" + str(question_num),
+                                    cls="waves-effect waves-light btn-small browser-default",
+                                    onclick=f"showHide('resultText{question_num}', 'resultButton{question_num}')",
+                                )
+
                             with div(cls="col s10 pull-s5", name="answerCol"):
                                 if question.is_correct():
-                                    b(p("Result:", span("Correct", id="resultText" + str(question_num), style="color: green; visibility:hidden")))
+                                    b(
+                                        p(
+                                            "Result:",
+                                            span(
+                                                "Correct",
+                                                id="resultText" + str(question_num),
+                                                style="color: green; visibility:hidden",
+                                            ),
+                                        )
+                                    )
                                 else:
-                                    b(p("Result:", span("Incorrect", id="resultText" + str(question_num),style="color: red; visibility:hidden")))
+                                    b(
+                                        p(
+                                            "Result:",
+                                            span(
+                                                "Incorrect",
+                                                id="resultText" + str(question_num),
+                                                style="color: red; visibility:hidden",
+                                            ),
+                                        )
+                                    )
 
                     question_num += 1
-            
+
         with open(self.temphtml, "w") as f:
             f.write(doc.render())
 
