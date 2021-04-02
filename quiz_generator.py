@@ -118,6 +118,3 @@ def get_questions(num: int) -> list:
 # return random question from questions lists
 def get_question(data: list) -> Question:
     return Question(random.choice(data))
-
-
-load_data()

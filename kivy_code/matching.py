@@ -73,10 +73,13 @@ class MatchingScreen(Screen):
 
     def on_pre_enter(self):
         self.reset()
+        q_num = 0
         for q in self.questions:
             if q.type == "matching":
+                q_num = self.questions.index(q) + 1
+
                 self.question = q
-                self.text = q.text
+                self.text = q.text + f" (Question {q_num}/5)"
                 self.options = q.options
                 self.words = q.words
 
