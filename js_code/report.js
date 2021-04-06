@@ -30,8 +30,6 @@ function showHide(textId, buttonId) {
 }
 
 function printingMode() {
-    console.log('pritbintg mode being called');
-
     var self = document.getElementById('printingMode');
     var enabled = false;
 

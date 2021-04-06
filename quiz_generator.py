@@ -35,9 +35,6 @@ def load_data():
     # 900 bits is enough to ensure that even with "accurate" set to False, the actual number of bits will remain uncrackable
     (rsa_pubkey, rsa_privkey) = rsa.newkeys(900, False)
 
-    # TODO: use pkcs1 format instead of pickle
-    # p = rsa_pubkey.save_pkcs1().decode()
-
     # serialize pubkey into pickle
     pickled_pubkey = pickle.dumps(rsa_pubkey)
     # encode pickle in base64 to be sent across network
@@ -78,7 +75,6 @@ def load_data():
     except ValueError:
         print("Been tampered with!")
 
-    # ? We return it regardless of authenticity
     # Return JSON representation of questions
     return json.loads(decrypted_questions)
 

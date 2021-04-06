@@ -7,9 +7,8 @@ from question import Question
 import tempfile
 import dominate
 from dominate.tags import *
-from dominate.util import raw, text
+from dominate.util import raw
 
-import weasyprint
 import subprocess
 
 
@@ -244,22 +243,17 @@ class Printer:
         with open(self.temphtml, "w") as f:
             f.write(doc.render())
 
-        # load html code into HTML object as a string
-        # then convert it to a pdf and write it to the temp file created
-        weasyprint.HTML(string=doc.render()).write_pdf(self.filename)
-
     def print(self):
         self.construct_file()
 
         if platform.system() == "Windows":
-            # subprocess.call(("start", self.filename), shell=True)
             subprocess.call(("start", self.temphtml), shell=True)
 
         elif platform.system() == "Linux":
-            subprocess.call(("xdg-open", self.filename))
+            subprocess.call(("xdg-open", self.temphtml))
 
         elif platform.system() == "Darwin":
-            subprocess.call(("open", self.filename))
+            subprocess.call(("open", self.temphtml))
 
 
 # fmt: off

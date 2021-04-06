@@ -72,7 +72,6 @@ class FBLAQuizApp(MDApp):
             self.theme_cls.theme_style = "Light"
 
         # self.theme_cls.theme_style = "Light"
-        # self.sm.current = "mcq"
 
     def reset(self):
         # generate 5 random questions
